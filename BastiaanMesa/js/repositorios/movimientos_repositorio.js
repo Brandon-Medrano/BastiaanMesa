@@ -16,7 +16,7 @@ class MovimientosRepositorio
 		parametros += "&movimiento=" + encodeURIComponent(JSON.stringify(movimiento));	
 		
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.insertarResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -39,7 +39,7 @@ class MovimientosRepositorio
 		parametros = "accion=consultarPorUsuario";
         parametros += "&criteriosUsuarios=" +  encodeURIComponent(JSON.stringify(criteriosUsuarios));
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.consultarPorUsuarioResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -64,7 +64,7 @@ class MovimientosRepositorio
 		
 		
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.consultarResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -84,7 +84,7 @@ class MovimientosRepositorio
 		var parametros;
 		parametros = "accion=consultarPorReceso";
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.consultarPorRecesoResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -105,7 +105,7 @@ class MovimientosRepositorio
 		parametros += "&movimiento=" + encodeURIComponent(JSON.stringify(movimiento));	
 		
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.actualizarResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -128,7 +128,7 @@ class MovimientosRepositorio
 		parametros = "accion=consultarPorLlaves";
 		parametros += "&llaves=" + encodeURIComponent(JSON.stringify(llaves));
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.consultarPorLlavesResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
@@ -150,7 +150,7 @@ class MovimientosRepositorio
 		parametros = "accion=eliminar";
 		parametros += "&llaves=" + encodeURIComponent(JSON.stringify(llaves));
 		var contextHandler = new AjaxContextHandler();
-		var host = window.location.origin + "/BastiaanSoftwareCenter";	
+		var host = window.location.origin + "/BastiaanMesa";	
 		var ai = new Ajaxv2(host +"/php/repositorios/Movimientos.php", this, this.eliminarResultado, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
