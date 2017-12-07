@@ -64,7 +64,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	<link type='text/css' href='js/librerias/Datapickerjs/ui.all.css' rel='stylesheet' />
 
 	<!--Estilo-->
-    <link href="css/estilo.css" media="handheld, screen" rel="stylesheet" type="text/css" />
+    <link href="css/materialize.min.css.css" media="handheld, screen" rel="stylesheet" type="text/css" />
+     <link href="css/responsive.css" rel="stylesheet">
     <link rel="shortcut icon" href="css/imagenes/faviSIO.png">
     
    
@@ -151,7 +152,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                 	<div id="panelesArea0panel0componente0" style='overflow: auto; position:static;height:98%; width:100%; top:10px;left:3px;'>
 
                                 <!--          <table id="grid"></table> -->
-                                         <div id="grid" style="float:left; overflow: auto; position:static; height:95%; width:100%; display: block; top:5px;left:3px;"></div>
+                                         <div id="grid"></div>
 	
                             		</div>
                            		</div>                                
