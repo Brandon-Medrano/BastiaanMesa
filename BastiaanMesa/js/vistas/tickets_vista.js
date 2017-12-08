@@ -37,6 +37,10 @@ class TicketsVista
 		this.grid.render();		
 	}
 	
+	
+
+	
+	
 	/*
 	 * Eventos en botones
 	*/
@@ -44,8 +48,22 @@ class TicketsVista
 	btnAlta_onClick()
 	{
 		this.modo = "ALTA";
-		this.limpiarFormulario();	
+		this.limpiarFormulario();
+		
+	
+			 
+				
 		this.mostrarFormulario();
+		
+		
+		var f = new Date();
+	//	alert(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+		
+		var gordo =  (f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+     
+        alert(gordo);
+
+		
 	}
 	
 	btnBaja_onClick()
@@ -62,6 +80,12 @@ class TicketsVista
 			this.mostrarMensaje("Selecciona un registro para eliminar.");
 	}
 	
+	
+	
+	
+	 
+  		
+		
 	btnCambio_onClick()
 	{
 		if(this.grid._selectedItem!=null)
