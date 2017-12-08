@@ -186,7 +186,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								    		<label style="position: relative; left: 3px; ">Fecha de solicitud</label>
 								   		</td>
 								   		<td>		
-								   			<input id="fSolicitudFormularioInput" type='datetime-local' style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
+								   			<input id="fSolicitudFormularioInput" type="date" step="2" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
 								   		</td>
 								   		
 								   		<td>						    

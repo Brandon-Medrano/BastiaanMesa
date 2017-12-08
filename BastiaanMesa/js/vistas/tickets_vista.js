@@ -55,13 +55,21 @@ class TicketsVista
 				
 		this.mostrarFormulario();
 		
-		
-		var f = new Date();
-	//	alert(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-		
-		var gordo =  (f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
-     
-        alert(gordo);
+		var hoy = new Date();
+		var dd = hoy.getDate();
+		var MM = hoy.getMonth()+1; //hoy es 0!
+		var yyyy = hoy.getFullYear();
+
+		if(dd<10) {
+		    dd='0'+dd
+		} 
+
+		if(MM<10) {
+		    MM='0'+MM
+		} 
+
+		hoy = yyyy+"-"+MM+"-"+dd;
+		document.getElementById("fSolicitudFormularioInput").value = hoy;
 
 		
 	}
