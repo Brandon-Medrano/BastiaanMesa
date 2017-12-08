@@ -1,9 +1,9 @@
-class UsuariosVistaMS
+class TicketsVista
 {		
 	constructor(ventana)
 	{	
 		this.ventana = ventana;
-		this.presentador = new UsuariosPresentadorMS(this);
+		this.presentador = new TicketsPresentador(this);
 		this.manejadorEventos = new ManejadorEventos();
 		this.grid = new GridReg("grid");	
 	}
@@ -16,14 +16,11 @@ class UsuariosVistaMS
 	crearColumnasGrid()
 	{
 		this.grid._columnas = [
-			{longitud:100, 	titulo:"Id",   	alias:"id", alineacion:"I" }, 
-			{longitud:130, 	titulo:"Alias",   	alias:"alias", alineacion:"I" }, 
-			{longitud:150, 	titulo:"Primer nombre",   alias:"primerNombre", alineacion:"I" }, 
-			{longitud:150, 	titulo:"Segundo nombre",   alias:"segundoNombre", alineacion:"I" }, 
-			{longitud:150, 	titulo:"Apellido paterno",   alias:"apellidoPaterno", alineacion:"I" },	
-			{longitud:150, 	titulo:"Apellido materno",   alias:"apellidoMaterno", alineacion:"I" },	
-			{longitud:200, 	titulo:"Telefono celular",   alias:"correoElectronicoPersonal", alineacion:"I" },
-			{longitud:250, 	titulo:"Correo electronico",   alias:"telefonoCelular", alineacion:"I" },
+			{longitud:130, 	titulo:"Actividad",   	alias:"actividad", alineacion:"I" }, 
+			{longitud:150, 	titulo:"Usuario que solicita",   alias:"usuarioSol", alineacion:"I" }, 
+			{longitud:150, 	titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"I" }, 
+			{longitud:150, 	titulo:"Fecha de termino solicitada",   alias:"fFinal", alineacion:"I" },	
+			{longitud:150, 	titulo:"Estado",   alias:"estado", alineacion:"I" },
 
 		]
 		
@@ -31,7 +28,7 @@ class UsuariosVistaMS
 		this.grid.manejadorEventos=this.manejadorEventos;
 		this.grid._ajustarAltura = true;
 		this.grid._colorRenglon1 = "#FFFFFF";	
-		this.grid._colorRenglon2 = "#f8f2de";
+		this.grid._colorRenglon2 = "#FFFFFF";
 		this.grid._colorEncabezado1 = "#FF6600";
 		this.grid._colorEncabezado2 = "#FF6600";
 		this.grid._colorLetraEncabezado = "#ffffff";
@@ -138,9 +135,10 @@ class UsuariosVistaMS
 	{
 		 var criteriosSeleccion = 
 		 {				    
-			id:$('#idCriterioInput').val(),
-			primerNombre:$('#primerNombreCriterioInput').val(),
-			segundoNombre:$('#segundoNombreCriterioInput').val()
+			fInicial:$('#fInicialCriterioInput').val(),
+			fFinal:$('#fFinalCriterioInput').val(),
+			estado:$('#estadoCriterioInput').val(),
+			usuarioSol:$('#usuarioSolCriterioInput').val()
 		 }
 		 return criteriosSeleccion;
 	}		
@@ -169,30 +167,24 @@ class UsuariosVistaMS
 	 * Mapeo de datos del formulario con el modelo
 	 */
 	
-	set usuarioMS(valor)
+	set ticket(valor)
 	{		
-		$('#idFormularioInput').val(valor.id);
-		$('#aliasFormularioInput').val(valor.alias);
-		$('#primerNombreFormularioInput').val(valor.primerNombre);
-		$('#segundoNombreFormularioInput').val(valor.segundoNombre);
-		$('#apellidoPaternoFormularioInput').val(valor.apellidoPaterno);
-		$('#apellidoMaternoFormularioInput').val(valor.apellidoMaterno);
-		$('#correoElectronicoPersonalFormularioInput').val(valor.correoElectronicoPersonal);
-		$('#telefonoCelularFormularioInput').val(valor.telefonoCelular);
+		$('#actividadFormularioInput').val(valor.actividad);
+		$('#usuarioSolFormularioInput').val(valor.usuarioSol);
+		$('#fInicialFormularioInput').val(valor.fInicial);
+		$('#fFinalFormularioInput').val(valor.fFinal);
+		$('#estadoFormularioInput').val(valor.estado);
 	}
 	
 	get usuarioMS()
 	{
 		 var usuarioMS = 
 		 {				    
-			 id:$('#idFormularioInput').val(),
-			 alias:$('#aliasFormularioInput').val(),
-			 primerNombre:$('#primerNombreFormularioInput').val(),
-			 segundoNombre:$('#segundoNombreFormularioInput').val(),
-			 apellidoPaterno:$('#apellidoPaternoFormularioInput').val(),
-			 apellidoMaterno:$('#apellidoMaternoFormularioInput').val(),
-			 nombreCompleto:$('#nombreCompletoFormularioInput').val(), 
-			 telefonoCelular:$('#telefonoCelularFormularioInput').val()
+			 actividad:$('#actividadFormularioInput').val(),
+			 usuarioSol:$('#usuarioSolFormularioInput').val(),
+			 fInicial:$('#fInicialFormularioInput').val(),
+			 fFinal:$('#fFinalFormularioInput').val(),
+			 estado:$('#estadoFormularioInput').val()
 		 };
 		 return usuarioMS;
 	 }
@@ -235,15 +227,12 @@ class UsuariosVistaMS
 	 */
 	limpiarFormulario()
 	{
-		$('#idFormularioInput').val("");
-		$('#aliasFormularioInput').val("");
-		$('#primerNombreFormularioInput').val("");
-		$('#segundoNombreFormularioInput').val("");
-		$('#apellidoPaternoFormularioInput').val("");
-		$('#apellidoMaternoFormularioInput').val("");
-		$('#correoElectronicoPersonalFormularioInput').val("");
-		$('#telefonoCelularFormularioInput').val("");
+		$('#actividadFormularioInput').val("");
+		$('#usuarioSolFormularioInput').val("");
+		$('#fInicialFormularioInput').val("");
+		$('#fFinalFormularioInput').val("");
+		$('#estadoFormularioInput').val("");
 	}
 }
-var vista = new UsuariosVistaMS(this);
+var vista = new TicketsVista(this);
 

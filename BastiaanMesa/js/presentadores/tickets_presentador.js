@@ -1,4 +1,4 @@
-class TiketsPresentador
+class TicketsPresentador
 {
 	 constructor(vista)
 	 {
@@ -7,7 +7,7 @@ class TiketsPresentador
 	 
 	 consultar()
 	 {
-		 var repositorio = new TiketsRepositorio(this);		
+		 var repositorio = new TicketsRepositorio(this);		
 		 repositorio.consultar(this,this.consultarResultado,this.vista.criteriosSeleccion);
 	 }
 
@@ -22,7 +22,7 @@ class TiketsPresentador
 
 	 insertar()
 	 {
-		 var repositorio = new TiketsRepositorio(this);			 
+		 var repositorio = new TicketsRepositorio(this);			 
 		 repositorio.insertar(this,this.insertarResultado,this.vista.tiket);	
 	 }
 	 
@@ -41,7 +41,7 @@ class TiketsPresentador
 	 
 	 actualizar()
 	 {
-		 var repositorio = new TiketsRepositorio(this);		
+		 var repositorio = new TicketsRepositorio(this);		
 		 repositorio.actualizar(this,this.actualizarResultado,this.vista.tiket);
 	 }
 	 
@@ -59,7 +59,7 @@ class TiketsPresentador
 	   
 	 consultarPorLlaves()
 	 {
-		 var repositorio = new TiketsRepositorio(this);		
+		 var repositorio = new TicketsRepositorio(this);		
 		 repositorio.consultarPorLlaves(this,this.consultarPorLlavesResultado,this.vista.llaves);
 	 }
 	 
@@ -75,7 +75,7 @@ class TiketsPresentador
 	 
 	 eliminar()
 	 {
-		 var repositorio = new TiketsRepositorio(this);		
+		 var repositorio = new TicketsRepositorio(this);		
 		 repositorio.eliminar(this,this.eliminarResultado,this.vista.llaves);		
 	 }
 	 

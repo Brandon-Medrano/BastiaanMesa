@@ -4,24 +4,20 @@ include 'php/clases/Utilidades.php';
 $modulo = REQUEST('CNMDLSID');
 $opcionTerminal = REQUEST('CNOTRMID');
 $version = REQUEST('CNOTRMVER');
+
 $usuario = REQUEST('CNUSERID');
 $nomTrabajador = REQUEST('CNUSERDESC');
 $usuarioDsc = REQUEST('CNUSERDESC');
 $CNUSERDESC = REQUEST('CNUSERDESC');
+
 ?>
 <html> 
-<title>Tickets</title>
+
+<title>Catalogo de usuarios</title>
 <head>	
-
-
-
-
-
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<!-- <script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>  -->
-	
-	
-	<!-- <script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script> -->
+	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/json2.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/AjaxContextHandler.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/Ajaxv2.js"></script>
@@ -35,47 +31,33 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/cargador.js"></script>
 <!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
-<!-- 
  	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.core.js'></script>
 	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker.js'></script>
 	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker-es.js'></script> 
- -->	
+	
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
 	
-	<script language="JavaScript" type="text/javascript" src="prompts/PromptUsuarios.js"></script>
-	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	
-	
-
-	
 	<!-- Llamado de prompts
 	<script language="JavaScript" type="text/javascript" src="../GV/prompts/PromptConcepto.js">  </script>
-	<script language="JavaScript" type="text/javascript" src="../GV/prompts/PromptVerficador.js"></script> 
+	<script language="JavaScript" type="text/javascript" src="../GV/prompts/PromptVerficador.js"></script>
 	-->
-	<!-- reloj -->
-	<script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="js/librerias/reloj/jquery-clock-timepicker.min.js"></script>
-	<!--  -->
 	
 	<link type='text/css' href='js/librerias/Datapickerjs/ui.datepicker.css' rel='stylesheet' />
 	<link type='text/css' href='js/librerias/Datapickerjs/demos.css' rel='stylesheet' />
 	<link type='text/css' href='js/librerias/Datapickerjs/ui.all.css' rel='stylesheet' />
 
 	<!--Estilo-->
-    <link href="css/materialize.min.css.css" media="handheld, screen" rel="stylesheet" type="text/css" />
-     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/estilo.css" media="handheld, screen" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="css/imagenes/faviSIO.png">
     
    
-    <script language="JavaScript" type="text/JavaScript" src="js/repositorios/movimientos_repositorio.js"></script>
-    <script language="JavaScript" type="text/JavaScript" src="js/presentadores/movimientos_presentador.js"></script>
-	<script language="JavaScript" type="text/JavaScript" src="js/vistas/movimientos_vista.js"></script>
-
-
+    <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
+    <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
 
 </head>
+
 <body  bgcolor="#e8e8e8" onLoad="vista.onLoad()" style="overflow: auto;height: 89%;">
 <div id="dialogo" title="Di�logo" style="display:none;">
 </div>
@@ -90,9 +72,10 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 				<input type="hidden" id="CNUSERDESC"           name="CNUSERDESC"            value ='<?php  echo $CNUSERDESC; ?>'/>    
 		</div>
 		
+		
 		<div id="estiloBotonesPeque" class="estiloBotonesPeque">
 			<div id="contieneTuberiaIzq" class="contieneTuberiaIzq">
-				<img src='assets/pantalla/logoTipo.png' style="position:absolute; "/>
+				<img src='assets/pantalla/logotipo.png' style="position:absolute; "/>
 			</div>
 			<div id="contieneCriteriosAriba" class="contieneCriteriosAriba">
 				<div id="contieneCriteriosAribaBtn" class="contieneCriteriosAribaBtn">
@@ -101,10 +84,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							<table class="tablaBotonesIEC">
 								<tr>
 								
-                                  <td><img id="btnExcel" class="botonMenuIEC" title="Excel" src="assets/botones/btnExcel.png" onClick="vista.btnExito_onClick();"></td>
-                     				<td><img id="btnAlta" class="botonMenuIEC" title="Alta" src="assets/botones/imgAlta.png" onClick="vista.btnAlta_onClick();"></td>
-									<td><img id="btnBaja" class="botonMenuIEC" title="Baja" src="assets/botones/imgBaja.png" onClick="vista.btnBaja_onClick();"></td>
-									<td><img id="btnCambio" class="botonMenuIEC" title="Cambio" src="assets/botones/imgCambio.png" onClick="vista.btnCambio_onClick();"></td>
+                     				<td><img id="btnAlta" class="botonMenuIEC" title="Alta" src="assets/botones/imgAlta2.png" onClick="vista.btnAlta_onClick();"></td>
 									<td><img id="btnConsulta" class="botonMenuIEC" title="Consulta" src="assets/botones/imgConsulta.png" onClick="vista.btnConsulta_onClick();"></td>
 									<td><img id="btnSalir" class="botonMenuIEC" title="Salir"  src="assets/botones/btnSalir.png" onClick="vista.btnSalir_onClick();" ></td>
 								</tr>
