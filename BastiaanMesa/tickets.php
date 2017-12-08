@@ -169,15 +169,15 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								<div id="filtros " class="contenedorIEC" style="overflow: auto; position: relative; width: 100%; display: block;">
 								 <div style="width: 80%; display: block; height: 100%;  padding-top: 10px; padding-left: 34px;">								 	
 								   
-								   <table WIDHT=38%; id="exito" HEIGHT=42%; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 		
+								   <table WIDHT=78%; id="exito" HEIGHT=65%; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 		
 								    
 								    <tr>
 								    <td> 
 								  
-								   	  	    <label style="position: relative; left: 3px;">No. de ticket</label>
+								   	  	    <label style="position: relative;  left: 3px;">No. de ticket</label>
 								   	  	    </td>
 								   	  	    <td>
-								     		<input class="input" id="noTicketFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     		<input class="input" id="noTicketFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:25%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        	</td>
 								    </tr>
 								    
@@ -186,126 +186,133 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								    		<label style="position: relative; left: 3px; ">Fecha de solicitud</label>
 								   		</td>
 								   		<td>		
-								   			<input id="fSolicitudFormularioInput" type='date' style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+								   			<input id="fSolicitudFormularioInput" type='date' style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								   		</td>
 								   		<td>						    
 								    		<label  style="position: relative;  left: 3px;">Hora de solicitud</label>
 								   		</td>
-								   		<td>						    
-								    		<input  id="horaSolicitudFormularioInput"  type='date'  style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-								   		</td>
-								   		</tr>
-								   		<tr>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Usuario que genera</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<input class="input" id="usuarioGeneraFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-								        	</td>
-								        	<label style="position: relative; left: 3px;">Vía de solicitud</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<select class="input" id="viaSolicitudFormularioInput" descripcion="via" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        	</td>
-								      </tr>   
-								      <tr>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Correo electronico</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<input class="input" id="correoElectronicoFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-								        	<select class="input" id="correoElectronicoDscFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-								        	</td>
-								        	<label style="position: relative; left: 3px;">Estatus</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<select class="input" id="estatusFormularioInput" descripcion="via" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        	</td>
-								      </tr>  
-								      <tr>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Con copia para</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<input class="input" id="correoElectronicoFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-								        	</td>
-								        	<label style="position: relative; left: 3px;">Estatus</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<select class="input" id="estatusFormularioInput" descripcion="via" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        	</td>
-								      </tr>    
-								    	<td>
-								     		<label style=" width:130px; position: relative; left: 3px; ">Tipo de receso</label>
-								   		</td>
-								   		<td >
-								   	 		<select class="input" id="recesoIdFormularioInput" descripcion="recesoId" style=" width:120%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999; "/></select>
-								    	</td>
-								   	</tr>
-								   	<tr>
-								   	</tr>
-								   	<tr>
-								   			<td >
-								     		<label style="position: relative; left: 3px; ">Descripcion</label>
-								   		</td>
-								   		<td >
-								   	 		<input class="input" id="recesoCFormularioInput" descripcion="RecesoLargo" style="width:160%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-								   		</td>
-								   
-								   </tr>	
-								   
-								   <tr>
 								   		
-								   		
-								   		  <td>						    
-								    		<label  style="position: relative; left: 3px;">Duracion en Segundos</label>
-								   		</td>
-								   		<td>						    
-								    		<input class="input"   id="dsPersonalFormularioInput"   style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
-								   		</td>
-								   
-								   		
-								   	<!-- 
-								   		<td>						    
-								    		<label  style="position: relative; left: 3px;">Fecha Personal</label>
-								   		</td>
-								   		<td>						    
-								    		<input class="input" id="fPersonalFormularioInput"   descripcion="Fecha"  style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-								   		</td>
-								   		
-								    -->		
-								   </tr>
-								 
-								   <tr>
-							          <td>						    
-								    		<label style="position: relative; left: 3px; ">Hora Inicial</label>
-								   		</td>
 								   		<td>		
-								   			<input  type="time" value="" id="hInicialFormularioInput"  step="000001"style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-								   		</td>
-								   		<td>						    
-								    		<label  style="position: relative; left: 3px;">Hora Final</label>
-								   		</td>
-								 
-								 
-							
-								   		<td>						    
-								    		<input type="time" value=" " id="hFinalFormularioInput" onblur="vista.myFunction()" step="000001" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+								   			<input id="fSolicitudFormularioInput" type='time' style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								   		</td>
 								   		
-							
-								   	
-								   		<td>						    
-								    		<label  style="position: relative; left: 3px;">Duracion</label>
-								   		</td>
-								   		<td>						    
-								    		<input type="text" step="000001" class="input" id="dPersonalFormularioInput"    style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
-								   		</td>
+								   		
+								   		<!--  -->
+								   		
+								   		
+								   <tr>		
+								   	    <td> 
+								   	  	     <label style="position: relative; left: 3px;">Usuario que genera ticket</label>
+								   	    </td>
+								   	    <td>						    
+								    		 <input  id="ugeneroFormularioTiket" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
+								   	    </td>
+								        <td>
+					                         <label style="position: relative; left: 3px;">Via de Solicitud</label>
+								   	  	</td>
+ 								   	    <td>
+								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								        </td>
+								 </tr>
+								  
+								  <tr>	
+								   	    <td> 
+								   	  	    <label style="position: relative; left: 3px;; ">Correo electronico</label>
+								   	  	</td>
+								   		<td>
+								     	    <input class="input" id="usuarioGenerFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								       </td>
+								       <td>
+								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text"  style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								        </td>
+								        <td> 
+								   	  	    <label style="position: relative; left: 3px;">Estatus</label>
+								   	  	</td>
+								        <td>
+								        <!-- 
+								           <select class="input" id="recesoCFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                       -->
+								     	</td>
+								   </tr>   
 								   
-					
-								      
-								   </tr>		
-		   					
+								        <td> 
+								   	  	    <label style="position: relative; left: 3px;">Copia de correo para</label>
+								   	  	</td>  
+								   	  	<td>
+								     	     <input class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:400px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								        </td>
+								        <td> 
+								   	  	    <label style="position: relative; left: 3px;">Usuario realizador</label>
+								   	  	</td>
+								   	  	 <td>
+								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								        </td>
+								    <tr>
+								        <td> 
+								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
+								   	  	</td>
+								   	  	 <td>
+								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								        </td>
+								    
+								    </tr>   
+								    <tr>
+								        <td> 
+								   	  	    <label>Telefono</label>
+								   	  	</td>
+								   	  	<td>
+								     	     <input class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								        </td>
+								   	  	 <td> 
+								   	  	    <label >Ext.</label>
+								   	  	</td>
+								   	  	<td>
+								     	     <input class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								        </td>
+								    </tr>
+								    <tr>
+								       <td>
+								           <label style="position: relative; left: 3px;">Area Solicitante</label>
+                                       </td>
+                                       <td>
+                                            <input class="input" id="agenteFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:75%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+                                      </td>
+                                      <td>
+                                           <img src='assets/botones/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: 3px">  
+                                     </td>
+                                     <td> 
+                                      <input class="input" id="agenteIdFormularioInput" descripcion="agenteId" style="width:240px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; right: 30px; box-shadow: 2px 2px 5px #999;" disabled/>
+                                     </td>
+								         
+								    </tr>
+								    
+								    <tr>
+								   
+								      <td>
+							        	      <label style="position: relative; left: 3px; ">Asunto</label>
+                                        </td>
+                                        <td>
+                                             <input class="input" id="recesoCFormularioInput" descripcion="RecesoLargo" style="width:120%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                       </td> 
+								         
+								    </tr>
+								    <tr>
+								        <td>
+							        	      <label style="position: relative; left: 3px; ">Detalle del requerimeinto</label>
+                                        </td>
+                                        <td>
+                                             <input class="input" id="recesoCFormularioInput" descripcion="RecesoLargo" style="width:160%; heigth:140%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                       </td>
+								    </tr>
+								    
+				    
+								   
+								   
+								   
+								   
+								   
+								   
+								   
 								   	</table>	     	
 									</div>
 									
