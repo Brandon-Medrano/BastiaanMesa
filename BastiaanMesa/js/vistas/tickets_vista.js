@@ -71,7 +71,14 @@ class TicketsVista
 		hoy = yyyy+"-"+MM+"-"+dd;
 		document.getElementById("fSolicitudFormularioInput").value = hoy;
 
-		
+	    var momentoActual = new Date();
+        var hora = momentoActual.getHours();
+  	    var minuto = momentoActual.getMinutes();
+   	    var segundo = momentoActual.getSeconds();
+  	    var horaImprime = hora + " : " + minuto + " : " + segundo;
+        document.getElementById('mostrarHora').value = horaImprime;
+    	 
+
 	}
 	
 	btnBaja_onClick()
