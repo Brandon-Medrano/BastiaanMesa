@@ -63,6 +63,12 @@ try
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
+            case 'consultarPorNaye':
+                $criteriosNayee = json_decode(REQUEST('criteriosNayee'));
+                $resultado = $repositorio->consultarPorNaye($criteriosNayee);
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
         }
     }
     

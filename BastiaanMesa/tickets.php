@@ -208,7 +208,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	     <label style="position: relative; left: 3px;">Usuario que genera ticket</label>
 								   	    </td>
 								   	    <td>						    
-								    		 <input  id="ugeneroFormularioTiket" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
+								    		 <input   id="ugeneroFormularioTiket" onblur="vista.onBlur();" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
 								   	    </td>
 								        <td>
 					                         <label style="position: relative; left: 3px;">Via de Solicitud</label>
@@ -220,10 +220,10 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								  
 								  <tr>	
 								   	    <td> 
-								   	  	    <label style="position: relative; left: 3px;; ">Correo electronico</label>
+								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
 								   	  	</td>
 								   		<td>
-								     	    <input class="input" id="usuarioGenerFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								     	    <input class="input" id="correoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								       </td>
 								       <td>
 								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text"  style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
@@ -264,7 +264,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label>Telefono</label>
 								   	  	</td>
 								   	  	<td>
-								     	     <input class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+								     	     <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
 								   	  	 <td> 
 								   	  	    <label >Ext.</label>

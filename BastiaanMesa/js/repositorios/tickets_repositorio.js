@@ -114,7 +114,27 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}
 	
-	
+	/* onblur */ 
+	consultarPorNaye(contexto,functionRetorno, criteriosNayee)
+	{		
+		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorNaye";
+        parametros += "&criteriosNayee=" +  encodeURIComponent(JSON.stringify(criteriosNayee));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorNayeResultado, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorNayeResultado(resultado)
+	{
+		var datosNayee = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 	eliminar(contexto,functionRetorno,llaves)
 	{				
 		this.contexto = contexto;

@@ -11,6 +11,9 @@ class Ticket
     public $fFinal;
     public $estado;
     
+    public $correo;
+    public $telefono;
+    
 }
 
 

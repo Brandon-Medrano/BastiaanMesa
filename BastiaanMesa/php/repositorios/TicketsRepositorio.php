@@ -251,4 +251,46 @@ class TicketsRepositorio implements ITicketsRepositorio
              return $resultado;
      }
      
+     public function consultarPorNaye($criteriosNayee)
+     {
+         
+         $resultado = new Resultado();
+         $nayee = array();
+         
+         $consulta  =  " SELECT DISTINCT(A.MSVSOLICITUDUSRSOLID) usuarioSol, B.MSVUSUARIOSCEPER correo, MSVUSUARIOSTELCEL telefono".
+             " FROM bstnmsv.msvsolicitud A".
+             " LEFT JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
+             " WHERE A.MSVSOLICITUDUSRSOLID  like CONCAT('%',?,'%') ";
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("s",$criteriosNayee-> usuarioSol))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($usuarioSol, $correo, $telefono))
+                     {
+                             while($row = $sentencia->fetch())
+                             {
+                                 $naye = (object) [
+                                 'usuarioSol' =>  utf8_encode($usuarioSol),
+                                 'correo' =>  utf8_encode($correo),
+                                 'telefono' =>  utf8_encode($telefono)
+                             ];
+                             array_push($nayee,$naye);
+                             }
+                             $resultado->valor = $nayee;
+                        }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             return $resultado;
+     }
 }

@@ -18,7 +18,19 @@ class TicketsPresentador
 		else
 			this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
-	
+	//onblur
+	 consultarPorNaye()
+	 {
+		 var repositorio = new TicketsRepositorio(this);		
+		 repositorio.consultarPorNaye(this,this.consultarPorNayeResultado,this.vista.criteriosNayee);
+	 }
+	 consultarPorNayeResultado(resultado)
+	 {
+		if(resultado.mensajeError=="")
+			this.vista.datosNayee = resultado.valor;
+		else
+			this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
 
 	 insertar()
 	 {

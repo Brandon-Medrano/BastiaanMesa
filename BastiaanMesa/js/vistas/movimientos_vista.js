@@ -458,8 +458,6 @@ class MovimientosVista
 	{
 	this._gridListaArchivos._dataProvider = valor;
 	this._gridListaArchivos.render();
-	//alert(this.datosUsuarios._dataProvider);
-	
 	}	
 	
 	

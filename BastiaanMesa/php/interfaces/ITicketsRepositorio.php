@@ -11,4 +11,5 @@ interface ITicketsRepositorio
     
     public function consultarPorLlaves($id);
     public function consultar($criteriosSeleccion);
+    public function consultarPorNaye($criteriosNayee); 
 }

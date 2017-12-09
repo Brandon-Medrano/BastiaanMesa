@@ -38,7 +38,20 @@ class TicketsVista
 	}
 	
 	
-
+	
+	onBlur(){
+		
+         //var nombre = document.getElementById("");
+		this.presentador.consultarPorNaye();
+		
+		
+		
+	}
+	set datosNayee(valor)
+	{		
+		$('#correoFormularioInput').val(valor[0].correo);
+		$('#telefonoFormularioInput').val(valor[0].telefono);
+		}
 	
 	
 	/*
@@ -77,6 +90,9 @@ class TicketsVista
    	    var segundo = momentoActual.getSeconds();
   	    var horaImprime = hora + " : " + minuto + " : " + segundo;
         document.getElementById('mostrarHora').value = horaImprime;
+        
+
+        
     	 
 
 	}
@@ -94,12 +110,6 @@ class TicketsVista
 		else
 			this.mostrarMensaje("Selecciona un registro para eliminar.");
 	}
-	
-	
-	
-	
-	 
-  		
 		
 	btnCambio_onClick()
 	{
@@ -166,7 +176,22 @@ class TicketsVista
 		return llaves;
 	}
 	
+	//valores para aurorelleno con onblur
+	get criteriosNayee()
+	{	
+		var criteriosNayee =
+	    {
+		usuarioSol:$('#ugeneroFormularioTiket').val()
+	    }
+	    return 	criteriosNayee;
+	}	
 	/*
+	set datosNayee(valor)
+	{
+	this._gridListaArchivos._dataProvider = valor;
+	this._gridListaArchivos.render();
+	}	
+	
 	 * Valores de los criterios de selección
 	 */
 	
