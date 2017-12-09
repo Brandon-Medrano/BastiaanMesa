@@ -13,6 +13,7 @@ class Ticket
     
     public $correo;
     public $telefono;
+    public $proyecto;
     
 }
 

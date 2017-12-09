@@ -51,6 +51,7 @@ class TicketsVista
 	{		
 		$('#correoFormularioInput').val(valor[0].correo);
 		$('#telefonoFormularioInput').val(valor[0].telefono);
+		$('#proyectoFormularioInput').val(valor[0].proyecto);
 		}
 	
 	

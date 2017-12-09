@@ -255,7 +255,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
 								   	  	</td>
 								   	  	 <td>
-								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     	     <input class="input" id="proyectoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
 								    
 								    </tr>   

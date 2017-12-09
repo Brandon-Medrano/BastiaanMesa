@@ -257,24 +257,26 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $nayee = array();
          
-         $consulta  =  " SELECT DISTINCT(A.MSVSOLICITUDUSRSOLID) usuarioSol, B.MSVUSUARIOSCEPER correo, MSVUSUARIOSTELCEL telefono".
+         $consulta  =  " SELECT DISTINCT(B.MSVUSUARIOSNOMC) usuarioSol,  C.MSVPROYNOMC proyecto, B.MSVUSUARIOSCEPER correo, MSVUSUARIOSTELCEL telefono".
              " FROM bstnmsv.msvsolicitud A".
              " LEFT JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
-             " WHERE A.MSVSOLICITUDUSRSOLID  like CONCAT('%',?,'%') ";
+             " LEFT JOIN bstnmsv.msvproy C ON A.MSVPROYID = C.MSVPROYID ".
+             " WHERE B.MSVUSUARIOSNOMC  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
          {
              if($sentencia->bind_param("s",$criteriosNayee-> usuarioSol))
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($usuarioSol, $correo, $telefono))
+                     if ($sentencia->bind_result($usuarioSol, $correo, $telefono, $proyecto))
                      {
                              while($row = $sentencia->fetch())
                              {
                                  $naye = (object) [
                                  'usuarioSol' =>  utf8_encode($usuarioSol),
                                  'correo' =>  utf8_encode($correo),
-                                 'telefono' =>  utf8_encode($telefono)
+                                 'telefono' =>  utf8_encode($telefono),
+                                 'proyecto' =>  utf8_encode($proyecto)
                              ];
                              array_push($nayee,$naye);
                              }
