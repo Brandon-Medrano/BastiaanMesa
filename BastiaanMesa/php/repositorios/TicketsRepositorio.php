@@ -49,51 +49,47 @@ class TicketsRepositorio implements ITicketsRepositorio
     }
     
     public function insertar(Ticket $ticket)
-     {
-         $resultado =  $this->calcularId();
-         if($resultado->mensajeError=="")
-         {
-             $id = $resultado->valor;
-             $consulta = " INSERT INTO BSTNTRN.BTMPERSONAL "
-                 . " (BTMPERSONALIDN,  "
-                     . " SIOUSUARIOID,  "
-                         . " BTMPERSONALRECID, "
-                             . " BTMPERSONALFINI, "
-                                 . " BTMPERSONALHINI, "
-                                     . " BTMPERSONALFFIN, "
-                                         . " BTMPERSONALHFIN, "
-                                             . " BTMPERSONALDUR, "
-                                                 . " BTMPERSONALDURS, "
-                                                     . " BTMPERSONALFECHA, "
-                                                         . " BTCRECESONOMC)"
-                                                             . " VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                                                             if($sentencia = $this->conexion->prepare($consulta))
-                                                             {
-                                                                 if( $sentencia->bind_param("issssssssss",$id,
-                                                                     $movimiento->agente,
-                                                                     $movimiento->recesoId,
-                                                                     $movimiento->fInicial,
-                                                                     $movimiento->hInicial,
-                                                                     $movimiento->fFinal,
-                                                                     $movimiento->hFinal,
-                                                                     $movimiento->dPersonal,
-                                                                     $movimiento->dsPersonal,
-                                                                     $movimiento->fPersonal,
-                                                                     $movimiento->recesoC))
-                                                                     
-                                                                 {
-                                                                     if(!$sentencia->execute())
-                                                                         $resultado->mensajeError = "FallÛ la ejecuciÛn (" . $this->conexion->errno . ") " . $this->conexion->error;
-                                                                 }
-                                                                 else
-                                                                     $resultado->mensajeError = "FallÛ el enlace de par·metros";
-                                                             }
-                                                             else
-                                                                 $resultado->mensajeError = "FallÛ la preparaciÛn: (" . $this->conexion->errno . ") " . $this->conexion->error;
-         }
-         return $resultado;
-     }
-     
+    {
+        $resultado =  $this->calcularId();
+        if($resultado->mensajeError=="")
+        {
+            $id = $resultado->valor;
+            $consulta = " INSERT INTO bstnmsv.msvsolicitud "
+                . " (MSVSOLICITUDNOLIN, "
+                    . " MSVSOLICITUDFSOL, "
+                        . " MSVSOLICITUDHSOL, "
+                            . " MSVSOLICITUDUSRSOLID, "
+                                . " MSVVSOLID, "
+                                    . " MSVRACTID, "
+                                        . " MSVSOLICITUDUSRRLZ, "
+                                            . " MSVPROYID, "
+                                                . " MSVSOLICITUDASUNTO, "
+                                                    . " MSVSOLICITUDDESC)"
+                                                        . " VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                        if($sentencia = $this->conexion->prepare($consulta))
+                                                        {
+                                                            if( $sentencia->bind_param("ssssssssss",$id,
+                                                                $ticket->fInicial,
+                                                                $ticket->hInicial,
+                                                                $ticket->usuarioSol,
+                                                                $ticket->vSolicitud,
+                                                                $ticket->estado,
+                                                                $ticket->uRealiza,
+                                                                $ticket->proyecto,
+                                                                $ticket->asunto,
+                                                                $ticket->descripcion))
+                                                            {
+                                                                if(!$sentencia->execute())
+                                                                    $resultado->mensajeError = "FallÛ la ejecuciÛn (" . $this->conexion->errno . ") " . $this->conexion->error;
+                                                            }
+                                                            else
+                                                                $resultado->mensajeError = "FallÛ el enlace de par·metros";
+                                                        }
+                                                        else
+                                                            $resultado->mensajeError = "FallÛ la preparaciÛn: (" . $this->conexion->errno . ") " . $this->conexion->error;
+        }
+        return $resultado;
+    }
      public function eliminar($llaves)
      {
          $resultado = new Resultado();
@@ -382,10 +378,11 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $nayee = array();
          
-         $consulta  =  " SELECT DISTINCT(B.MSVUSUARIOSNOMC) usuarioSol,  C.MSVPROYNOMC proyecto, B.MSVUSUARIOSCEPER correo, MSVUSUARIOSTELCEL telefono".
+         $consulta  =  " SELECT DISTINCT(B.MSVUSUARIOSNOMC) usuarioSol, B.MSVUSUARIOSCEPER correo, C.MSVPROYNOMC proyecto,  MSVUSUARIOSTELCEL telefono, D.MSVSCTGANOML area, B.MSVUSUARIOSEXT extension ".
              " FROM bstnmsv.msvsolicitud A".
-             " LEFT JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
-             " LEFT JOIN bstnmsv.msvproy C ON A.MSVPROYID = C.MSVPROYID ".
+             " INNER JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
+             " INNER JOIN bstnmsv.msvsctga D ON A.MSVSCTGAID = D.MSVSCTGAID " .
+             " INNER JOIN bstnmsv.msvproy C ON A.MSVPROYID = C.MSVPROYID ".
              " WHERE B.MSVUSUARIOSNOMC  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
          {
@@ -393,20 +390,22 @@ class TicketsRepositorio implements ITicketsRepositorio
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($usuarioSol, $correo, $telefono, $proyecto))
+                     if ($sentencia->bind_result($usuarioSol, $correo, $proyecto, $telefono, $area, $extension ))
                      {
-                             while($row = $sentencia->fetch())
-                             {
-                                 $naye = (object) [
+                         while($row = $sentencia->fetch())
+                         {
+                             $naye = (object) [
                                  'usuarioSol' =>  utf8_encode($usuarioSol),
                                  'correo' =>  utf8_encode($correo),
                                  'telefono' =>  utf8_encode($telefono),
-                                 'proyecto' =>  utf8_encode($proyecto)
+                                 'proyecto' =>  utf8_encode($proyecto),
+                                 'area' =>  utf8_encode($area),
+                                 'extension' =>  utf8_encode($extension)
                              ];
                              array_push($nayee,$naye);
-                             }
-                             $resultado->valor = $nayee;
-                        }
+                         }
+                         $resultado->valor = $nayee;
+                     }
                      else
                          $resultado->mensajeError = "Fall√≥ el enlace del resultado";
                  }

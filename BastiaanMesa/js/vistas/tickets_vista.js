@@ -75,6 +75,8 @@ class TicketsVista
 		$('#correoFormularioInput').val(valor[0].correo);
 		$('#telefonoFormularioInput').val(valor[0].telefono);
 		$('#proyectoFormularioInput').val(valor[0].proyecto);
+		$('#extensionFormularioInput').val(valor[0].extension);
+		$('#areaSoliFormularioInput').val(valor[0].area);
 		}
 	
 	
@@ -179,6 +181,7 @@ class TicketsVista
 		 {
 			if(this.modo=='ALTA')
 				this.presentador.insertar();
+			else
 				this.presentador.actualizar();
 		 }		
 		 else
@@ -366,24 +369,34 @@ class TicketsVista
 	
 	set ticket(valor)
 	{		
-		$('#actividadFormularioInput').val(valor.actividad);
-		$('#usuarioSolFormularioInput').val(valor.usuarioSol);
-		$('#fInicialFormularioInput').val(valor.fInicial);
-		$('#fFinalFormularioInput').val(valor.fFinal);
-		$('#estadoFormularioInput').val(valor.estado);
+		$('#noTicketFormularioInput').val(valor.id);
+		$('#fSolicitudFormularioInput').val(valor.fInicial);
+		$('#mostrarHora').val(valor.hInicial);
+		$('#ugeneroFormularioTiket').val(valor.usuarioSol);
+		$('#viaIdFormularioInput').val(valor.vSolicitud);
+		$('#recesoIdFormularioInput').val(valor.estado);
+		$('#usuarioRealizadorFormularioInput').val(valor.uRealiza);
+		$('#proyectoFormularioInput').val(valor.proyecto);
+		$('#asuntoFormularioInput').val(valor.asunto);
+		$('#dscFormularioInput').val(valor.descripcion);
 	}
 	
-	get usuarioMS()
+	get ticket()
 	{
-		 var usuarioMS = 
+		 var ticket = 
 		 {				    
-			 actividad:$('#actividadFormularioInput').val(),
-			 usuarioSol:$('#usuarioSolFormularioInput').val(),
-			 fInicial:$('#fInicialFormularioInput').val(),
-			 fFinal:$('#fFinalFormularioInput').val(),
-			 estado:$('#estadoFormularioInput').val()
+			 id:$('#noTicketFormularioInput').val(),
+			 fInicial:$('#fSolicitudFormularioInput').val(),
+			 hInicial:$('#mostrarHora').val(),
+			 usuarioSol:$('#ugeneroFormularioTiket').val(),
+			 vSolicitud:$('#viaIdFormularioInput').val(),
+			 estado:$('#recesoIdFormularioInput').val(),
+			 uRealiza:$('#usuarioRealizadorFormularioInput').val(),
+			 proyecto:$('#proyectoFormularioInput').val(),
+			 asunto:$('#asuntoFormularioInput').val(),
+			 descripcion:$('#dscFormularioInput').val()
 		 };
-		 return usuarioMS;
+		 return ticket;
 	 }
 	
 	mostrarMensaje(titulo,mensaje)

@@ -28,7 +28,6 @@ try
         $repositorio = new TicketsRepositorio($conexion);
         switch ($accion)
         {
-            
             case 'insertar':
                 $json = json_decode(REQUEST('ticket'));
                 $mapper = new JsonMapper();

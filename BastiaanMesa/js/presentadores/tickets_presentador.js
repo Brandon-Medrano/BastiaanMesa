@@ -80,7 +80,7 @@ class TicketsPresentador
 	 insertar()
 	 {
 		 var repositorio = new TicketsRepositorio(this);			 
-		 repositorio.insertar(this,this.insertarResultado,this.vista.tiket);	
+		 repositorio.insertar(this,this.insertarResultado,this.vista.ticket);	
 	 }
 	 
 	 insertarResultado(resultado)
@@ -99,7 +99,7 @@ class TicketsPresentador
 	 actualizar()
 	 {
 		 var repositorio = new TicketsRepositorio(this);		
-		 repositorio.actualizar(this,this.actualizarResultado,this.vista.tiket);
+		 repositorio.actualizar(this,this.actualizarResultado,this.vista.ticket);
 	 }
 	 
 	 actualizarResultado(resultado)
