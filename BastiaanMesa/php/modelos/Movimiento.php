@@ -26,6 +26,10 @@ class Movimiento
     public $dsPersonal;
     public $recesoC;
 
+    /* estatu */
+    public $idEstatus;
+    public $descEstatus;
+    
    }
 
    

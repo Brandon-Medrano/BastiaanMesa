@@ -135,6 +135,66 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
  /*  */
+	
+	/* estatu */
+	consultarPorEstatu(contexto,functionRetorno, criteriosEstatus)
+	{		
+	    this.contexto = contexto;
+	    this.functionRetorno = functionRetorno;
+	    var parametros;
+	    parametros = "accion=consultarPorEstatu";
+	    var contextHandler = new AjaxContextHandler();
+	    var host = window.location.origin + "/BastiaanMesa";	
+	    var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorEstatuResultado, "POST", parametros, contextHandler);		
+	    contextHandler.AddAjaxv2Object(ai); 		
+	    ai.GetPost(true);
+	}
+	consultarPorEstatuResultado(resultado)
+	{
+	    var datos = JSON.parse(resultado);
+	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+/* */
+/* Importancia */	
+	consultarPorImportancia(contexto,functionRetorno, criteriosImportancias)
+	{		
+	    this.contexto = contexto;
+	    this.functionRetorno = functionRetorno;
+	    var parametros;
+	    parametros = "accion=consultarPorImportancia";
+	    var contextHandler = new AjaxContextHandler();
+	    var host = window.location.origin + "/BastiaanMesa";	
+	    var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorImportanciaResultado, "POST", parametros, contextHandler);		
+	    contextHandler.AddAjaxv2Object(ai); 		
+	    ai.GetPost(true);
+	}
+	consultarPorImportanciaResultado(resultado)
+	{
+	    var datos = JSON.parse(resultado);
+	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+/* */
+	/* via*/	
+	consultarPorVia(contexto,functionRetorno, criteriosVias)
+	{		
+	    this.contexto = contexto;
+	    this.functionRetorno = functionRetorno;
+	    var parametros;
+	    parametros = "accion=consultarPorVia";
+	    var contextHandler = new AjaxContextHandler();
+	    var host = window.location.origin + "/BastiaanMesa";	
+	    var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorViaResultado, "POST", parametros, contextHandler);		
+	    contextHandler.AddAjaxv2Object(ai); 		
+	    ai.GetPost(true);
+	}
+	consultarPorViaResultado(resultado)
+	{
+	    var datos = JSON.parse(resultado);
+	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+/* */	
+	
+	
 	eliminar(contexto,functionRetorno,llaves)
 	{				
 		this.contexto = contexto;

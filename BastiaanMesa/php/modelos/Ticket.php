@@ -15,6 +15,14 @@ class Ticket
     public $telefono;
     public $proyecto;
     
+    /* estatu */
+    public $idEstatus;
+    public $descEstatus;
+    
+    /* estatu */
+    public $idImportancias;
+    public $descImportancias;
+        
 }
 
 

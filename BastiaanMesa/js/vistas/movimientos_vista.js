@@ -14,7 +14,7 @@ class MovimientosVista
 		this.crearColumnasGrid();
 		this.presentador.consultar();
 		
-		this.cmbEstatus = new Combo("agenteIdFormularioInput");
+		this.cmbEstatus = new Combo("agenteIdopoFormularioInput");
 		this.cmbEstatus.setViewport("recesoIdFormularioInput");
 		this.cmbEstatus._dataField = "recesoId";
 		this.cmbEstatus._labelField = "rCorto";

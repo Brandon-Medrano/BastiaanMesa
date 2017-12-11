@@ -49,7 +49,7 @@ class MovimientosPresentador
 	 }
 
 	 
-	 
+	 /* */
 	 insertar()
 	 {
 		 var repositorio = new MovimientosRepositorio(this);			 

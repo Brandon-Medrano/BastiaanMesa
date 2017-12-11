@@ -207,6 +207,131 @@ class TicketsRepositorio implements ITicketsRepositorio
              $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
              return $resultado;
      }
+     public function consultarPorVia()
+     {
+         $resultado = new Resultado();
+         $tickets = array();
+         
+         $consulta = "SELECT"
+             . "  MSVTSOLID idVias, "
+             . " MSTVSOLNOML descVias"
+             . " from  bstnmsv.msvtsol";
+                     if($sentencia = $this->conexion->prepare($consulta))
+                     {
+                         if(true)
+                         {
+                             if($sentencia->execute())
+                             {
+                                 if ($sentencia->bind_result($idVias, $descVias))
+                                 {
+                                     while($row = $sentencia->fetch())
+                                     {
+                                         $ticket = (object) [
+                                             'idVias' => utf8_encode($idVias),
+                                             'descVias' =>  utf8_encode($descVias)
+                                         ];
+                                         array_push($tickets,$ticket);
+                                     }
+                                     $resultado->valor = $tickets;
+                                 }
+                                 else
+                                     $resultado->mensajeError = "Falló el enlace del resultado.";
+                             }
+                             else
+                                 $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         }
+                         else
+                             $resultado->mensajeError = "Falló el enlace de parámetros";
+                     }
+                     else
+                         $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         return $resultado;
+     }
+     
+     
+     public function consultarPorImportancia()
+     {
+         $resultado = new Resultado();
+         $tickets = array();
+         
+         $consulta = "SELECT"
+                     . " MSVNIMPID idImportancias, "
+                     . " MSVNIMPNOML descImportancias"
+                     . " from  bstnmsv.msvnimpid";
+                     if($sentencia = $this->conexion->prepare($consulta))
+                     {
+                         if(true)
+                         {
+                             if($sentencia->execute())
+                             {
+                                 if ($sentencia->bind_result($idImportancias, $descImportancias))
+                                 {
+                                     while($row = $sentencia->fetch())
+                                     {
+                                         $ticket = (object) [
+                                             'idImportancias' => utf8_encode($idImportancias),
+                                             'descImportancias' =>  utf8_encode($descImportancias)
+                                         ];
+                                         array_push($tickets,$ticket);
+                                     }
+                                     $resultado->valor = $tickets;
+                                 }
+                                 else
+                                     $resultado->mensajeError = "Falló el enlace del resultado.";
+                             }
+                             else
+                                 $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         }
+                         else
+                             $resultado->mensajeError = "Falló el enlace de parámetros";
+                     }
+                     else
+                         $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         return $resultado;
+     }
+     
+     public function consultarPorEstatu()
+     {
+         $resultado = new Resultado();
+         $tickets = array();
+         
+         $consulta = "SELECT "
+             . " MSVETCKTTID idEstatus, "
+             . " MSVETCKTNOML descEstatus "
+             . " FROM bstnmsv.msvetckt ";
+         
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if(true)
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($idEstatus, $descEstatus))
+                     {
+                         while($row = $sentencia->fetch())
+                         {
+                             $ticket = (object) [
+                                 'idEstatus' => utf8_encode($idEstatus),
+                                 'descEstatus' =>  utf8_encode($descEstatus)
+                             ];
+                             array_push($tickets,$ticket);
+                         }
+                         $resultado->valor = $tickets;
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             return $resultado;
+     }
+     
      
      public function consultarPorLlaves($llaves)
      {
@@ -295,4 +420,6 @@ class TicketsRepositorio implements ITicketsRepositorio
              $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
              return $resultado;
      }
+   
+
 }

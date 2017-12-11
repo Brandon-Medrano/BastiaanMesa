@@ -52,6 +52,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
     <link rel="shortcut icon" href="css/imagenes/faviSIO.png">
     
    
+   
     <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
     <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
@@ -214,7 +215,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 					                         <label style="position: relative; left: 3px;">Via de Solicitud</label>
 								   	  	</td>
  								   	    <td>
-								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     	     <select class="input" id="viaIdFormularioInput" descripcion="vi00000a" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" />
 								        </td>
 								 </tr>
 								  
@@ -223,7 +224,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
 								   	  	</td>
 								   		<td>
-								     	    <input class="input" id="correoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     	  <!--   <input class="input" id="correoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  -->
+								     	 	     <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:290px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								    
 								       </td>
 								       <td>
 								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text"  style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
@@ -232,9 +235,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label style="position: relative; left: 3px;">Estatus</label>
 								   	  	</td>
 								        <td>
-								        <!-- 
-								           <select class="input" id="recesoCFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-                                       -->
+								       
+								           <select class="input" id="recesoIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                       
 								     	</td>
 								   </tr>   
 								   
@@ -250,12 +253,25 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	 <td>
 								     	     <select class="input" id="viaSolicitudFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
+								        
+								          <td> 
+								   	  	    <label style="position: relative; left: 3px;">Importancia</label>
+								   	  	</td>
+								        <td>
+								       
+								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                       
+								     	</td>
+		
 								    <tr>
 								        <td> 
 								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
 								   	  	</td>
 								   	  	 <td>
-								     	     <input class="input" id="proyectoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     	  <!--      <input class="input" id="proyectoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>-->
+								     
+								    	  <input class="input" id="correoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  
+								    
 								        </td>
 								    
 								    </tr>   
@@ -264,7 +280,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label>Telefono</label>
 								   	  	</td>
 								   	  	<td>
-								     	     <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     	 <!-- <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>-->
+								      	     <input class="input" id="proyectoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     
 								        </td>
 								   	  	 <td> 
 								   	  	    <label >Ext.</label>

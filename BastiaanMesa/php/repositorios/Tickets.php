@@ -1,4 +1,4 @@
-<?php
+ <?php
 use php\clases\AdministradorConexion;
 use php\clases\JsonMapper;
 use php\modelos\Ticket;
@@ -66,6 +66,24 @@ try
             case 'consultarPorNaye':
                 $criteriosNayee = json_decode(REQUEST('criteriosNayee'));
                 $resultado = $repositorio->consultarPorNaye($criteriosNayee);
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
+                    
+            case 'consultarPorEstatu':
+                $resultado = $repositorio->consultarPorEstatu();
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                break;
+                
+            case 'consultarPorImportancia':
+                $resultado = $repositorio->consultarPorImportancia();
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
+                    
+            case 'consultarPorVia':
+                $resultado = $repositorio->consultarPorVia();
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;

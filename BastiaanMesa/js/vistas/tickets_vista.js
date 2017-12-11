@@ -11,6 +11,29 @@ class TicketsVista
 	{			
 		this.crearColumnasGrid();
 		this.presentador.consultar();
+
+	
+		this.cmbEstatus = new Combo("agenteIdFormularioInput");
+		this.cmbEstatus.setViewport("recesoIdFormularioInput");
+		this.cmbEstatus._dataField = "idEstatus";
+		this.cmbEstatus._labelField = "descEstatus";
+
+		this.cmbEstatus.render();
+
+		this.cmbImportancias = new Combo("");// buscar 
+		this.cmbImportancias.setViewport("importanciaIdFormularioInput");
+		this.cmbImportancias._dataField = "idImportancias";
+		this.cmbImportancias._labelField = "descImportancias";
+
+		this.cmbImportancias.render();
+		
+		this.cmbVias = new Combo("");// objeto
+		this.cmbVias.setViewport("viaIdFormularioInput");
+		this.cmbVias._dataField = "idVias";
+		this.cmbVias._labelField = "descVias";
+
+		this.cmbVias.render();
+		
 	}
 	
 	crearColumnasGrid()
@@ -64,8 +87,10 @@ class TicketsVista
 		this.modo = "ALTA";
 		this.limpiarFormulario();
 		
-	
-			 
+
+		this.presentador.consultarPorEstatu();
+		this.presentador.consultarPorImportancia();
+		this.presentador.consultarPorVia();
 				
 		this.mostrarFormulario();
 		
@@ -230,6 +255,102 @@ class TicketsVista
 		this.grid.render();
 	}
 	
+		
+	set datosEstatus(valor){
+		this.cmbEstatus._dataProvider = valor;
+		this.cmbEstatus.setSeleccionado("idEstatus",this.idEstatus);
+		this.cmbEstatus.render();
+		
+	}
+	
+	set datosImportancias(valor){
+		
+		this.cmbImportancias._dataProvider = valor;
+		this.cmbImportancias.setSeleccionado("idImportancias",this.idImportancias);
+		this.cmbImportancias.render();
+		
+	}
+	
+	
+	set datosVias(valor){
+		
+		this.cmbVias._dataProvider = valor;
+		this.cmbVias.setSeleccionado("idVias",this.idVias);
+		this.cmbVias.render();
+		
+	}
+	
+	
+
+	set estatus(valor)
+	{
+		$('descEstatusFormularioInput').val(valor.descEstatus);
+		$('idEstatusFormularioInput').val(valor.idEstatus);
+		
+		this.idEstatus = valor.idEstatus
+		
+	}
+
+
+	set importancia(valor)
+	{
+		$('descImportanciasFormularioInput').val(valor.descImportancias);
+		$('idImportanciasFormularioInput').val(valor.idImportancias);
+		
+		this.idImportancias = valor.idImportancias
+		
+	}
+	
+	set via(valor)
+	{
+		$('descViasFormularioInput').val(valor.descVias);
+		$('idViasFormularioInput').val(valor.idVias);
+		
+		this.idViass = valor.idVias
+		
+	}
+	
+	get estatus()
+	{
+		
+		var estatus = 
+		{
+		
+	    idEstatus:this.cmbEstatus._selectedItem.idEstatus,
+		descEstatus:$('#descEsatusFormularioInput').val()
+		};
+		
+		return estatus;
+	}
+	
+	
+	get importancias()
+	{
+		
+		var importancias = 
+		{
+		
+	    idImportancias:this.cmbImportancias._selectedItem.idImportancias,
+		descImportancias:$('#descImportanciasFormularioInput').val()
+		};
+		
+		return importancias;
+	}
+
+	
+	get vias()
+	{
+		
+		var vias = 
+		{
+		
+	    idVias:this.cmbVias._selectedItem.idVias,
+		descVias:$('#descViasFormularioInput').val()
+		};
+		
+		return Vias;
+	}
+
 	/*
 	set datosPostales(valor)
 	{
@@ -280,7 +401,6 @@ class TicketsVista
 		$('#principalDiv').show()	
 		$('#formularioDiv').hide();
 	}
-	
 	
 	
 	/*

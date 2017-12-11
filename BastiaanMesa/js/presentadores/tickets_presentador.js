@@ -32,6 +32,51 @@ class TicketsPresentador
 			this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 
+	 /* Estatus*/
+	 consultarPorEstatu()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.consultarPorEstatu(this,this.consultarPorEstatuResultado,this.vista.criteriosEstatus);
+	 }
+	 consultarPorEstatuResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datosEstatus = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	 
+	 /* Nivel de importancia*/
+	 consultarPorImportancia()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.consultarPorImportancia(this,this.consultarPorImportanciaResultado,this.vista.criteriosImportancias);
+	 }
+	 consultarPorImportanciaResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datosImportancias = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	 
+	 
+	 /* via Solictud*/
+	 consultarPorVia()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.consultarPorVia(this,this.consultarPorViaResultado,this.vista.criteriosVias);
+	 }
+	 consultarPorViaResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datosVias = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	 
+	 
+	 
 	 insertar()
 	 {
 		 var repositorio = new TicketsRepositorio(this);			 
