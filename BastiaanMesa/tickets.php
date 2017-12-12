@@ -63,14 +63,14 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <div id="dialogo" title="Di�logo" style="display:none;">
 </div>
 <form id="form">
-	<div id="principalDiv">
+	<div id="principalDiv"> 
 		
 		<div id="debug" width="100%" style="display:none">
 				<input type="hidden" id="RPFREPFINCNMDLSID"  name="RPFREPFINCNMDLSID"   value ='<?php echo $modulo; ?>'/>
 				<input type="hidden" id="RPFREPFINCNOTRMID"  name="RPFREPFINCNOTRMID"   value ='<?php echo $opcionTerminal; ?>'/> 
 				<input type="hidden" id="RPFREPFINCNOTRMVER" name="RPFREPFINCNOTRMVER"  value ='<?php echo $version; ?>'/>
 				<input type="hidden" id="CNUSERID"           name="CNUSERID"            value ='<?php  echo $usuario; ?>>'/> 
-				<input type="hidden" id="CNUSERDESC"           name="CNUSERDESC"            value ='<?php  echo $CNUSERDESC; ?>'/>    
+				<input type="hidden" id="CNUSERDESC"         name="CNUSERDESC"        value ='<?php  echo $CNUSERDESC; ?>'/>    
 		</div>
 		
 		

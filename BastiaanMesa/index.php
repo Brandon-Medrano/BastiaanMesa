@@ -16,263 +16,102 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <meta charset="utf-8"/>
 <!-- =========================================================================-->
 
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/animate.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/lightbox.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 
+<!-- ==============================basttiaan===========================================-->
+
+<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/json2.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/AjaxContextHandler.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/Ajaxv2.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/prototype.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/funcionesFechas.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/funciones.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/funcionesColores.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/constantes.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/Eventos.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/Base.js"></script> 
+
+	<script language="JavaScript" type="text/JavaScript" src="js/librerias/cargador.js"></script>
+<!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
+ 	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.core.js'></script>
+	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker.js'></script>
+	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker-es.js'></script> 
+	
+	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
+
+
+<!-- ================================bastiaan=========================================-->
+
+ <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
+ <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
+ <script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
+
+
+
 <!-- ==============================================================================-->
-
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-
-<!-- ============================  stilo del cuerpo  ==========================================-->
-<style>
-
-html {
-    font-family: GillSans, Georgia, Trebuchet, sans-serif;
-}
-
-
-
-</style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- =========================================================================================-->
 <title>Bastian Software Center</title>
 </head>
 
-<body  style="padding-left:3%; padding-right:3%">
-<div class="card-panel White z-depth-4">
-<header>
-<nav>
-<div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
-<a href="#!" class="brand-logo">Logo</a>
-<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-<ul class="right hide-on-med-and-down">
-
-<!-- <li><a href=""><i class="material-icons left">contact_phone</i></i>Contactanos</a></li>
-
--->
-<li><a href="logeo.php"><i class="material-icons left">lock_open</i>Registro</a></li>
-
-</ul>
-</div>
-</nav>
-</header>
-
+<body onLoad="vista.onLoad()" style="padding-left:3%; padding-right:3%">
+  <div class="card-panel White z-depth-4">
+       <header>
+             <nav>
+                  <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
+                       <a href="#!" class="brand-logo">Logo</a>
+                       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                          <ul class="right hide-on-med-and-down">
+                             <li><a href="logeo.php"><i class="material-icons left">lock_open</i>Registro</a></li>
+                         </ul>
+                  </div>
+            </nav>
+     </header>
 <!--otro card panel -->
+ <!-- form -->   
+<!-- 
+     <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s3">
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+         <div class="input-field col s3">
+          <input id="icon_telephone" type="tel" class="validate">
+          <label for="icon_telephone">Telephone</label>
+        </div>
+      </div>
+    </form>
+  </div>
+   -->
+  <!-- form -->
+ <div id="principalDiv" class="row">
+     <div id="actividad" class="col s12 m4 l2"></div>
+     <div id="usuarioSol" class="col s12 m4 l8"></div>
+     <div id="fInicial" class="col s12 m4 l2"></div>
+     <div id="fFinal" class="col s12 m4 l2"></div>
+     <div id="estado" class="col s12 m4 l2"></div>
+  </div>
+  
+<!-- 
+  <div class="row">
+    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
+    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
+    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
+    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
+   -->    
 
-
-<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<div class="col s9">
-<div class="card-panel white z-depth-4">
-<section id="contact">
-<div class="container">
-<div class="row">
-<h2>Solicitud de Tiket</h2>
-
-</div>
-</div>
-<div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-<div class="row">
-<div class="col-sm-6">
-<form id="main-contact-form" name="contact-form" method="post" action="#">
-<div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-
-<div class="col-sm-4">
-<div class="form-group">
-<input class="input"  type="date" id="" descripcion="fecha"/>
-</div>
-</div>
-
-<div class="col-sm-4">
-<div class="form-group">
-<input class="input"  step="000001"  type="time" id="" descripcion="hora"/>
-</div>
-</div>
-
-<div class="col-sm-4">
-<div class="form-group">
-<input class="input" value="solicitado" type="" id="" descripcion="Estatus"/>
-</div>
-</div>
-
-</div>
-
-<div class="row">
-
-<div class="col-sm-6">
-<div class="form-group">
-<label color: #369;> Proyecto:</label>
-<input   class="flow-text" type="text" name="proyecto" placeholder="fonacot" disabled>
-</div>
-</div>
-
-<div class="col-sm-6">
-<div class="form-group">
-<input   class="flow-text" type="nivel" name="email" placeholder="Baja" disabled>
-</div>
-</div>
-
-<div class="row">
-
-
-<div class="col-sm-3">
-<div class="form-group">
-<label for=""> Solicitante:</label>
-<input   class="flow-text" type="email" name="email" value="Germain Andrade espinoza"  disabled>
-</div>
-</div>
-
-<div class="col-sm-6">
-<div class="form-group">
-<label for="">Area:</label>
-<input   class="flow-text" type="text" name="email" value="inbound" disabled>
-</div>
-</div>
-
-
-<div class="col-sm-3">
-<div class="form-group">
-<label for=""> correo:</label>
-<input   class="flow-text" type="email" name="email" value="ing.brandon.medrano@gmail.com"  disabled>
-</div>
-</div>
-
-<div class="col-sm-6">
-<div class="form-group">
-<label for=""> Asigna:</label>
-<input   class="flow-text" type="text" name="campana" placeholder="Jair Mendez" disabled>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="col-sm-12">
-<div class="form-group">
-<label for="">Asunto:</label>
-<input   class="flow-text" type="email" name="email" value="">
-</div>
-</div>
-
-
-
-</div>
-
-
-
-
-<div class="form-group">
-<textarea name="message" id="message" class="form-control" rows="4" placeholder="Descripcion de tiket" required="required"></textarea>
-</div>
-<div class="form-group">
-<button type="submit" class="btn-submit">Enviar</button>
-</div>
-</form>
-</div>
-
-</div>
-
-</section>
-
-</div>
-</div>
-</div>
-
-
-
-
-</div>
-
-
-
-<!-- ///////////////////////////////////////////////////////////////////////////////// -->
-
-
-
-
-<!--losjs -->
-
-<script type="text/javascript" src="./d3.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-
-
-<script type="text/javascript" src="js/materialize.min.js"></script>
-
-
-<script>
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-});
-    
-    </script>
-    
-    
-    <script>
-    $(document).ready(function(){
-        $('.slider').slider({full_width: true});
-    });
-        </script>
-        
-        <!-- fin -->
-        <!--Inicializaciòn de parallax -->
-        <script>
-        $(document).ready(function(){
-            $('.parallax').parallax();
-        });
-            </script>
-            <!-- fin -->
-            
-            <!--- -->
-            <script>
-            $( document ).ready(function(){
-                $(".button-collapse").sideNav();
-            });
-                
-                </script>
-                <!--ofertas -->
-                <script>
-                var options = [
-                {selector: '.class', offset: 200, callback: customCallbackFunc},
-                {selector: '.other-class', offset: 200, callback: function() {
-                    customCallbackFunc();
-                } },
-                ];
-                Materialize.scrollFire(options);
-                
-                </script>
-                
-                <!-- -->
-                
-                
-                
-                
-                
-                
-                <!--ofertas -->
-                <script>  var options = [ {selector: '#staggered-test', offset: 50, callback: function(el) { Materialize.toast("This is our ScrollFire Demo!", 1500 ); } }, {selector: '#staggered-test', offset: 205, callback: function(el) { Materialize.toast("Please continue scrolling!", 1500 ); } }, {selector: '#staggered-test', offset: 400, callback: function(el) { Materialize.showStaggeredList($(el)); } }, {selector: '#image-test', offset: 500, callback: function(el) { Materialize.fadeInImage($(el)); } } ]; Materialize.scrollFire(options);
-                </script>
-                
-                <!-- -->
-                <!--cierre ->
-                <!cuerpo  fin -->
-                
-                <footer class="card-panel black center z-depth-4 white-text">Bastiaan Software Center </footer>
-                </body>
-                
-                
-                </html>
+         <footer class="card-panel orange center z-depth-4 white-text">Bastiaan Software Center </footer>
+   </body>
+</html>

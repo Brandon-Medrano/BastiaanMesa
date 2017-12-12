@@ -11,7 +11,6 @@ class TicketsVista
 	{			
 		this.crearColumnasGrid();
 		this.presentador.consultar();
-
 	
 		this.cmbEstatus = new Combo("agenteIdFormularioInput");
 		this.cmbEstatus.setViewport("recesoIdFormularioInput");
