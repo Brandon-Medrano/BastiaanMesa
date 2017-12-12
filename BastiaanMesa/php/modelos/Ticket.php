@@ -6,12 +6,12 @@ class Ticket
     
     public $actividad;
     public $usuarioSol;
-    public $fInicial;
+    public $fSolicitud;
     public $fFinal;
     public $estado;
     public $asunto;
     public $descripcion;
-    public $vSolicitud;
+    public $viaId;
     public $hInicial;
     public $id;
     public $correo;
@@ -28,6 +28,10 @@ class Ticket
     public $idImportancias;
     public $descImportancias;
         
+    
+    public $dsc;
+    public $ugenero;
+    public $areaSoli;
 }
 
 

@@ -368,7 +368,7 @@ class TicketsVista
 	 */
 	
 	set ticket(valor)
-	{		
+	{		 /*
 		$('#idFormularioInput').val(valor.id);
 		$('#fSolicitudFormularioInput').val(valor.fInicial);
 		$('#mostrarHora').val(valor.hInicial);
@@ -379,7 +379,7 @@ class TicketsVista
 		$('#proyectoFormularioInput').val(valor.proyecto);
 		$('#asuntoFormularioInput').val(valor.asunto);
 		$('#dscFormularioInput').val(valor.descripcion);
-		 /* */
+		 */
 		  $('#noTicketFormularioInput').val(valor.id);
 		  $('#fSolicitudFormularioInput').val(valor.fSolicitud);
 		  $('#mostrarHora').val(valor.mostrarHora);
@@ -396,29 +396,13 @@ class TicketsVista
 		  $('#telefonoFormularioInput').val(valor.telefono);
 		  $('#extensionFormularioInput').val(valor.extension);
 		  $('#areaSoliFormularioInput').val(valor.areaSoli);
-	 
-					 
-				/*	 */
-					 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	get ticket()
 	{
 		 var ticket = 
-		 {				    
+		 {		
+				 /*
 			 id:$('#noTicketFormularioInput').val(),
 			 fSolicitud:$('#fSolicitudFormularioInput').val(),
 			 mostrarHora:$('#mostrarHora').val(),
@@ -435,7 +419,7 @@ class TicketsVista
 			 areaSoli:$('#areaSoliFormularioInput').val(),
 			 asunto:$('#asuntoFormularioInput').val(),
 			 dsc:$('#dscFormularioInput').val(),
-			 
+			 */
 			 
 			   id:$('#noTicketFormularioInput').val(),
 			    fSolicitud:$('#fSolicitudFormularioInput').val(),

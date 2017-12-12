@@ -124,7 +124,7 @@ class TicketsPresentador
 	 {		
 		 if(resultado.mensajeError=="")
 		 {
-			 this.vista.tiket = resultado.valor;
+			 this.vista.ticket = resultado.valor;
 		 }
 		 else
 			 this.vista.mostrarMensaje("Error","Ocurrió un error al consultar el registro. " + resultado.mensajeError);

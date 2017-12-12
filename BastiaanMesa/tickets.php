@@ -195,7 +195,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   		</td>
 								   		
 								   		<td>		
-								   		<input  id="mostrarHora" disabled/>
+								   		<input  id="mostrarHora" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								   	
 								   		</td>
 								   		

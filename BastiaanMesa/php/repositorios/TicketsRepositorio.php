@@ -59,25 +59,27 @@ class TicketsRepositorio implements ITicketsRepositorio
                 . " MSVSOLICITUDFSOL, "
                 . " MSVSOLICITUDHSOL, "
                 . " MSVSOLICITUDUSRSOLID, "
+                . " MSVSCTGAID, "
                 . " MSVVSOLID, "
-                . " MSVRACTID, "
                 . " MSVSOLICITUDUSRRLZ, "
+                . " MSVRACTID, "
                 . " MSVPROYID, "
                 . " MSVSOLICITUDASUNTO, "
                 . " MSVSOLICITUDDESC)"
-                . " VALUE(?,?,?,?,?,?,?,?,?,?)";
+                . " VALUE(?,?,?,?,?,?,?,?,?,?,?)";
                               if($sentencia = $this->conexion->prepare($consulta))
                                    {
-                                      if( $sentencia->bind_param("isssssssss",$id,
-                                          $ticket->fInicial,
-                                          $ticket->hInicial,
-                                          $ticket->usuarioSol,
-                                          $ticket->vSolicitud,
+                                      if( $sentencia->bind_param("issssssssss",$id,
+                                          $ticket->fSolicitud,
+                                          $ticket->mostrarHora,
+                                          $ticket->ugenero,
+                                          $ticket->areaSoli,
+                                          $ticket->viaId,
                                           $ticket->estado,
                                           $ticket->uRealiza,
                                           $ticket->proyecto,
                                           $ticket->asunto,
-                                          $ticket->descripcion))
+                                          $ticket->dsc))
                                       {
                                          if(!$sentencia->execute())
                                              $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
@@ -162,7 +164,7 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $tickets = array();
          
-         $consulta = " SELECT MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, MSVETCKTTID estado".
+         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, MSVETCKTTID estado".
              " FROM bstnmsv.msvsolicitud".
              " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ".
              " AND (MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
