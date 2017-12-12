@@ -195,15 +195,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   		</td>
 								   		
 								   		<td>		
-								   		<input  id="mostrarHora" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
+								   		<input type="text" id="hInicialFormularioInput" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								   	
 								   		</td>
-								   		
-								   			
-								   		
-								   		<!--  -->
-								   		
-								   		
 								   <tr>		
 								   	    <td> 
 								   	  	     <label style="position: relative; left: 3px;">Usuario que genera ticket</label>

@@ -128,12 +128,7 @@ class TicketsVista
 			  segundo = "0"+segundo;
 			  }
   	    var horaImprime = hora + " : " + minuto + " : " + segundo;
-        document.getElementById('mostrarHora').value = horaImprime;
-        
-
-        
-    	 
-
+        document.getElementById('hInicialFormularioInput').value = horaImprime;
 	}
 	
 	btnBaja_onClick()
@@ -368,21 +363,10 @@ class TicketsVista
 	 */
 	
 	set ticket(valor)
-	{		 /*
-		$('#idFormularioInput').val(valor.id);
-		$('#fSolicitudFormularioInput').val(valor.fInicial);
-		$('#mostrarHora').val(valor.hInicial);
-		$('#ugeneroFormularioTiket').val(valor.usuarioSol);
-		$('#viaIdFormularioInput').val(valor.vSolicitud);
-		$('#recesoIdFormularioInput').val(valor.estado);
-		$('#usuarioRealizadorFormularioInput').val(valor.uRealiza);
-		$('#proyectoFormularioInput').val(valor.proyecto);
-		$('#asuntoFormularioInput').val(valor.asunto);
-		$('#dscFormularioInput').val(valor.descripcion);
-		 */
+	{		
 		  $('#noTicketFormularioInput').val(valor.id);
 		  $('#fSolicitudFormularioInput').val(valor.fSolicitud);
-		  $('#mostrarHora').val(valor.mostrarHora);
+		  $('#hInicialFormularioInput').val(valor.hInicial);
 		  $('#ugeneroFormularioTiket').val(valor.ugenero);
 		  $('#viaIdFormularioInput').val(valor.viaId);
 		  $('#recesoIdFormularioInput').val(valor.recesoId);
@@ -402,28 +386,9 @@ class TicketsVista
 	{
 		 var ticket = 
 		 {		
-				 /*
-			 id:$('#noTicketFormularioInput').val(),
-			 fSolicitud:$('#fSolicitudFormularioInput').val(),
-			 mostrarHora:$('#mostrarHora').val(),
-			 ugenero:$('#ugeneroFormularioTiket').val(),
-			 viaId:$('#viaIdFormularioInput').val(),
-			 correo:$('#correoFormularioInput').val(),
-			 recesoId:$('#recesoIdFormularioInput').val(),
-			 copiaCorreo:$('#copiaCorreoFormularioInput').val(),
-			 usuarioRealizador:$('#usuarioRealizadorFormularioInput').val(),
-			 importanciaId:$('#importanciaIdFormularioInput').val(),
-			 proyecto:$('#proyectoFormularioInput').val(),
-			 telefono:$('#telefonoFormularioInput').val(),
-			 extension:$('#extensionFormularioInput').val(),
-			 areaSoli:$('#areaSoliFormularioInput').val(),
-			 asunto:$('#asuntoFormularioInput').val(),
-			 dsc:$('#dscFormularioInput').val(),
-			 */
-			 
-			   id:$('#noTicketFormularioInput').val(),
+			    id:$('#noTicketFormularioInput').val(),
 			    fSolicitud:$('#fSolicitudFormularioInput').val(),
-			    mostrarHora:$('#mostrarHora').val(),
+			    hInicial:$('#hInicialFormularioInput').val(),
 			    ugenero:$('#ugeneroFormularioTiket').val(),
 			    viaId:$('#viaIdFormularioInput').val(),
 			    correo:$('#correoFormularioInput').val(),
@@ -437,10 +402,6 @@ class TicketsVista
 			    areaSoli:$('#areaSoliFormularioInput').val(),
 			    asunto:$('#asuntoFormularioInput').val(),
 			    dsc:$('#dscFormularioInput').val()
-			 
-			 
-			 
-			 
 
 		 };
 		 return ticket;

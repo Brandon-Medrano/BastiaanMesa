@@ -32,6 +32,7 @@ class Ticket
     public $dsc;
     public $ugenero;
     public $areaSoli;
+    public $recesoId;
 }
 
 

@@ -62,7 +62,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                 . " MSVSCTGAID, "
                 . " MSVVSOLID, "
                 . " MSVSOLICITUDUSRRLZ, "
-                . " MSVRACTID, "
+                . " MSVETCKTTID, "
                 . " MSVPROYID, "
                 . " MSVSOLICITUDASUNTO, "
                 . " MSVSOLICITUDDESC)"
@@ -71,12 +71,12 @@ class TicketsRepositorio implements ITicketsRepositorio
                                    {
                                       if( $sentencia->bind_param("issssssssss",$id,
                                           $ticket->fSolicitud,
-                                          $ticket->mostrarHora,
+                                          $ticket->hInicial,
                                           $ticket->ugenero,
                                           $ticket->areaSoli,
                                           $ticket->viaId,
-                                          $ticket->estado,
-                                          $ticket->uRealiza,
+                                          $ticket->usuarioSol,
+                                          $ticket->recesoId,
                                           $ticket->proyecto,
                                           $ticket->asunto,
                                           $ticket->dsc))
