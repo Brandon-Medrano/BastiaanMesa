@@ -63,14 +63,14 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <div id="dialogo" title="Di�logo" style="display:none;">
 </div>
 <form id="form">
-	<div id="principalDiv"> 
+	<div id="principalDiv">
 		
 		<div id="debug" width="100%" style="display:none">
 				<input type="hidden" id="RPFREPFINCNMDLSID"  name="RPFREPFINCNMDLSID"   value ='<?php echo $modulo; ?>'/>
 				<input type="hidden" id="RPFREPFINCNOTRMID"  name="RPFREPFINCNOTRMID"   value ='<?php echo $opcionTerminal; ?>'/> 
 				<input type="hidden" id="RPFREPFINCNOTRMVER" name="RPFREPFINCNOTRMVER"  value ='<?php echo $version; ?>'/>
 				<input type="hidden" id="CNUSERID"           name="CNUSERID"            value ='<?php  echo $usuario; ?>>'/> 
-				<input type="hidden" id="CNUSERDESC"         name="CNUSERDESC"        value ='<?php  echo $CNUSERDESC; ?>'/>    
+				<input type="hidden" id="CNUSERDESC"           name="CNUSERDESC"            value ='<?php  echo $CNUSERDESC; ?>'/>    
 		</div>
 		
 		
@@ -133,7 +133,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                 	<div id="panelesArea0panel0componente0" style='overflow: auto; position:static;height:98%; width:100%; top:10px;left:3px;'>
 
                                <div id="grid" style="float:left; overflow: auto; position:static; height:95%; width:100%; display: block; top:5px;left:3px;"></div>                						
-                             		
+                            		
 	
                             		</div>
                            		</div>                                
@@ -170,8 +170,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								<div id="filtros " class="contenedorIEC" style="overflow: auto; position: relative; width: 100%; display: block;">
 								 <div style="width: 80%; display: block; height: 100%;  padding-top: 10px; padding-left: 34px;">								 	
 								   
-								   <table WIDHT=78%; id="exito" HEIGHT=65%; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 		
-								    
+								   <table WIDHT=150%; id="exito" HEIGHT=15%; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; width: inherit; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 							    
 								    <tr>
 								    <td> 
 								  
@@ -180,9 +179,6 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <td>
 								     		<input class="input" id="idFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:25%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        	</td>
-								    </tr>
-								    
-								    <tr>
 								    <td>						    
 								    		<label style="position: relative; left: 3px; ">Fecha de solicitud</label>
 								   		</td>
@@ -196,90 +192,65 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   		
 								   		<td>		
 								   		<input type="text" id="hInicialFormularioInput" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
-								   	
 								   		</td>
-								   <tr>		
-								   	    <td> 
-								   	  	     <label style="position: relative; left: 3px;">Usuario que genera ticket</label>
-								   	    </td>
-								   	    <td>						    
-								    		 <input   id="ugeneroFormularioTiket" onblur="vista.onBlur();" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
-								   	    </td>
-								        <td>
+								   		</tr>
+								   		<tr>
+								   		<td>
 					                         <label style="position: relative; left: 3px;">Via de Solicitud</label>
 								   	  	</td>
  								   	    <td>
 								     	     <select class="input" id="viaIdFormularioInput" descripcion="vi00000a" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" />
 								        </td>
-								 </tr>
-								  
-								  <tr>	
-								   	    <td> 
-								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
-								   	  	</td>
-								   		<td>
-								     	  <!--   <input class="input" id="correoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  -->
-								     	 	     <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text" style="width:290px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								    
-								       </td>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Estatus</label>
+								   		<td> 
+								   	  	    <label style="position: relative; left:54px;">Estatus</label>
 								   	  	</td>
 								        <td>
 								       
 								           <select class="input" id="recesoIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
                                        
 								     	</td>
-								   </tr>   
-								   
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Copia de correo para</label>
-								   	  	</td>  
-								   	  	<td>
-								     	     <input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text" style="width:400px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-								        </td>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Usuario realizador</label>
-								   	  	</td>
-								   	  	 <td>
-								     	     <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        </td>
-								        
-								          <td> 
-								   	  	    <label style="position: relative; left: 3px;">Importancia</label>
+								     	<td> 
+								   	  	    <label style="width:500px; position: relative; left: 90%;">Importancia</label>
 								   	  	</td>
 								        <td>
 								       
-								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-                                       
+								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 60px; box-shadow: 2px 2px 5px #999;"/>                                      
 								     	</td>
-		
+								   		</tr>
+								   		</table>
+								   <table WIDHT=35%; id="exito" HEIGHT=20%; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
+								   <tr>		
+								   	    <td> 
+								   	  	     <label style="position: relative; left: 3px;">Usuario que solicita ticket</label>
+								   	    </td>
+								   	    <td>						    
+								    		 <input   id="ugeneroFormularioTiket" onblur="vista.onBlur();" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
+								   	    </td>
+								   	    <td> 
+								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
+								   	  	</td>
+								   		<td>
+								     	 	     <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text" style="width:240%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>								    
+								       </td>
+								   </tr>   
 								    <tr>
 								        <td> 
 								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
 								   	  	</td>
 								   	  	 <td>
-								     	  <!--      <input class="input" id="proyectoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>-->
-								     
-								    	  <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  
-								    
+								    	  <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  								    
 								        </td>
-								    
-								    </tr>   
-								    <tr>
 								        <td> 
-								   	  	    <label>Telefono</label>
+								   	  	    <label style="position: relative; left: 3px;">Telefono</label>
 								   	  	</td>
 								   	  	<td>
-								     	 <!-- <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>-->
-								      	     <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								     
+								     	  <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
 								   	  	 <td> 
-								   	  	    <label >Ext.</label>
+								   	  	    <label style="position: relative; left: 3px;" >Ext.</label>
 								   	  	</td>
 								   	  	<td>
-								     	     <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
+								     	     <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" style="width:170px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
 								        </td>
 								    </tr>
 								    <tr>
@@ -289,24 +260,37 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                        <td>
 								     	     <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
+										<td> 
+											<label style="position: relative; left: 3px;">Usuario realizador</label>
+										</td>
+										<td>
+											<select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+										</td>
 								    </tr>
-								    
+								    </table>
+								   <table WIDHT=100%; id="exito" HEIGHT=50%; CELLPADDING=0; cellspacing="10" style="top: 24px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">								   
 								    <tr>
-								   
 								      <td>
 							        	      <label style="position: relative; left: 3px; ">Asunto</label>
                                         </td>
                                         <td>
-                                             <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo" style="width:120%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-                                       </td> 
-								         
-								    </tr>
-								    <tr>
+                                     	        <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                     	</td> 
+                                     	</tr>
+                                     	<tr>
+                                        <td> 
+											<label style="position: relative; left: 3px;">Copia de correo para</label>
+										</td>  
+										<td>
+											<input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text" style="width:400px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
+										</td>
+										</tr>
+										<tr>
 								        <td>
 							        	      <label style="position: relative; left: 3px; ">Detalle del requerimeinto</label>
                                         </td>
                                         <td>
-                                             <input class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="width:160%; heigth:140%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
+                                             <textarea textarea name="dscFormularioInput" rows="15" cols="110" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/></textarea>
                                        </td>
 								    </tr>
 								   	</table>	     	
@@ -318,7 +302,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						</div>
 				</div>
 		</div>
-		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
+		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
@@ -328,13 +312,6 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		<div class='ventana' id='PromptSentencia' style='display:none; z-index:9001;'></div>
 		<div class='ventana' id='PromptCriterioSeleccion' style='display:none; z-index:9001;'></div>    
 </div>
-
-
-
-
-
-
-
 </form>
 </body>
 </html>
