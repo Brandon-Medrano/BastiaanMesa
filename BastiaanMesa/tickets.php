@@ -178,7 +178,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label style="position: relative;  left: 3px;">No. de ticket</label>
 								   	  	    </td>
 								   	  	    <td>
-								     		<input class="input" id="noTicketFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:25%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     		<input class="input" id="idFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:25%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        	</td>
 								    </tr>
 								    

@@ -56,39 +56,39 @@ class TicketsRepositorio implements ITicketsRepositorio
             $id = $resultado->valor;
             $consulta = " INSERT INTO bstnmsv.msvsolicitud "
                 . " (MSVSOLICITUDNOLIN, "
-                    . " MSVSOLICITUDFSOL, "
-                        . " MSVSOLICITUDHSOL, "
-                            . " MSVSOLICITUDUSRSOLID, "
-                                . " MSVVSOLID, "
-                                    . " MSVRACTID, "
-                                        . " MSVSOLICITUDUSRRLZ, "
-                                            . " MSVPROYID, "
-                                                . " MSVSOLICITUDASUNTO, "
-                                                    . " MSVSOLICITUDDESC)"
-                                                        . " VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                                                        if($sentencia = $this->conexion->prepare($consulta))
-                                                        {
-                                                            if( $sentencia->bind_param("ssssssssss",$id,
-                                                                $ticket->fInicial,
-                                                                $ticket->hInicial,
-                                                                $ticket->usuarioSol,
-                                                                $ticket->vSolicitud,
-                                                                $ticket->estado,
-                                                                $ticket->uRealiza,
-                                                                $ticket->proyecto,
-                                                                $ticket->asunto,
-                                                                $ticket->descripcion))
-                                                            {
-                                                                if(!$sentencia->execute())
-                                                                    $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
-                                                            }
-                                                            else
-                                                                $resultado->mensajeError = "Falló el enlace de parámetros";
-                                                        }
-                                                        else
-                                                            $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
-        }
-        return $resultado;
+                . " MSVSOLICITUDFSOL, "
+                . " MSVSOLICITUDHSOL, "
+                . " MSVSOLICITUDUSRSOLID, "
+                . " MSVVSOLID, "
+                . " MSVRACTID, "
+                . " MSVSOLICITUDUSRRLZ, "
+                . " MSVPROYID, "
+                . " MSVSOLICITUDASUNTO, "
+                . " MSVSOLICITUDDESC)"
+                . " VALUE(?,?,?,?,?,?,?,?,?,?)";
+                              if($sentencia = $this->conexion->prepare($consulta))
+                                   {
+                                      if( $sentencia->bind_param("isssssssss",$id,
+                                          $ticket->fInicial,
+                                          $ticket->hInicial,
+                                          $ticket->usuarioSol,
+                                          $ticket->vSolicitud,
+                                          $ticket->estado,
+                                          $ticket->uRealiza,
+                                          $ticket->proyecto,
+                                          $ticket->asunto,
+                                          $ticket->descripcion))
+                                      {
+                                         if(!$sentencia->execute())
+                                             $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                                      }
+                                     else
+                                          $resultado->mensajeError = "Falló el enlace de parámetros";
+                                     }
+                                       else
+                                           $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                                   }
+           return $resultado;
     }
      public function eliminar($llaves)
      {

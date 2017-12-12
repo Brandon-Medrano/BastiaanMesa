@@ -369,7 +369,7 @@ class TicketsVista
 	
 	set ticket(valor)
 	{		
-		$('#noTicketFormularioInput').val(valor.id);
+		$('#idFormularioInput').val(valor.id);
 		$('#fSolicitudFormularioInput').val(valor.fInicial);
 		$('#mostrarHora').val(valor.hInicial);
 		$('#ugeneroFormularioTiket').val(valor.usuarioSol);
@@ -379,6 +379,40 @@ class TicketsVista
 		$('#proyectoFormularioInput').val(valor.proyecto);
 		$('#asuntoFormularioInput').val(valor.asunto);
 		$('#dscFormularioInput').val(valor.descripcion);
+		 /* */
+		  $('#noTicketFormularioInput').val(valor.id);
+		  $('#fSolicitudFormularioInput').val(valor.fSolicitud);
+		  $('#mostrarHora').val(valor.mostrarHora);
+		  $('#ugeneroFormularioTiket').val(valor.ugenero);
+		  $('#viaIdFormularioInput').val(valor.viaId);
+		  $('#recesoIdFormularioInput').val(valor.recesoId);
+		  $('#usuarioRealizadorFormularioInput').val(valor.usuarioRealizador);
+		  $('#proyectoFormularioInput').val(valor.proyecto);
+		  $('#asuntoFormularioInput').val(valor.asunto);
+		  $('#dscFormularioInput').val(valor.dsc);
+		  $('#correoFormularioInput').val(valor.correo);
+		  $('#copiaCorreoFormularioInput').val(valor.copiaCorreo);
+		  $('#importanciaIdFormularioInput').val(valor.importanciaId);
+		  $('#telefonoFormularioInput').val(valor.telefono);
+		  $('#extensionFormularioInput').val(valor.extension);
+		  $('#areaSoliFormularioInput').val(valor.areaSoli);
+	 
+					 
+				/*	 */
+					 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	get ticket()
@@ -386,15 +420,44 @@ class TicketsVista
 		 var ticket = 
 		 {				    
 			 id:$('#noTicketFormularioInput').val(),
-			 fInicial:$('#fSolicitudFormularioInput').val(),
-			 hInicial:$('#mostrarHora').val(),
-			 usuarioSol:$('#ugeneroFormularioTiket').val(),
-			 vSolicitud:$('#viaIdFormularioInput').val(),
-			 estado:$('#recesoIdFormularioInput').val(),
-			 uRealiza:$('#usuarioRealizadorFormularioInput').val(),
+			 fSolicitud:$('#fSolicitudFormularioInput').val(),
+			 mostrarHora:$('#mostrarHora').val(),
+			 ugenero:$('#ugeneroFormularioTiket').val(),
+			 viaId:$('#viaIdFormularioInput').val(),
+			 correo:$('#correoFormularioInput').val(),
+			 recesoId:$('#recesoIdFormularioInput').val(),
+			 copiaCorreo:$('#copiaCorreoFormularioInput').val(),
+			 usuarioRealizador:$('#usuarioRealizadorFormularioInput').val(),
+			 importanciaId:$('#importanciaIdFormularioInput').val(),
 			 proyecto:$('#proyectoFormularioInput').val(),
+			 telefono:$('#telefonoFormularioInput').val(),
+			 extension:$('#extensionFormularioInput').val(),
+			 areaSoli:$('#areaSoliFormularioInput').val(),
 			 asunto:$('#asuntoFormularioInput').val(),
-			 descripcion:$('#dscFormularioInput').val()
+			 dsc:$('#dscFormularioInput').val(),
+			 
+			 
+			   id:$('#noTicketFormularioInput').val(),
+			    fSolicitud:$('#fSolicitudFormularioInput').val(),
+			    mostrarHora:$('#mostrarHora').val(),
+			    ugenero:$('#ugeneroFormularioTiket').val(),
+			    viaId:$('#viaIdFormularioInput').val(),
+			    correo:$('#correoFormularioInput').val(),
+			    recesoId:$('#recesoIdFormularioInput').val(),
+			    copiaCorreo:$('#copiaCorreoFormularioInput').val(),
+			    usuarioRealizador:$('#usuarioRealizadorFormularioInput').val(),
+			    importanciaId:$('#importanciaIdFormularioInput').val(),
+			    proyecto:$('#proyectoFormularioInput').val(),
+			    telefono:$('#telefonoFormularioInput').val(),
+			    extension:$('#extensionFormularioInput').val(),
+			    areaSoli:$('#areaSoliFormularioInput').val(),
+			    asunto:$('#asuntoFormularioInput').val(),
+			    dsc:$('#dscFormularioInput').val()
+			 
+			 
+			 
+			 
+
 		 };
 		 return ticket;
 	 }
