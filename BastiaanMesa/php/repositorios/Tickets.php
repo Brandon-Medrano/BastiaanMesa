@@ -99,6 +99,13 @@ try
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
+                    
+           case 'consultarPorProyecto':
+                $criteriosProyectos = json_decode(REQUEST('criteriosProyectos'));
+                $resultado = $repositorio->consultarPorProyecto($criteriosProyectos);
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
         }
     }
     
