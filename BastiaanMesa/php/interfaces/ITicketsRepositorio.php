@@ -14,4 +14,6 @@ interface ITicketsRepositorio
     public function consultarPorNaye($criteriosNayee); 
     public function consultarPorEstatu();
     public function consultarPorImportancia();
+    public function consultarPorArea($criteriosAreas);
+    public function consultarPorUsuario($criteriosUsuarios); 
 }

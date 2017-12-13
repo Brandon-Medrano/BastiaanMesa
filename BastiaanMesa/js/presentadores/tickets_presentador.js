@@ -32,6 +32,34 @@ class TicketsPresentador
 			this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 
+	 /* usuarios */	 
+	 consultarPorUsuario()
+	 {
+		 var repositorio = new TicketsRepositorio(this);		
+		 repositorio.consultarPorUsuario(this,this.consultarPorUsuarioResultado,this.vista.criteriosUsuarios);
+	 }
+	 consultarPorUsuarioResultado(resultado)
+	 {
+		if(resultado.mensajeError=="")
+			this.vista.datosUsuarios = resultado.valor;
+		else
+			this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	/* */
+	 /* AREAS */	 
+	 consultarPorArea()
+	 {
+		 var repositorio = new TicketsRepositorio(this);		
+		 repositorio.consultarPorArea(this,this.consultarPorAreaResultado,this.vista.criteriosAreas);
+	 }
+	 consultarPorAreaResultado(resultado)
+	 {
+		if(resultado.mensajeError=="")
+			this.vista.datosAreas = resultado.valor;
+		else
+			this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	/* */
 	 /* Estatus*/
 	 consultarPorEstatu()
 	 {

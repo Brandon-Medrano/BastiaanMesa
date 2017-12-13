@@ -380,12 +380,12 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $nayee = array();
          
-         $consulta  =  " SELECT DISTINCT(B.MSVUSUARIOSNOMC) usuarioSol, B.MSVUSUARIOSCEPER correo, C.MSVPROYNOMC proyecto,  MSVUSUARIOSTELCEL telefono, D.MSVSCTGANOML area, B.MSVUSUARIOSEXT extension ".
+         $consulta  =  " SELECT DISTINCT(B.MSVSOLICITUDUSRSOLID) usuarioSol, B.MSVUSUARIOSCEPER correo, C.MSVPROYNOMC proyecto,  MSVUSUARIOSTELCEL telefono, D.MSVSCTGANOML area, B.MSVUSUARIOSEXT extension ".
              " FROM bstnmsv.msvsolicitud A".
              " INNER JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
              " INNER JOIN bstnmsv.msvsctga D ON A.MSVSCTGAID = D.MSVSCTGAID " .
              " INNER JOIN bstnmsv.msvproy C ON A.MSVPROYID = C.MSVPROYID ".
-             " WHERE B.MSVUSUARIOSNOMC  like CONCAT('%',?,'%') ";
+             " WHERE B.MSVSOLICITUDUSRSOLID  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
          {
              if($sentencia->bind_param("s",$criteriosNayee-> usuarioSol))
@@ -421,6 +421,97 @@ class TicketsRepositorio implements ITicketsRepositorio
              $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
              return $resultado;
      }
-   
+     public function consultarPorArea($criteriosAreas)
+     
+     {
+         $resultado = new Resultado();
+         $areas = array();
+         
+         $consulta = " SELECT MSVSCTGAID id, MSVSCTGANOML agenteId".
+             " FROM bstnmsv.msvsctga ".
+             " WHERE MSVSCTGAID like CONCAT ('%',?,'%') ".
+             "AND  MSVSCTGANOML  like CONCAT('%',?,'%')";
+         
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("ss",$criteriosAreas->agenteId,
+                 $criteriosAreas->agente))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($id, $agenteId)  )
+                     {
+                         while($row = $sentencia->fetch())
+                         {
+                             $area = (object) [
+                                 'id' => utf8_encode($id),
+                                 'agenteId' =>  utf8_encode($agenteId)
+                             ];
+                             array_push($areas,$area);
+                         }
+                         $resultado->valor = $areas;
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             
+             
+             return $resultado;
+     }   
+     
+     public function  consultarPorUsuario($criteriosUsuarios)
+     
+     {
+         $resultado = new Resultado();
+         $usuarios = array();
+         
+         $consulta = " SELECT MSVSOLICITUDUSRSOLID id, MSVUSUARIOSNOMC nayeagenteId".
+             " FROM bstnmsv.msvusuarios ".
+             " WHERE MSVSOLICITUDUSRSOLID like CONCAT ('%',?,'%') ".
+             " AND  MSVUSUARIOSNOMC  like CONCAT('%',?,'%')";
+         
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("ss",$criteriosUsuarios->id,
+                 $criteriosUsuarios->nayeagenteId))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($id, $nayeagenteId)  )
+                     {
+                         while($row = $sentencia->fetch())
+                         {
+                             $usuario = (object) [
+                                 'id' => utf8_encode($id),
+                                 'nayeagenteId' =>  utf8_encode($nayeagenteId)
+                             ];
+                             array_push($usuarios,$usuario);
+                         }
+                         $resultado->valor = $usuarios;
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             
+             
+             return $resultado;
+     }
+     
 
 }

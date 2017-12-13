@@ -25,7 +25,48 @@ class TicketsRepositorio
 		var datos = JSON.parse(resultado);
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}
+	/* AREAS */ 
+	consultarPorArea(contexto,functionRetorno, criteriosAreas)
+	{		
+		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorArea";
+        parametros += "&criteriosAreas=" +  encodeURIComponent(JSON.stringify(criteriosAreas));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorAreaResultado, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorAreaResultado(resultado)
+	{
+		var datosAreas = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 	
+	/* Usuarios */ 
+	consultarPorUsuario(contexto,functionRetorno, criteriosUsuarios)
+	{		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorUsuario";
+        parametros += "&criteriosUsuarios=" +  encodeURIComponent(JSON.stringify(criteriosUsuarios));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorUsuarioResultado, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorUsuarioResultado(resultado)
+	{
+		var datosUsuarios = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 
 	consultar(contexto,functionRetorno, criteriosSeleccion)
 	{		

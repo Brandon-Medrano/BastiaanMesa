@@ -218,14 +218,23 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								     	</td>
 								   		</tr>
 								   		</table>
-								   <table WIDHT=35%; id="exito" HEIGHT=20%; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
+								   <table WIDHT=35%; id="exito" HEIGHT=22%; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
 								   <tr>		
-								   	    <td> 
-								   	  	     <label style="position: relative; left: 3px;">Usuario que solicita ticket</label>
-								   	    </td>
-								   	    <td>						    
-								    		 <input   id="ugeneroFormularioTiket" onblur="vista.onBlur();" style="width:330px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" />
-								   	    </td>
+								   <td> 
+								  
+								   	  	    <label style="position: relative; left: 3px;">Usuario que solicita ticket</label>
+								   	  	    </td>
+								   	  	    <td>
+								     		<input class="input" id="ugeneroFormularioTiket" onFocusout="vista.onBlur();" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" autofocus />
+								        	</td>
+								        	<td>
+								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios' style="left: 3px"> 	
+								        	</td>
+								        	<td>	
+	                                   		<input class="input" id="agenteIdFormularioInput" descripcion="agenteId" style="width:240px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; right: 30px; box-shadow: 2px 2px 5px #999;" disabled/>
+								</td>
+								</tr>
+								<tr>
 								   	    <td> 
 								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
 								   	  	</td>
@@ -304,7 +313,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 				</div>
 		</div>
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
-		
+		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
 		<div class='ventana' id='promptListaRelaciones' style='display: none;'></div>

@@ -80,9 +80,22 @@ try
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
+            case 'consultarPorArea':
+                $criteriosAreas = json_decode(REQUEST('criteriosAreas'));
+                $resultado = $repositorio->consultarPorArea($criteriosAreas);
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
                     
             case 'consultarPorVia':
                 $resultado = $repositorio->consultarPorVia();
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
+                    
+            case 'consultarPorUsuario':
+                $criteriosUsuarios = json_decode(REQUEST('criteriosUsuarios'));
+                $resultado = $repositorio->consultarPorUsuario($criteriosUsuarios);
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
