@@ -165,7 +165,7 @@ class TicketsRepositorio implements ITicketsRepositorio
          $tickets = array();
          
          $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
-         " DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTID ESTATUS ".
+         " DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTNOML estado".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
              " WHERE A.MSVRACTID  like CONCAT('%',?,'%') ".
