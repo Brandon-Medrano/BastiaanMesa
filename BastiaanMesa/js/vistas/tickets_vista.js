@@ -66,8 +66,6 @@ class TicketsVista
          //var nombre = document.getElementById("");
 		this.presentador.consultarPorNaye();
 		
-		
-		
 	}
 	set datosNayee(valor)
 	{		
