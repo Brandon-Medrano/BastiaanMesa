@@ -596,6 +596,7 @@ class TicketsVista
 		$('#principalDiv').hide()	
 		$('#formularioDiv').show();
 		this.mostrarFormulario();
+		this.onBlur();
 
 	 }  
 	

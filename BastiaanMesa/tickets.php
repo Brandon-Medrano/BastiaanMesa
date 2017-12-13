@@ -225,7 +225,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	  	    <label style="position: relative; left: 3px;">Usuario que solicita ticket</label>
 								   	  	    </td>
 								   	  	    <td>
-								     		<input class="input" id="ugeneroFormularioTiket" onFocusout="vista.onBlur();" descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" autofocus />
+								     		<input class="input" id="ugeneroFormularioTiket"  descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        	</td>
 								        	<td>
 								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios' style="left: 3px"> 	
