@@ -252,8 +252,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								                 
 								                <a>Correo electronico</a>
 								   	  	         <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text" style="width:240%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>								    
-								      
-								    
+								
 								    
 								        <td>
 							        	      <a>Detalle del requerimiento</a>
