@@ -170,20 +170,20 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								<div id="filtros " class="contenedorIEC" style="overflow: auto; position: relative; width: 100%; display: block;">
 								 <div style="width: 80%; display: block; height: 100%;  padding-top: 10px; padding-left: 34px;">								 	
 								   
-								   <table WIDHT=150%; id="exito" HEIGHT=15%; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; width: inherit; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 							    
+								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 							    
 								    <tr>
 								    <td> 
 								  
 								   	  	    <label style="position: relative;  left: 3px;">No. de ticket</label>
 								   	  	    </td>
 								   	  	    <td>
-								     		<input class="input" id="idFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:25%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
+								     		<input class="input" id="idFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:auto; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        	</td>
 								    <td>						    
 								    		<label style="position: relative; left: 3px; ">Fecha de solicitud</label>
 								   		</td>
 								   		<td>		
-								   			<input id="fSolicitudFormularioInput" type="date" step="2" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
+								   			<input id="fSolicitudFormularioInput" type="date" step="2" style="width:auto; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
 								   		</td>
 								   		
 								   		<td>						    
@@ -210,15 +210,15 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                        
 								     	</td>
 								     	<td> 
-								   	  	    <label style="width:500px; position: relative; left: 90%;">Importancia</label>
+								   	  	    <label style="width:500px; position: relative; left: auto;">Importancia</label>
 								   	  	</td>
 								        <td>
 								       
-								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 60px; box-shadow: 2px 2px 5px #999;"/>                                      
+								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"/>                                      
 								     	</td>
 								   		</tr>
 								   		</table>
-								   <table WIDHT=35%; id="exito" HEIGHT=22%; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
+								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
 								   <tr>		
 								   <td> 
 								  
@@ -245,9 +245,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								    <tr>
 								        <td> 
 								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
-								   	  	</td>
-								        	<td>
-								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3px"> 	
+								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3%"> 	
 								        	</td>
 								   	  	 <td>
 								    	  <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  								    
@@ -268,7 +266,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								    <tr>
 								       <td>
 								           <label style="position: relative; left: 3px;">Area Solicitante</label>
-								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: 3px"> 	
+								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: auto"> 	
 								      </td>
                                        <td>
 								     	     <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
@@ -281,7 +279,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 										</td>
 								    </tr>
 								    </table>
-								   <table WIDHT=100%; id="exito" HEIGHT=50%; CELLPADDING=0; cellspacing="10" style="top: 24px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">								   
+								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="top: 24px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">								   
 								    <tr>
 								      <td>
 							        	      <label style="position: relative; left: 3px; ">Asunto</label>
@@ -303,7 +301,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							        	      <label style="position: relative; left: 3px; ">Detalle del requerimeinto</label>
                                         </td>
                                         <td>
-                                             <textarea textarea name="dscFormularioInput" rows="15" cols="110" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/></textarea>
+                                             <textarea textarea name="dscFormularioInput" rows="15" cols="99" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"/></textarea>
                                        </td>
 								    </tr>
 								   	</table>	     	
