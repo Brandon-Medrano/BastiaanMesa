@@ -301,7 +301,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							        	      <label style="position: relative; left: 3px; ">Detalle del requerimeinto</label>
                                         </td>
                                         <td>
-                                             <textarea textarea name="dscFormularioInput" rows="15" cols="99" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"/></textarea>
+                                             <textarea textarea name="dscFormularioInput" rows="12" cols="99" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"/></textarea>
                                        </td>
 								    </tr>
 								   	</table>	     	

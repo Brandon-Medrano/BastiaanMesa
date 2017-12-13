@@ -62,7 +62,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                 . " MSVSCTGAID, "
                 . " MSVVSOLID, "
                 . " MSVSOLICITUDUSRRLZ, "
-                . " MSVETCKTTID, "
+                . " MSVRACTID, "
                 . " MSVPROYID, "
                 . " MSVSOLICITUDASUNTO, "
                 . " MSVSOLICITUDDESC)"
@@ -164,10 +164,11 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $tickets = array();
          
-         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTNOML estado".
-             " FROM bstnmsv.msvsolicitud A".
-             " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
-             " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ".
+         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
+         " DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTID ESTATUS ".
+         " FROM bstnmsv.msvsolicitud A ".
+        " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
+             " WHERE A.MSVRACTID  like CONCAT('%',?,'%') ".
              " AND (MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
              " OR MSVSOLICITUDFT like CONCAT('%',?,'%')) ".
              " AND MSVSOLICITUDUSRSOLID like CONCAT('%',?,'%') ";

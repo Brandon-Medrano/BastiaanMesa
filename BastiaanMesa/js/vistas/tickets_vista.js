@@ -42,7 +42,7 @@ class TicketsVista
 			{longitud:150, 	titulo:"Usuario que solicita",   alias:"usuarioSol", alineacion:"I" }, 
 			{longitud:150, 	titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"I" }, 
 			{longitud:150, 	titulo:"Fecha de termino solicitada",   alias:"fFinal", alineacion:"I" },	
-			{longitud:150, 	titulo:"Estado",   alias:"estado", alineacion:"I" },
+			{longitud:150, 	titulo:"Estatus",   alias:"estado", alineacion:"I" },
 
 		]
 		
@@ -141,6 +141,10 @@ class TicketsVista
 			  }
   	    var horaImprime = hora + " : " + minuto + " : " + segundo;
         document.getElementById('hInicialFormularioInput').value = horaImprime;
+        
+    		 	
+    		var a = $('#noTicketFormularioInput').val(valor.id);
+    		 
 	}
 	
 	btnBaja_onClick()
