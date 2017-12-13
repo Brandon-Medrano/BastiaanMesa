@@ -67,7 +67,27 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
  /*  */
-
+	/* proyecto */ 
+	consultarPorProyecto(contexto,functionRetorno, criteriosProyectos)
+	{		
+		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorProyecto";
+        parametros += "&criteriosProyectos=" +  encodeURIComponent(JSON.stringify(criteriosProyectos));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorProyectoResultado, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorProyectoResultado(resultado)
+	{
+		var datosProyectos = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 	consultar(contexto,functionRetorno, criteriosSeleccion)
 	{		
 		this.contexto = contexto;

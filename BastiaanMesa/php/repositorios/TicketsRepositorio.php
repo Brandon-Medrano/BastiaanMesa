@@ -164,8 +164,9 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $tickets = array();
          
-         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, MSVETCKTTID estado".
-             " FROM bstnmsv.msvsolicitud".
+         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTNOML estado".
+             " FROM bstnmsv.msvsolicitud A".
+             " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
              " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ".
              " AND (MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
              " OR MSVSOLICITUDFT like CONCAT('%',?,'%')) ".
@@ -335,8 +336,8 @@ class TicketsRepositorio implements ITicketsRepositorio
      {
          
          $resultado = new Resultado();
-         $consulta =  " SELECT MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol,MSVSOLICITUDFSOL fInicial, MSVSOLICITUDFT fFinal, MSVETCKTTID estado".
-             " FROM bstnmsv.msvsolicitud".
+         $consulta =  " SELECT MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol,MSVSOLICITUDFSOL fInicial, MSVSOLICITUDFT fFinal, MSVRACTID estado".
+             " FROM bstnmsv.msvsolicitud A".
              " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
          {
@@ -512,6 +513,53 @@ class TicketsRepositorio implements ITicketsRepositorio
              
              return $resultado;
      }
+     
+     public function consultarPorProyecto($criteriosProyectos)
+     
+     {
+         $resultado = new Resultado();
+         $proyectos = array();
+         
+         $consulta = " SELECT MSVPROYID id, MSVPROYNOML agenteId".
+             " FROM bstnmsv.msvproy ".
+             " WHERE MSVPROYID like CONCAT ('%',?,'%') ".
+             "AND  MSVPROYNOML  like CONCAT('%',?,'%')";
+         
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("ss",$criteriosProyectos->agenteId,
+                 $criteriosProyectos->agente))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($id, $agenteId)  )
+                     {
+                         while($row = $sentencia->fetch())
+                         {
+                             $proyecto = (object) [
+                                 'id' => utf8_encode($id),
+                                 'agenteId' =>  utf8_encode($agenteId)
+                             ];
+                             array_push($proyectos,$proyecto);
+                         }
+                         $resultado->valor = $proyectos;
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             
+             
+             return $resultado;
+     }
+     
      
 
 }

@@ -60,6 +60,20 @@ class TicketsPresentador
 			this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 	/* */
+	 /* AREAS */	 
+	 consultarPorProyecto()
+	 {
+		 var repositorio = new TicketsRepositorio(this);		
+		 repositorio.consultarPorProyecto(this,this.consultarPorProyectoResultado,this.vista.criteriosProyectos);
+	 }
+	 consultarPorProyectoResultado(resultado)
+	 {
+		if(resultado.mensajeError=="")
+			this.vista.datosProyectos = resultado.valor;
+		else
+			this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	/* */
 	 /* Estatus*/
 	 consultarPorEstatu()
 	 {

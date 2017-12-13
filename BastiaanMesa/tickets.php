@@ -15,7 +15,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 <title>Catalogo de usuarios</title>
 <head>	
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta charset="UTF-8">
 	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>
 	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/json2.js"></script>
@@ -246,6 +246,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								        <td> 
 								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
 								   	  	</td>
+								        	<td>
+								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3px"> 	
+								        	</td>
 								   	  	 <td>
 								    	  <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  								    
 								        </td>
@@ -314,6 +317,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		</div>
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
+		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
 		<div class='ventana' id='promptListaRelaciones' style='display: none;'></div>
