@@ -256,7 +256,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								    <tr>
 								       <td>
 								           <label style="position: relative; left: 3px;">Area Solicitante</label>
-                                       </td>
+								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: 3px"> 	
+								      </td>
                                        <td>
 								     	     <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
 								        </td>
