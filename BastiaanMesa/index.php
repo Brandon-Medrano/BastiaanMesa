@@ -154,7 +154,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   
 								   <table>	
 								  
-								      <div class="card-panel white z-depth-4">         
+								    
 								           <div class="row"> 
 								      
 								               <div class="col s4">  
@@ -190,7 +190,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   <!-- <table id="exito"> -->
 					 <div class="row">
 					      <div class="col s6">
-								   <div class="card-panel white z-depth-4">         
+								    
 								        <div class="row">
 								            <div class="col s6">
 								   	  	        <a>Usuario que solicita ticket</a>
@@ -200,35 +200,48 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                                 <input class="input" id="ugeneroFormularioTiket" disabled/>
                                                 <a>Nombre</a>
                                                 <input class="input" id="agenteIdFormularioInput" descripcion="agenteId" disabled/>
-                                                 <a>Telefono</a>
+                                                  <a>Correo electronico</a>
+								   	  	         <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>		
+								     	      </tr> 
+								     	      
+								     	     
+								            <div class="col s6">
+								     	         <a>Telefono</a>
 								       	        <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								            </div>
+								             <div class="col s6">
 								                 <a>Ext.</a>
 								     	         <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" disabled/>
-								     	      </tr>   
-								              
+								
 								        	</div>
-								       </div>
-								    </div>    
-					   </div>			    	
+								
+					     </div>    
+					</div>			    	
 								    
 				  </div>				    
 								    
                    								   
 						 <tr>
-								    
-								<div class="card-panel white z-depth-4">         
+								           
 								     <div class="row">
+								     
+								     
+								         	
 								            <div class="col s4"> 
-								   	  	         <a>Proyecto que pertenece</a>
-								    	         <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   disabled/> 
+								             
+								   	  	        <a>Proyecto que pertenece</a>
+								   	  	           <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3px"> 	
+								      	      
+								        	
+								    	      <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"  disabled/>  								    
+								    
 								    	     </div>  								    
 								         </div>     
-								  </div> 
+						
 							
 					    </tr>
 				         <tr>
-							
-								<div class="card-panel white z-depth-4">         
+							      
 							    	     <div class="row">
 							                <div clas="col s6">
 							  	              <a>Area Solicitante</a>
@@ -249,9 +262,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                      	        <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
                               					<a>Copia de correo para</a>
 										     	<input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
-								                 
-								                <a>Correo electronico</a>
-								   	  	         <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text" style="width:240%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>								    
+								                 						    
 								
 								    
 								        <td>
@@ -267,10 +278,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							</div>
 						</div>
 				</div>
-		</div>
 </div>		
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
-		
+		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
 		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
