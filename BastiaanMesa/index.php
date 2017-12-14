@@ -59,10 +59,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 </head>
 
 <body  onLoad="vista.onLoad()"  style="padding-left:3%; padding-right:3%">
-   <div class="card-panel White z-depth-4">
-   
-   
-   <!-- - -->
+   <div class="card-panel white z-depth-4">
+   <!-- -Uno div -->
        <header>
              <nav>
                   <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
@@ -92,7 +90,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
      </header>
 
 <!-- -=========criterios Seleccion=========== -->
-              <div class="card-panel White z-depth-4">
+             
                    <div class="row" id="criteriosSelecion">	
           
                                  <div class="col s3">
@@ -112,24 +110,24 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						                 <input  id='usuarioSolCriterioInput' type='text'></input>
 	                            </div>		
 	             </div>   	
-	         <div>
+	   
 	   
 <!-- -====================== -->
 <div>
     <form id="form">
-    <!-- dos de sobra -->
+    <!-- uno sobra -->
 	       <div id="principalDiv">
-	                 <div id="cargador" style="position:absolute;"></div>
+	                 <div id="cargador" style="position:absolute;"></div> <!-- cierra aqui -->
 			                     <div id="Pcontenido" style="position:relative;">            
 				                       <div id="tabs" class="PcontenComp" style="display:block;">
 				                            <div id="grid"></div>
 				                       </div>								
 			                     </div>	
-                      </div>  
-    
+         </div>  
+     
     
 <!--  ================================================================================================================================== -->
-         <div id="formularioDiv" style="display:none ;height: 90%;">
+      <div id="formularioDiv" style="display:none ;height: 90%;">
 <!-- -=====1 sobra================= -->
 	            <div>
 	          			<span id="txtTitulo" style="float:left;margin-top: 20px;margin-left: 15px;color: #FFFFFF;float: left;font-family: Verdana;font-size: 11px;font-weight: bold;">movimientos de personal</span>
@@ -138,7 +136,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		       	</div>
 
 <!--barra principal -->
-			<div id="cargador" class="cargadorFRM2"></div>
+			<div id="cargador" class="cargadorFRM2"></div> <!-- cierra aqui -->
 				<div class="pContenido" id="estadoEstructura" >
 						<div class="contenidoNormalUS">
 					 		<div class="explicacionFRM" >
@@ -146,130 +144,114 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								 <div>								 	
 								   
 								      <table>	
-								               <div class="row"> 
+								          <div class="row"> 
 								      
-								               <div class="col s4">  
-								   	  	           <a>No. de ticket</a>
-								   	  	            <input class="input" id="idFormularioInput" descripcion="agente" type="text"/>
-								              </div> 
-								              <div class="col s4"> 	
-								                   <a>Fecha de solicitud</a>		
-								   		        	<input id="fSolicitudFormularioInput" type="date" step="2" disabled/>
-								   	          </div>
-								   	          <div class="col s4">
-								   	 		       <a>Hora de solicitud</a>
-								   	            	<input type="text" id="hInicialFormularioInput" disabled/>
-								   	         </div>	
-								   	
-								   
-							  	            <div class="col s4">  
-					                               <a>Via de Solicitud</a>
-								     	              <select class="input" id="viaIdFormularioInput" type="text"/>
-								                 </div>
-								                 <div class="col s4">  
-								   	        	    <a>Estatus</a>
-								                       <select id="recesoIdFormularioInput" descripcion="RecesoLargo"/>
-								                 </div> 
-								                 <div class="col s4">      
-								   	            	    <a>Importancia</a>
-								                           <select id="importanciaIdFormularioInput" descripcion="RecesoLargo"/>
-								                 </div>      
-								   </tr>
-								  
-								  
-								   		</table>
-								   <!-- <table id="exito"> -->
-					 <div class="row">
-					      <div class="col s6">
-								    
-								        <div class="row">
-								            <div class="col s6">
-								   	  	        <a>Usuario que solicita ticket</a>
-                                                 <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios'> 	
-								            </div>	
-                                             <tr>  
-                                                <input class="input" id="ugeneroFormularioTiket" disabled/>
-                                                <a>Nombre</a>
-                                                <input class="input" id="agenteIdFormularioInput" descripcion="agenteId" disabled/>
-                                                  <a>Correo electronico</a>
-								   	  	         <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>		
-								     	      </tr> 
-								     	      
-								     	     
-								            <div class="col s6">
-								     	         <a>Telefono</a>
-								       	        <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
-								            </div>
-								             <div class="col s6">
-								                 <a>Ext.</a>
-								     	         <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" disabled/>
-								
-								        	</div>
-								
-					     </div>    
-					</div>			    	
-								    
-				  </div>				    
-								    
-                   								   
-						 <tr>
-								           
-								     <div class="row">
-								     
-								     
-								         	
-								            <div class="col s4"> 
-								             
-								   	  	        <a>Proyecto que pertenece</a>
-								   	  	           <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3px"> 	
-								      	      
-								        	
-								    	      <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"  disabled/>  								    
-								    
-								    	     </div>  								    
-								         </div>     
-						
-							
-					    </tr>
-				         <tr>
-							      
-							    	     <div class="row">
-							                <div clas="col s6">
-							  	              <a>Area Solicitante</a>
-								        	  <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: 3px"> 	
-								     	      <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								                  <div class="col s4">  
+								   	  	              <a>No. de ticket</a>
+								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/>
+								                  </div> 
+								                  <div class="col s4"> 	
+								                       <a>Fecha de solicitud</a>		
+								   		            	<input id="fSolicitudFormularioInput" type="date" step="2" disabled/>
+								   	              </div>
+								   	              <div class="col s4">
+								   	 		            <a>Hora de solicitud</a>
+								   	            	     <input type="text" id="hInicialFormularioInput" disabled/>
+								   	              </div>	
+								   	              <div class="col s4">  
+					                                    <a>Via de Solicitud</a>
+								     	                <select class="input" id="viaIdFormularioInput" type="text"/>
+								                  </div>
+								                   <div class="col s4">  
+								   	        	        <a>Estatus</a>
+								                         <select id="recesoIdFormularioInput" descripcion="RecesoLargo"/>
+								                   </div> 
+								                    <div class="col s4">      
+								   	            	      <a>Importancia</a>
+								                          <select id="importanciaIdFormularioInput" descripcion="RecesoLargo"/>
+								                   </div>      
 							                </div>
-							
-								     		<a>Usuario realizador</a>
-									
-											<select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
-								</div>			
-						</tr>
-								    </table>
-							
-							
-								     <tr>
-							            	    <a>Asunto</a>
-                                     	        <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
-                              					<a>Copia de correo para</a>
-										     	<input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
-								                 						
+								   </table>
+	<!--===========================================================================  -->
+								   
+					 <div class="row">
+					        <div class="col s6">
 								    
-								        <td>
-							        	      <a>Detalle del requerimiento</a>
-                                             <textarea name="dscFormularioInput" rows="15" cols="110" class="input" id="dscFormularioInput" descripcion="RecesoLargo"/></textarea>
-                                       </td>
-								    </tr>
-								   	</table>	     	
-									</div>
-									
-								 </div>
-								</div>				  	
-							</div>
-						</div>
-				</div>
-</div>		
+								      <div class="row">
+								             <div class="col s6">
+								   	  	          <a>Usuario que solicita ticket</a>
+                                                  <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios'> 	
+								             </div>	
+                                                  <input class="input" id="ugeneroFormularioTiket" disabled/>
+                                                   <a>Nombre</a>
+                                                   <input class="input" id="agenteIdFormularioInput" descripcion="agenteId" disabled/>
+                                                   <a>Correo electronico</a>
+								   	  	          <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>		
+								     	          
+								             <div class="col s6">
+								     	          <a>Telefono</a>
+								       	          <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								             </div>
+								             <div class="col s6">
+								                   <a>Ext.</a>
+								     	           <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" disabled/>
+								        	 </div>
+					                     </div>    
+				          	</div>			    				    
+				      </div>		
+						<!-- ====================================== -->	           
+								     <div class="row">
+								           <div class="col s4">     
+								   	  	      <a>Proyecto que pertenece</a>
+								   	  	      <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios'> 	
+								              <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"  disabled/>  								    
+							               </div>  
+					       
+							              <div class="col s4">
+							  	                <a>Area Solicitante</a>
+								        	    <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios'> 	
+								     	        <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+							              </div>
+							              
+							               <div class="col s4">
+							                    <a>Usuario realizador</a>
+										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+					        	          </div>
+							              
+						              </div>
+						<!-- ====================================== -->
+						
+						  	        	
+							    <div class="row">
+							      <div class="card-panel  orange lighten-5 z-depth-4">	
+						
+						              <div class="col s12">	    
+							                 <a>Copia de correo para</a>
+							    	         <input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
+						   	           </div>
+						               <div class="col s12">	
+						   	                  <a>Asunto</a>
+                                             <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+                                       </div>
+		                               <div class="col s12">	 
+								             <a>Detalle del requerimiento</a>
+                                              <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
+            					      </div> 
+            					 </div>   
+            		           </div>
+            		                 			         
+            			<!-- ====================================== -->
+            			 
+						<!-- ====================================== -->
+            					 
+								     	
+							   </div>
+					    </div>
+				   </div>				  	
+		    </div>
+     </div>
 </div>
+
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
 		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
@@ -280,10 +262,11 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		<div class='ventana' id='PromptCorreo' style='display: none;'></div>
 		<div class='ventana' id='PromptSentencia' style='display:none; z-index:9001;'></div>
 		<div class='ventana' id='PromptCriterioSeleccion' style='display:none; z-index:9001;'></div>    
- </div>
-</div>
-</form>
+       </div>
+   </form>
 
+  </div>
+</div>
 
 </body>
 </html>
