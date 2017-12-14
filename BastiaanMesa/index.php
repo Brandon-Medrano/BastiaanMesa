@@ -58,17 +58,34 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 </head>
 
-<body  onLoad="vista.onLoad()">
+<body  onLoad="vista.onLoad()"  style="padding-left:3%; padding-right:3%">
+   <div class="card-panel White z-depth-4">
+   
+   
+   <!-- - -->
        <header>
              <nav>
                   <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
                        <a href="#!" class="brand-logo">Logo</a>
                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                              <ul class="right hide-on-med-and-down">
-                                 <li><a href="logeo.php">
+                        
+                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i></a></li>
+                                 
+                                <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i></a></li>
+                                    
+                                <!-- 
                                      <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
 	                                 <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a>lock_open</i>Registro</a>
-	                             </li>
+	                             -->
+	                             
+	                             <!-- -telefono -->
+	                             <ul class="side-nav" id="mobile-demo">
+	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Consulta</a></li>
+                                    <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i>Consulta</a></li>
+                                </ul>
+	                             <!-- -telefono -->
+	                             
                             </ul>
                   </div>
             </nav>
@@ -76,7 +93,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 <!-- -=========criterios Seleccion=========== -->
               <div class="card-panel White z-depth-4">
-                   <div class="row">	
+                   <div class="row" id="criteriosSelecion">	
           
                                  <div class="col s3">
 		                	            <label>F. Inicial</label>									
@@ -252,6 +269,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						</div>
 				</div>
 </div>		
+</div>
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
 		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
@@ -265,5 +283,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
  </div>
 </div>
 </form>
+
+
 </body>
 </html>
