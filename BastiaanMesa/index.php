@@ -175,19 +175,19 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	<!--===========================================================================  -->
 								   
 					 <div class="row">
-					        <div class="col s6">
-								    
-								      <div class="row">
-								             <div class="col s6">
-								   	  	          <a>Usuario que solicita ticket</a>
-                                                  <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios'> 	
-								             </div>	
-                                                  <input class="input" id="ugeneroFormularioTiket" disabled/>
-                                                   <a>Nombre</a>
-                                                   <input class="input" id="agenteIdFormularioInput" descripcion="agenteId" disabled/>
+								      <div class="col s4">
+								     	          <a>Usuario que solicita ticket</a>
+								     	          <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios'> 
+								       	          <input class="input" id="ugeneroFormularioTiket" descripcion="vi00000a" type="text"  disabled/>
+								             </div>
+								             <div class="col s8">
+								                   <a>Nombre</a>
+								     	           <input class="input" id="agenteIdFormularioInput" descripcion="vi00000a" type="text" disabled/>
+								        	 </div>
+								        	 <div class="col s12">
                                                    <a>Correo electronico</a>
-								   	  	          <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>		
-								     	          
+								   	  	          <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								   	  	          </div>
 								             <div class="col s6">
 								     	          <a>Telefono</a>
 								       	          <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
@@ -195,9 +195,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								             <div class="col s6">
 								                   <a>Ext.</a>
 								     	           <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" disabled/>
-								        	 </div>
-					                     </div>    
-				          	</div>			    				    
+								        	 </div>				    
 				      </div>		
 						<!-- ====================================== -->	           
 								     <div class="row">

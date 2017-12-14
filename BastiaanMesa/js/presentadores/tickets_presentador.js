@@ -117,8 +117,21 @@ class TicketsPresentador
 	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 	 
+	 //ID
+	 calcularId()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.calcularId(this,this.calcularIdResultado,this.vista.criteriosVias);
+	 }
+	 consultarPorViaResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datosIds = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
 	 
-	 
+	 //
 	 insertar()
 	 {
 		 var repositorio = new TicketsRepositorio(this);			 

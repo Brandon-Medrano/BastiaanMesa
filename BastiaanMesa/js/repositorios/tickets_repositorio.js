@@ -46,6 +46,25 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
  /*  */
+	//ID
+	calcularId(contexto,functionRetorno, criteriosIds)
+	{		
+	    this.contexto = contexto;
+	    this.functionRetorno = functionRetorno;
+	    var parametros;
+	    parametros = "accion=calcularId";
+	    var contextHandler = new AjaxContextHandler();
+	    var host = window.location.origin + "/BastiaanMesa";	
+	    var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.calcularIdResultado, "POST", parametros, contextHandler);		
+	    contextHandler.AddAjaxv2Object(ai); 		
+	    ai.GetPost(true);
+	}
+	calcularIdResultado(resultado)
+	{
+	    var datos = JSON.parse(resultado);
+	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+	//
 	
 	/* Usuarios */ 
 	consultarPorUsuario(contexto,functionRetorno, criteriosUsuarios)
