@@ -69,8 +69,6 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
     <!-- uno sobra -->
 	       <div id="principalDiv">
 	       
-	       
-	       
 	        <header>
              <nav>
                   <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
@@ -89,7 +87,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	                             
 	                             <!-- -telefono -->
 	                             <ul class="side-nav" id="mobile-demo">
-	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Consulta</a></li>
+	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Alta</a></li>
                                     <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i>Consulta</a></li>
                                 </ul>
 	                             <!-- -telefono -->
@@ -137,10 +135,13 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <!--  ================================================================================================================================== -->
       <div id="formularioDiv" style="display:none ;height: 90%;">
 <!-- -=====1 sobra================= -->
-	            <div>
-	          			<span id="txtTitulo" style="float:left;margin-top: 20px;margin-left: 15px;color: #FFFFFF;float: left;font-family: Verdana;font-size: 11px;font-weight: bold;">movimientos de personal</span>
-	          			<img style="padding: 2px;" class='imgTipoBoton' id='btnGuardarFormulario' src='assets/botones/imgGuardar.png' onclick='vista.btnGuardarFormulario_onClick();' title='Guardar'/>
-				        <img style="padding: 2px;" class='imgTipoBoton' id='btnSalirFormulario' src='assets/botones/btnSalir.png' onClick="vista.btnSalirFormulario_onClick();" title='Salir'/>
+	            <div class="card-panel orange lighten-1 z-depth-3">
+	                    
+	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   blue">Save</a>      
+                         <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">X</a>      
+                                     
+		       	
+		       	
 		       	</div>
 		       	
 		       	
