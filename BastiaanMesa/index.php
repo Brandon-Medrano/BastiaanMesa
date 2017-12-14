@@ -41,7 +41,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
 	
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
-	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script> 
+	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
 
 <!-- ================================bastiaan=========================================-->
  <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
@@ -166,21 +166,26 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	              <div class="col s4">
 								   	 		            <a>Hora de solicitud</a>
 								   	            	     <input type="text" id="hInicialFormularioInput" disabled/>
-								   	              </div>	
-								   	              <div class="col s4">  
-					                                    <a>Via de Solicitud</a>
-								     	                <select class="input" id="viaIdFormularioInput"/>
-								                  </div>
-								                   <div class="col s4">  
-								   	        	        <a>Estatus</a>
-								                         <select id="recesoIdFormularioInput" descripcion="RecesoLargo"/>
-								                   </div> 
-								                    <div class="col s4">      
-								   	            	      <a>Importancia</a>
-								                          <select id="importanciaIdFormularioInput" descripcion="RecesoLargo"/>
-								                   </div>      
+								   	              </div>
 							                </div>
 								   </table>
+								   <div class="row">
+								           <div class="col s4">     
+								   	  	      <a>Via de solicitud</a>	
+								              <select class="input" id="viaIdFormularioInput" descripcion="vi00000a" disabled/>  								    
+							               </div>  
+					       
+							              <div class="col s4">
+							  	                <a>Estatus</a>	
+								     	        <select class="input" id="recesoIdFormularioInput" descripcion="RecesoLargo"  disabled/>
+							              </div>
+							              
+							               <div class="col s4">
+							                    <a>Importancia</a>
+										        <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" disabled/>
+					        	          </div>
+							              
+						              </div>
 	<!--===========================================================================  -->
 								   
 					 <div class="row">
@@ -224,30 +229,27 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							                    <a>Usuario realizador</a>
 										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
-							       
-						                     <div class="col s12">	
-						   	                    <a>Asunto</a>
-                                                <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
-                                            </div>
-                                            
-		                                   <div class="col s12">	 
-								               <a>Detalle del requerimiento</a>
-                                               <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
-            					          </div> 
 							              
 						              </div>
-						<!-- ====================================== -->
 						
-						  <!--   <div class="row">
+						
+						   <div class="row"><!-- 
+						   ======================================--> 
 							      <div class="card-panel  orange lighten-5 z-depth-4">	
 						
 						              <div class="col s12">	    
-							                 <a>Copia de correo para</a>
-							    	         <input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
+							                 <a></a>
+							    	         <input class="input" id="ODIO EL PUTO FRAMEWORK" descripcion="vi00000a" type="text"/>
 						   	           </div>
+                                       </div>
+                                       <div class="row">
 						               <div class="col s12">	
 						   	                  <a>Asunto</a>
                                              <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+                                       </div>
+                                       <div class="col s12">	
+						   	                  <a>Copia de correo para</a>
+                                             <input class="input" id="copiaCorreoFormularioInput" descripcion="RecesoLargo">
                                        </div>
 		                               <div class="col s12">	 
 								             <a>Detalle del requerimiento</a>
@@ -255,8 +257,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
             					      </div> 
             					 </div>   
             		           </div>
-            		        -->	        	
-							            			         
+            		          			         
             			<!-- ====================================== -->
 								     	
 							   </div>
