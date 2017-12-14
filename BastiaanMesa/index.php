@@ -262,8 +262,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                      	        <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
                               					<a>Copia de correo para</a>
 										     	<input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
-								                 						    
-								
+								                 						
 								    
 								        <td>
 							        	      <a>Detalle del requerimiento</a>
