@@ -41,7 +41,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
 	
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
-	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
+	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script> 
 
 <!-- ================================bastiaan=========================================-->
  <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
@@ -169,7 +169,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   	              </div>	
 								   	              <div class="col s4">  
 					                                    <a>Via de Solicitud</a>
-								     	                <select class="input" id="viaIdFormularioInput" type="text"/>
+								     	                <select class="input" id="viaIdFormularioInput"/>
 								                  </div>
 								                   <div class="col s4">  
 								   	        	        <a>Estatus</a>
