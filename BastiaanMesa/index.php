@@ -61,7 +61,17 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <body  onLoad="vista.onLoad()"  style="padding-left:3%; padding-right:3%">
    <div class="card-panel white z-depth-4">
    <!-- -Uno div -->
-       <header>
+      
+
+<!-- -====================== -->
+<div>
+    <form id="form">
+    <!-- uno sobra -->
+	       <div id="principalDiv">
+	       
+	       
+	       
+	        <header>
              <nav>
                   <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
                        <a href="#!" class="brand-logo">Logo</a>
@@ -88,7 +98,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                   </div>
             </nav>
      </header>
-
+	       
+	       
 <!-- -=========criterios Seleccion=========== -->
              
                    <div class="row" id="criteriosSelecion">	
@@ -112,11 +123,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	             </div>   	
 	   
 	   
-<!-- -====================== -->
-<div>
-    <form id="form">
-    <!-- uno sobra -->
-	       <div id="principalDiv">
+	  
+	       
 	                 <div id="cargador" style="position:absolute;"></div> <!-- cierra aqui -->
 			                     <div id="Pcontenido" style="position:relative;">            
 				                       <div id="tabs" class="PcontenComp" style="display:block;">
@@ -134,6 +142,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	          			<img style="padding: 2px;" class='imgTipoBoton' id='btnGuardarFormulario' src='assets/botones/imgGuardar.png' onclick='vista.btnGuardarFormulario_onClick();' title='Guardar'/>
 				        <img style="padding: 2px;" class='imgTipoBoton' id='btnSalirFormulario' src='assets/botones/btnSalir.png' onClick="vista.btnSalirFormulario_onClick();" title='Salir'/>
 		       	</div>
+		       	
+		       	
 
 <!--barra principal -->
 			<div id="cargador" class="cargadorFRM2"></div> <!-- cierra aqui -->
