@@ -139,9 +139,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	                    
 	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   blue">Save</a>      
                          <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">X</a>      
-                                     
-		       	
-		       	
+                
 		       	</div>
 		       	
 		       	
@@ -226,12 +224,21 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							                    <a>Usuario realizador</a>
 										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
+							       
+						                     <div class="col s12">	
+						   	                    <a>Asunto</a>
+                                                <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+                                            </div>
+                                            
+		                                   <div class="col s12">	 
+								               <a>Detalle del requerimiento</a>
+                                               <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
+            					          </div> 
 							              
 						              </div>
 						<!-- ====================================== -->
 						
-						  	        	
-							    <div class="row">
+						  <!--   <div class="row">
 							      <div class="card-panel  orange lighten-5 z-depth-4">	
 						
 						              <div class="col s12">	    
@@ -248,11 +255,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
             					      </div> 
             					 </div>   
             		           </div>
-            		                 			         
+            		        -->	        	
+							            			         
             			<!-- ====================================== -->
-            			 
-						<!-- ====================================== -->
-            					 
 								     	
 							   </div>
 					    </div>

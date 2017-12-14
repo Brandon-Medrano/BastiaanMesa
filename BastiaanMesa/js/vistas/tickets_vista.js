@@ -145,9 +145,7 @@ class TicketsVista
 			  }
   	    var horaImprime = hora + " : " + minuto + " : " + segundo;
         document.getElementById('hInicialFormularioInput').value = horaImprime;
-        
-    		 	
-    		var a = $('#noTicketFormularioInput').val(valor.id);
+     
     		 
 	}
 	
