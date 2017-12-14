@@ -39,113 +39,87 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/cargador.js"></script>
 <!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
- 	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.core.js'></script>
-	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker.js'></script>
-	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker-es.js'></script> 
 	
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
 
-
 <!-- ================================bastiaan=========================================-->
-
  <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
  <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
  <script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
 
-
-
 <!-- ==============================================================================-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- =========================================================================================-->
-   
-   
     <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
     <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
+<!-- =========================================================================================-->
 
 </head>
 
 <body  onLoad="vista.onLoad()">
-<div id="dialogo" title="Di�logo" style="display:none;">
-</div>
-
-     <header>
+       <header>
              <nav>
                   <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
                        <a href="#!" class="brand-logo">Logo</a>
                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                          <ul class="right hide-on-med-and-down">
-                             <li><a href="logeo.php">
-                             <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
-	                   <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a> 
-	                   lock_open</i>Registro</a></li>
-                         </ul>
+                             <ul class="right hide-on-med-and-down">
+                                 <li><a href="logeo.php">
+                                     <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
+	                                 <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a>lock_open</i>Registro</a>
+	                             </li>
+                            </ul>
                   </div>
             </nav>
      </header>
-  <div>
-   
-                                          
-  <div class="card-panel white z-depth-4">	
-      
-    <div class="card-panel White z-depth-4">
-          <div class="row">	
+
+<!-- -=========criterios Seleccion=========== -->
+              <div class="card-panel White z-depth-4">
+                   <div class="row">	
           
-                     <div class="col s12">
-      
-	                  
-                    </div>	
-                    <div class="col s3">
-		                	<label>F. Inicial</label>									
-		                	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
-	                </div>		
-                    <div class="col s3">				
-					       <label >F. Final</label>				
-					   	   <input  id='fFinalCriterioInput' class="datepicker" type='date'></input>
-	             	</div>				
-                    <div class="col s3">
-					    	<label>Estatus</label>									
-						    <input  id='estadoCriterioInput' type='text'></input>
-	                 </div>
-                     <div class="col s3">				
-					      	<label>Usuarios Solicitante</label>									
-						    <input  id='usuarioSolCriterioInput' type='text'></input>
-	                 </div>		
+                                 <div class="col s3">
+		                	            <label>F. Inicial</label>									
+		                              	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
+	                             </div>		
+                                 <div class="col s3">				
+					                    <label >F. Final</label>				
+					   	                <input  id='fFinalCriterioInput' class="datepicker" type='date'></input>
+	                         	</div>				
+                                <div class="col s3">
+					    	            <label>Estatus</label>									
+						                <input  id='estadoCriterioInput' type='text'></input>
+	                            </div>
+                                <div class="col s3">				
+					                     <label>Usuarios Solicitante</label>									
+						                 <input  id='usuarioSolCriterioInput' type='text'></input>
+	                            </div>		
 	             </div>   	
 	         <div>
-	     <div>
-	</div>
+	   
 <!-- -====================== -->
 <div>
-<form id="form">
-	<div id="principalDiv">
-  
-		  
-	       <div id="cargador" style="position:absolute;"></div>
-		
-			     <div id="Pcontenido" style="position:relative;">            
-				           <div id="tabs" class="PcontenComp" style="display:block;"></div>
-                                   <div id="grid"></div>
-				           </div>								
-			</div>	
-    </div>  
+    <form id="form">
+    <!-- dos de sobra -->
+	       <div id="principalDiv">
+	                 <div id="cargador" style="position:absolute;"></div>
+			                     <div id="Pcontenido" style="position:relative;">            
+				                       <div id="tabs" class="PcontenComp" style="display:block;">
+				                            <div id="grid"></div>
+				                       </div>								
+			                     </div>	
+                      </div>  
     
     
 <!--  ================================================================================================================================== -->
-<div id="formularioDiv" style="display:none ;height: 90%;">
-		<div>
-			
-<!--  barra de men� para botones de la pantalla
- -->
-				<span id="txtTitulo" style="float:left;margin-top: 20px;margin-left: 15px;color: #FFFFFF;float: left;font-family: Verdana;font-size: 11px;font-weight: bold;">movimientos de personal</span>
-				<img style="padding: 2px;" class='imgTipoBoton' id='btnGuardarFormulario' src='assets/botones/imgGuardar.png' onclick='vista.btnGuardarFormulario_onClick();' title='Guardar' />
-				<img style="padding: 2px;" class='imgTipoBoton' id='btnSalirFormulario' src='assets/botones/btnSalir.png' onClick="vista.btnSalirFormulario_onClick();" title='Salir'  />
-			</div>
-<!--
-  barra de men�...fin
- -->
- 
+         <div id="formularioDiv" style="display:none ;height: 90%;">
+<!-- -=====1 sobra================= -->
+	            <div>
+	          			<span id="txtTitulo" style="float:left;margin-top: 20px;margin-left: 15px;color: #FFFFFF;float: left;font-family: Verdana;font-size: 11px;font-weight: bold;">movimientos de personal</span>
+	          			<img style="padding: 2px;" class='imgTipoBoton' id='btnGuardarFormulario' src='assets/botones/imgGuardar.png' onclick='vista.btnGuardarFormulario_onClick();' title='Guardar'/>
+				        <img style="padding: 2px;" class='imgTipoBoton' id='btnSalirFormulario' src='assets/botones/btnSalir.png' onClick="vista.btnSalirFormulario_onClick();" title='Salir'/>
+		       	</div>
+
 <!--barra principal -->
 			<div id="cargador" class="cargadorFRM2"></div>
 				<div class="pContenido" id="estadoEstructura" >
@@ -154,10 +128,8 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								<div id="filtros " class="contenedorIEC">
 								 <div>								 	
 								   
-								   <table>	
-								  
-								    
-								           <div class="row"> 
+								      <table>	
+								               <div class="row"> 
 								      
 								               <div class="col s4">  
 								   	  	           <a>No. de ticket</a>
