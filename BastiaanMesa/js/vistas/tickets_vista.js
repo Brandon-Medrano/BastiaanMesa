@@ -23,14 +23,14 @@ class TicketsVista
 
 		this.cmbEstatus.render();
 
-		this.cmbImportancias = new Combo("");// buscar 
+		this.cmbImportancias = new Combo("id1");// buscar 
 		this.cmbImportancias.setViewport("importanciaIdFormularioInput");
 		this.cmbImportancias._dataField = "idImportancias";
 		this.cmbImportancias._labelField = "descImportancias";
 
 		this.cmbImportancias.render();
 		
-		this.cmbVias = new Combo("");// objeto
+		this.cmbVias = new Combo("id2");// objeto
 		this.cmbVias.setViewport("viaIdFormularioInput");
 		this.cmbVias._dataField = "idVias";
 		this.cmbVias._labelField = "descVias";
