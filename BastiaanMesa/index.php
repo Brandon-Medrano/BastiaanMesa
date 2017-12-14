@@ -24,7 +24,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 <!-- ==============================basttiaan===========================================-->
 
-<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>
+<!-- <script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script> -->
 	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/json2.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/AjaxContextHandler.js"></script>
@@ -43,13 +43,18 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
 
-<!-- ================================bastiaan=========================================-->
+<!-- ================================MATERIALIZE=========================================-->
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+      <!-- ================================bastiaan=========================================-->
  <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
  <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
  <script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
 
 <!-- ==============================================================================-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 <!-- =========================================================================================-->
     <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
     <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
@@ -77,22 +82,21 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                              <ul class="right hide-on-med-and-down">
                         
                                 <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i></a></li>
-                                 
                                 <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i></a></li>
                                     
                                 <!-- 
                                      <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
 	                                 <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a>lock_open</i>Registro</a>
 	                             -->
-	                             
+	                             </ul>
 	                             <!-- -telefono -->
 	                             <ul class="side-nav" id="mobile-demo">
 	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Alta</a></li>
-                                    <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i>Consulta</a></li>
+                                    <li><a  onClick="vista.btnConsulta_onClick();" style="display: flex;"><i class="material-icons left">search</i>Consulta</a></li>
                                 </ul>
 	                             <!-- -telefono -->
 	                             
-                            </ul>
+                            
                   </div>
             </nav>
      </header>
@@ -285,6 +289,11 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
   </div>
 </div>
+<script>
+$( document ).ready(function(){
+    $(".button-collapse").sideNav();
+    });
 
+</script>
 </body>
 </html>
