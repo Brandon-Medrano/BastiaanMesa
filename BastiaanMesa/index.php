@@ -18,7 +18,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
     <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+<link rel="stylesheet" href="css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="css/responsive.css" rel="stylesheet">
 
@@ -76,7 +76,10 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                        <a href="#!" class="brand-logo">Logo</a>
                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                           <ul class="right hide-on-med-and-down">
-                             <li><a href="logeo.php"><i class="material-icons left">lock_open</i>Registro</a></li>
+                             <li><a href="logeo.php">
+                             <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
+	                   <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a> 
+	                   lock_open</i>Registro</a></li>
                          </ul>
                   </div>
             </nav>
@@ -91,8 +94,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
           
                      <div class="col s12">
       
-	                   <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
-	                   <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a> 
+	                  
                     </div>	
                     <div class="col s3">
 		                	<label>F. Inicial</label>									
