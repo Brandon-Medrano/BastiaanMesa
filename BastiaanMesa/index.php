@@ -224,30 +224,27 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							                    <a>Usuario realizador</a>
 										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
-							       
-						                     <div class="col s12">	
-						   	                    <a>Asunto</a>
-                                                <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
-                                            </div>
-                                            
-		                                   <div class="col s12">	 
-								               <a>Detalle del requerimiento</a>
-                                               <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
-            					          </div> 
 							              
 						              </div>
-						<!-- ====================================== -->
 						
-						  <!--   <div class="row">
+						
+						   <div class="row"><!-- 
+						   ======================================--> 
 							      <div class="card-panel  orange lighten-5 z-depth-4">	
 						
 						              <div class="col s12">	    
-							                 <a>Copia de correo para</a>
-							    	         <input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text"/>
+							                 <a></a>
+							    	         <input class="input" id="ODIO EL PUTO FRAMEWORK" descripcion="vi00000a" type="text"/>
 						   	           </div>
+                                       </div>
+                                       <div class="row">
 						               <div class="col s12">	
 						   	                  <a>Asunto</a>
                                              <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+                                       </div>
+                                       <div class="col s12">	
+						   	                  <a>Copia de correo para</a>
+                                             <input class="input" id="copiaCorreoFormularioInput" descripcion="RecesoLargo">
                                        </div>
 		                               <div class="col s12">	 
 								             <a>Detalle del requerimiento</a>
@@ -255,8 +252,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
             					      </div> 
             					 </div>   
             		           </div>
-            		        -->	        	
-							            			         
+            		          			         
             			<!-- ====================================== -->
 								     	
 							   </div>
