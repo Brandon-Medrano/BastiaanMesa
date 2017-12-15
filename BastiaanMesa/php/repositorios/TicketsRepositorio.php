@@ -533,6 +533,53 @@ class TicketsRepositorio implements ITicketsRepositorio
              return $resultado;
      }
      
+     public function  consultarPorUsuarioR($criteriosUsuariosR)
+     
+     {
+         $resultado = new Resultado();
+         $usuariosR = array();
+         
+         $consulta = " SELECT MSVSABREBSTN id, MSVUSUARIOSBSTNPNOMBRE nayeagenteId".
+             " FROM bstnmsv.msvusuariosbstn ".
+             " WHERE MSVSABREBSTN like CONCAT ('%',?,'%') ".
+             " AND  MSVUSUARIOSBSTNPNOMBRE  like CONCAT('%',?,'%')";
+         
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("ss",$criteriosUsuariosR->id,
+                 $criteriosUsuariosR->nayeagenteId))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($id, $nayeagenteId)  )
+                     {
+                         while($row = $sentencia->fetch())
+                         {
+                             $usuarioR = (object) [
+                                 'id' => utf8_encode($id),
+                                 'nayeagenteId' =>  utf8_encode($nayeagenteId)
+                             ];
+                             array_push($usuariosR,$usuarioR);
+                         }
+                         $resultado->valor = $usuariosR;
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             
+             
+             return $resultado;
+     }
+     
+     
      public function consultarPorProyecto($criteriosProyectos)
      
      {

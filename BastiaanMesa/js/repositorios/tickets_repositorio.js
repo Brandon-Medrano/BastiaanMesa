@@ -86,6 +86,27 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
  /*  */
+	
+	/* UsuariosR */ 
+	consultarPorUsuarioR(contexto,functionRetorno, criteriosUsuariosR)
+	{		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorUsuarioR";
+        parametros += "&criteriosUsuariosR=" +  encodeURIComponent(JSON.stringify(criteriosUsuariosR));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorUsuarioResultadoR, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorUsuarioResultadoR(resultado)
+	{
+		var datosUsuariosR = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 	/* proyecto */ 
 	consultarPorProyecto(contexto,functionRetorno, criteriosProyectos)
 	{		

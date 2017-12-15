@@ -231,6 +231,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							              
 							               <div class="col s4">
 							                    <a>Usuario realizador</a>
+							                    <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistenteR();" title='Asistente Usuarios'>
 										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
 							              
@@ -274,6 +275,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
 		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
+		<div class='ventana' id='PromptUsuarioR' style='display: none;'></div>
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
 		<div class='ventana' id='promptListaRelaciones' style='display: none;'></div>

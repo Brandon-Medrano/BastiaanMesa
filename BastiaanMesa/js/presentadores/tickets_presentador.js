@@ -46,6 +46,21 @@ class TicketsPresentador
 			this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 	/* */
+	 
+	 /* usuariosR */	 
+	 consultarPorUsuarioR()
+	 {
+		 var repositorio = new TicketsRepositorio(this);		
+		 repositorio.consultarPorUsuarioR(this,this.consultarPorUsuarioResultadoR,this.vista.criteriosUsuariosR);
+	 }
+	 consultarPorUsuarioResultadoR(resultado)
+	 {
+		if(resultado.mensajeError=="")
+			this.vista.datosUsuariosR = resultado.valor;
+		else
+			this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	/* */
 	 /* AREAS */	 
 	 consultarPorArea()
 	 {

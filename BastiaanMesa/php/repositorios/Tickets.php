@@ -100,6 +100,13 @@ try
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
                     
+            case 'consultarPorUsuarioR':
+                $criteriosUsuariosR = json_decode(REQUEST('criteriosUsuariosR'));
+                $resultado = $repositorio->consultarPorUsuarioR($criteriosUsuariosR);
+                if($resultado!=null)
+                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                    break;
+                    
            case 'consultarPorProyecto':
                 $criteriosProyectos = json_decode(REQUEST('criteriosProyectos'));
                 $resultado = $repositorio->consultarPorProyecto($criteriosProyectos);
