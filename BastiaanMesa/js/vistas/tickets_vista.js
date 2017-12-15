@@ -465,7 +465,7 @@ class TicketsVista
 	
 	set ticket(valor)
 	{		
-		  $('#noTicketFormularioInput').val(valor.id);
+		  $('#idFormularioInput').val(valor.id);
 		  $('#fSolicitudFormularioInput').val(valor.fSolicitud);
 		  $('#hInicialFormularioInput').val(valor.hInicial);
 		  $('#ugeneroFormularioTiket').val(valor.ugenero);
@@ -487,7 +487,7 @@ class TicketsVista
 	{
 		 var ticket = 
 		 {		
-			    id:$('#noTicketFormularioInput').val(),
+			    id:$('#idFormularioInput').val(),
 			    fSolicitud:$('#fSolicitudFormularioInput').val(),
 			    hInicial:$('#hInicialFormularioInput').val(),
 			    ugenero:$('#ugeneroFormularioTiket').val(),

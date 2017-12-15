@@ -171,7 +171,8 @@ class TicketsRepositorio implements ITicketsRepositorio
      {
          
          $resultado = new Resultado();
-         $consulta =  " SELECT MSVSOLICITUDNOLIN id, "
+         $consulta =  " SELECT "
+         . " MSVSOLICITUDNOLIN id, "
              . " MSVSOLICITUDFSOL fSolicitud, "
                  . " MSVSOLICITUDHSOL hInicial, "
                      . " MSVSOLICITUDUSRSOLID ugenero, "
@@ -181,9 +182,8 @@ class TicketsRepositorio implements ITicketsRepositorio
                                      . " MSVRACTID recesoId, "
                                          . " MSVPROYID proyecto, "
                                              . " MSVSOLICITUDASUNTO asunto, "
-                                                 . " MSVSOLICITUDDESC dsc, "
-                                                     . " MSVNIMPID importanciaId "
-                                                         ." FROM bstnmsv.msvsolicitud "
+                                                 . " MSVSOLICITUDDESC descripcion"
+                                                    ." FROM bstnmsv.msvsolicitud A "
                                                              ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
                                                              if($sentencia = $this->conexion->prepare($consulta))
                                                              {
@@ -191,7 +191,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                                  {
                                                                      if($sentencia->execute())
                                                                      {
-                                                                         if ($sentencia->bind_result($id, $fSolicitud, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $recesoId, $proyecto, $asunto, $dsc, $importanciaId))
+                                                                         if ($sentencia->bind_result($id, $fSolicitud, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $recesoId, $proyecto, $asunto, $dsc))
                                                                          {
                                                                              if($sentencia->fetch())
                                                                              {
@@ -207,7 +207,6 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                                                  $ticket->proyecto =  utf8_encode($proyecto);
                                                                                  $ticket->asunto =  utf8_encode($asunto);
                                                                                  $ticket->dsc =  utf8_encode($dsc);
-                                                                                 $ticket->importanciaId =  utf8_encode($importanciaId);
                                                                                  $resultado->valor = $ticket;
                                                                                  
                                                                              }
