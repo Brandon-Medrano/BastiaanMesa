@@ -482,7 +482,7 @@ class TicketsVista
 		  $('#dscFormularioInput').val(valor.dsc);
 		  $('#correoFormularioInput').val(valor.correo);
 		  $('#copiaCorreoFormularioInput').val(valor.copiaCorreo);
-		  $('#importanciaIdFormularioInput').val(valor.importanciaId);
+		  $('#importanciaIdFormularioInput').val(valor.idImportancias);
 		  $('#telefonoFormularioInput').val(valor.telefono);
 		  $('#extensionFormularioInput').val(valor.extension);
 		  $('#areaSoliFormularioInput').val(valor.areaSoli);
@@ -501,7 +501,7 @@ class TicketsVista
 			    recesoId:$('#recesoIdFormularioInput').val(),
 			    copiaCorreo:$('#copiaCorreoFormularioInput').val(),
 			    usuarioRealizador:$('#usuarioRealizadorFormularioInput').val(),
-			    importanciaId:$('#importanciaIdFormularioInput').val(),
+			    idImportancias:$('#importanciaIdFormularioInput').val(),
 			    proyecto:$('#proyectoFormularioInput').val(),
 			    telefono:$('#telefonoFormularioInput').val(),
 			    extension:$('#extensionFormularioInput').val(),

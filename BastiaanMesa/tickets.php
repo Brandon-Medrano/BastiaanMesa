@@ -87,6 +87,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								
                      				<td><img id="btnAlta" class="botonMenuIEC" title="Alta" src="assets/botones/imgAlta2.png" onClick="vista.btnAlta_onClick();"></td>
 									<td><img id="btnConsulta" class="botonMenuIEC" title="Consulta" src="assets/botones/imgConsulta.png" onClick="vista.btnConsulta_onClick();"></td>
+									<td><img id="btnCambio" class="botonMenuIEC" title="Salir"  src="assets/botones/btnCambio.png" onClick="vista.btnCambio_onClick();" ></td>
 									<td><img id="btnSalir" class="botonMenuIEC" title="Salir"  src="assets/botones/btnSalir.png" onClick="vista.btnSalir_onClick();" ></td>
 								</tr>
                              </table>   

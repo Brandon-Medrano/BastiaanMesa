@@ -182,8 +182,9 @@ class TicketsRepositorio implements ITicketsRepositorio
                                      . " MSVRACTID recesoId, "
                                          . " MSVPROYID proyecto, "
                                              . " MSVSOLICITUDASUNTO asunto, "
-                                                 . " MSVSOLICITUDDESC descripcion"
-                                                    ." FROM bstnmsv.msvsolicitud A "
+                                                 . " MSVSOLICITUDDESC descripcion, "
+                                                     . " MSVNIMPID idImportancias "
+                                                    ." FROM bstnmsv.msvsolicitud "
                                                              ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
                                                              if($sentencia = $this->conexion->prepare($consulta))
                                                              {
@@ -191,7 +192,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                                  {
                                                                      if($sentencia->execute())
                                                                      {
-                                                                         if ($sentencia->bind_result($id, $fSolicitud, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $recesoId, $proyecto, $asunto, $dsc))
+                                                                         if ($sentencia->bind_result($id, $fSolicitud, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $recesoId, $proyecto, $asunto, $dsc, $idImportancias))
                                                                          {
                                                                              if($sentencia->fetch())
                                                                              {
@@ -207,6 +208,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                                                  $ticket->proyecto =  utf8_encode($proyecto);
                                                                                  $ticket->asunto =  utf8_encode($asunto);
                                                                                  $ticket->dsc =  utf8_encode($dsc);
+                                                                                 $ticket->idImportancias =  utf8_encode($idImportancias);
                                                                                  $resultado->valor = $ticket;
                                                                                  
                                                                              }

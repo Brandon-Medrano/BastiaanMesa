@@ -154,11 +154,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						<div class="contenidoNormalUS">
 					 		<div class="explicacionFRM" >
 								<div id="filtros " class="contenedorIEC">
-								 <div>								 	
-								   
+								 <div>						
 								      <table>	
 								          <div class="row"> 
-								      
 								                  <div class="col s4">  
 								   	  	              <a>No. de ticket</a>
 								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/ disabled>
