@@ -83,8 +83,10 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                         
                                 <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons right">assignment</i></a></li>
                                 <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons right">search</i></a></li>
-                                <li><a  onClick="vista.btnCambio_onClick();">cambio</a></li>
-                                    
+                                <li><a  onClick="vista.btnCambio_onClick();"><i class="material-icons right">mode_edit</i></a></li>
+                                
+                              
+                                  
                                 <!-- 
                                      <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
 	                                 <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a>lock_open</i>Registro</a>
@@ -94,6 +96,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	                             <ul class="side-nav" id="mobile-demo">
 	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Alta</a></li>
                                     <li><a  onClick="vista.btnConsulta_onClick();" style="display: flex;"><i class="material-icons left">search</i>Consulta</a></li>
+                                    <li><a  onClick="vista.btnCambio_onClick();" style="display: flex;"><i class="material-icons right">mode_edit</i>Cambio</a></li>
+                                
+                                
                                 </ul>
 	                             <!-- -telefono -->
 	                             
