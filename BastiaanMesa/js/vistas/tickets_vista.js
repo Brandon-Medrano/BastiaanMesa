@@ -45,7 +45,7 @@ class TicketsVista
 			{titulo:"Actividad",   	alias:"actividad", alineacion:"I" }, 
 			{titulo:"Usuario que solicita",   alias:"usuarioSol", alineacion:"I" }, 
 			{titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"I" }, 
-			{titulo:"Fecha de termino solicitada",   alias:"fFinal", alineacion:"I" },	
+			{titulo:"Hora de solicitud",   alias:"hInicial", alineacion:"I" },	
 			{titulo:"Estatus",   alias:"estado", alineacion:"I" },
 
 		]
@@ -265,7 +265,6 @@ class TicketsVista
 		 var criteriosSeleccion = 
 		 {				    
 			fInicial:$('#fInicialCriterioInput').val(),
-			fFinal:$('#fFinalCriterioInput').val(),
 			estado:$('#estadoCriterioInput').val(),
 			usuarioSol:$('#usuarioSolCriterioInput').val()
 		 }

@@ -109,17 +109,13 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                  <div class="col s3">
 		                	            <label>F. Inicial</label>									
 		                              	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
-	                             </div>		
-                                 <div class="col s3">				
-					                    <label >F. Final</label>				
-					   	                <input  id='fFinalCriterioInput' class="datepicker" type='date'></input>
-	                         	</div>				
+	                             </div>				
                                 <div class="col s3">
 					    	            <label>Estatus</label>									
 						                <input  id='estadoCriterioInput' type='text'></input>
 	                            </div>
                                 <div class="col s3">				
-					                     <label>Usuarios Solicitante</label>									
+					                     <label>Usuario Solicitante</label>									
 						                 <input  id='usuarioSolCriterioInput' type='text'></input>
 	                            </div>		
 	             </div>   	

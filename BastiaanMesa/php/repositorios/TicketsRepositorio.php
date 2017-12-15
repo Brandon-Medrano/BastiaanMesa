@@ -165,21 +165,20 @@ class TicketsRepositorio implements ITicketsRepositorio
          $tickets = array();
          
          $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
-         " DATE_FORMAT(MSVSOLICITUDFT,'%d/%m/%Y') fFinal, B.MSVRACTNOML estado".
+         " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML estado".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
-             " WHERE A.MSVRACTID  like CONCAT('%',?,'%') ".
-             " AND (MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
-             " OR MSVSOLICITUDFT like CONCAT('%',?,'%')) ".
+             " WHERE B.MSVRACTNOML  like CONCAT('%',?,'%') ".
+             " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
              " AND MSVSOLICITUDUSRSOLID like CONCAT('%',?,'%') ";
          
          if($sentencia = $this->conexion->prepare($consulta))
          {
-             if($sentencia->bind_param("ssss",$criteriosSeleccion->fInicial, $criteriosSeleccion->fFinal, $criteriosSeleccion->estado, $criteriosSeleccion->usuarioSol))
+             if($sentencia->bind_param("sss",$criteriosSeleccion->fInicial, $criteriosSeleccion->estado, $criteriosSeleccion->usuarioSol))
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($actividad, $usuarioSol, $fInicial, $fFinal, $estado))
+                     if ($sentencia->bind_result($actividad, $usuarioSol, $fInicial, $hInicial, $estado))
                      {
                          while($row = $sentencia->fetch())
                          {
@@ -187,7 +186,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                  'actividad' => utf8_encode($actividad),
                                  'usuarioSol' =>  utf8_encode($usuarioSol),
                                  'fInicial' =>  utf8_encode($fInicial),
-                                 'fFinal' =>  utf8_encode($fFinal),
+                                 'hInicial' =>  utf8_encode($hInicial),
                                  'estado' => utf8_encode($estado)
                              ];
                              array_push($tickets,$ticket);
