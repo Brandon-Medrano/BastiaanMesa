@@ -135,7 +135,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                      ." WHERE MSVSOLICITUDNOLIN = ? ";
                                                      if($sentencia = $this->conexion->prepare($consulta))
                                                      {
-                                                         if($sentencia->bind_param("ssssssssssss",$ticket->fSolicitud,
+                                                         if($sentencia->bind_param("sssssssssss",$ticket->fSolicitud,
                                                              $ticket->hInicial,
                                                              $ticket->ugenero,
                                                              $ticket->areaSoli,
@@ -158,6 +158,64 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                      else
                                                          $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
                                                          return $resultado;
+     }
+     public function consultarPorLlaves($llaves)
+     {
+         
+         $resultado = new Resultado();
+         $consulta =  " SELECT MSVSOLICITUDNOLIN id, "
+                 . " MSVSOLICITUDFSOL fInicial, "
+                     . " MSVSOLICITUDHSOL hInicial, "
+                         . " MSVSOLICITUDUSRSOLID ugenero, "
+                             . " MSVSCTGAID areaSoli, "
+                                 . " MSVVSOLID viaId, "
+                                     . " MSVSOLICITUDUSRRLZ usuarioRealizador, "
+                                         . " MSVRACTID estado, "
+                                             . " MSVPROYID proyecto, "
+                                                 . " MSVSOLICITUDASUNTO asunto, "
+                                                     . " MSVSOLICITUDDESC descripcion"
+             ." FROM bstnmsv.msvsolicitud "
+             ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
+         if($sentencia = $this->conexion->prepare($consulta))
+         {
+             if($sentencia->bind_param("s",$llaves->id))
+             {
+                 if($sentencia->execute())
+                 {
+                     if ($sentencia->bind_result($id, $fInicial, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $estado, $proyecto, $asunto, $descripcion))
+                     {
+                         if($sentencia->fetch())
+                         {
+                             $ticket = new Ticket();
+                             $ticket->id =  utf8_encode($id);
+                             $ticket->fInicial =  utf8_encode($fInicial);
+                             $ticket->hInicial =  utf8_encode($hInicial);
+                             $ticket->ugenero =  utf8_encode($ugenero);
+                             $ticket->areaSoli =  utf8_encode($areaSoli);
+                             $ticket->viaId =  utf8_encode($viaId);
+                             $ticket->usuarioRealizador =  utf8_encode($usuarioRealizador);
+                             $ticket->estado =  utf8_encode($estado);
+                             $ticket->proyecto =  utf8_encode($proyecto);
+                             $ticket->asunto =  utf8_encode($asunto);
+                             $ticket->descripcion =  utf8_encode($descripcion);
+                             $resultado->valor = $ticket;
+                             
+                         }
+                         else
+                             $resultado->mensajeError = "No se encontró ningún resultado.";
+                     }
+                     else
+                         $resultado->mensajeError = "Falló el enlace del resultado";
+                 }
+                 else
+                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+             }
+             else
+                 $resultado->mensajeError = "Falló el enlace de parámetros";
+         }
+         else
+             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+             return $resultado;
      }
      
      public function consultar($criteriosSeleccion)
@@ -334,49 +392,6 @@ class TicketsRepositorio implements ITicketsRepositorio
      }
      
      
-     public function consultarPorLlaves($llaves)
-     {
-         
-         $resultado = new Resultado();
-         $consulta =  " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol,MSVSOLICITUDFSOL fInicial, MSVSOLICITUDFT hInicial, MSVRACTID estado".
-             " FROM bstnmsv.msvsolicitud A".
-             " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ";
-         if($sentencia = $this->conexion->prepare($consulta))
-         {
-             if($sentencia->bind_param("s",$llaves->id))
-             {
-                 if($sentencia->execute())
-                 {
-                     if ($sentencia->bind_result($id, $actividad, $usuarioSol, $fInicial, $hInicial, $estado))
-                     {
-                         if($sentencia->fetch())
-                         {
-                             $ticket = new Ticket();
-                             $ticket->id =  utf8_encode($id);
-                             $ticket->actividad =  utf8_encode($actividad);
-                             $ticket->usuarioSol =  utf8_encode($usuarioSol);
-                             $ticket->fInicial =  utf8_encode($fInicial);
-                             $ticket->hInicial =  utf8_encode($hInicial);
-                             $ticket->estado =  utf8_encode($estado);
-                             $resultado->valor = $ticket;
-                             
-                         }
-                         else
-                             $resultado->mensajeError = "No se encontró ningún resultado.";
-                     }
-                     else
-                         $resultado->mensajeError = "Falló el enlace del resultado";
-                 }
-                 else
-                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
-             }
-             else
-                 $resultado->mensajeError = "Falló el enlace de parámetros";
-         }
-         else
-             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
-             return $resultado;
-     }
      
      public function consultarPorNaye($criteriosNayee)
      {
