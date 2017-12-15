@@ -164,60 +164,61 @@ class TicketsRepositorio implements ITicketsRepositorio
          
          $resultado = new Resultado();
          $consulta =  " SELECT MSVSOLICITUDNOLIN id, "
-                 . " MSVSOLICITUDFSOL fInicial, "
-                     . " MSVSOLICITUDHSOL hInicial, "
-                         . " MSVSOLICITUDUSRSOLID ugenero, "
-                             . " MSVSCTGAID areaSoli, "
-                                 . " MSVVSOLID viaId, "
-                                     . " MSVSOLICITUDUSRRLZ usuarioRealizador, "
-                                         . " MSVRACTID estado, "
-                                             . " MSVPROYID proyecto, "
-                                                 . " MSVSOLICITUDASUNTO asunto, "
-                                                     . " MSVSOLICITUDDESC descripcion"
-             ." FROM bstnmsv.msvsolicitud "
-             ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
-         if($sentencia = $this->conexion->prepare($consulta))
-         {
-             if($sentencia->bind_param("s",$llaves->id))
-             {
-                 if($sentencia->execute())
-                 {
-                     if ($sentencia->bind_result($id, $fInicial, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $estado, $proyecto, $asunto, $descripcion))
-                     {
-                         if($sentencia->fetch())
-                         {
-                             $ticket = new Ticket();
-                             $ticket->id =  utf8_encode($id);
-                             $ticket->fInicial =  utf8_encode($fInicial);
-                             $ticket->hInicial =  utf8_encode($hInicial);
-                             $ticket->ugenero =  utf8_encode($ugenero);
-                             $ticket->areaSoli =  utf8_encode($areaSoli);
-                             $ticket->viaId =  utf8_encode($viaId);
-                             $ticket->usuarioRealizador =  utf8_encode($usuarioRealizador);
-                             $ticket->estado =  utf8_encode($estado);
-                             $ticket->proyecto =  utf8_encode($proyecto);
-                             $ticket->asunto =  utf8_encode($asunto);
-                             $ticket->descripcion =  utf8_encode($descripcion);
-                             $resultado->valor = $ticket;
-                             
-                         }
-                         else
-                             $resultado->mensajeError = "No se encontró ningún resultado.";
-                     }
-                     else
-                         $resultado->mensajeError = "Falló el enlace del resultado";
-                 }
-                 else
-                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
-             }
-             else
-                 $resultado->mensajeError = "Falló el enlace de parámetros";
-         }
-         else
-             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
-             return $resultado;
+             . " MSVSOLICITUDFSOL fSolicitud, "
+                 . " MSVSOLICITUDHSOL hInicial, "
+                     . " MSVSOLICITUDUSRSOLID ugenero, "
+                         . " MSVSCTGAID areaSoli, "
+                             . " MSVVSOLID viaId, "
+                                 . " MSVSOLICITUDUSRRLZ usuarioRealizador, "
+                                     . " MSVRACTID recesoId, "
+                                         . " MSVPROYID proyecto, "
+                                             . " MSVSOLICITUDASUNTO asunto, "
+                                                 . " MSVSOLICITUDDESC dsc, "
+                                                     . " MSVNIMPID importanciaId "
+                                                         ." FROM bstnmsv.msvsolicitud "
+                                                             ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
+                                                             if($sentencia = $this->conexion->prepare($consulta))
+                                                             {
+                                                                 if($sentencia->bind_param("s",$llaves->id))
+                                                                 {
+                                                                     if($sentencia->execute())
+                                                                     {
+                                                                         if ($sentencia->bind_result($id, $fSolicitud, $hInicial, $ugenero, $areaSoli, $viaId, $usuarioRealizador, $recesoId, $proyecto, $asunto, $dsc, $importanciaId))
+                                                                         {
+                                                                             if($sentencia->fetch())
+                                                                             {
+                                                                                 $ticket = new Ticket();
+                                                                                 $ticket->id =  utf8_encode($id);
+                                                                                 $ticket->fSolicitud =  utf8_encode($fSolicitud);
+                                                                                 $ticket->hInicial =  utf8_encode($hInicial);
+                                                                                 $ticket->ugenero =  utf8_encode($ugenero);
+                                                                                 $ticket->areaSoli =  utf8_encode($areaSoli);
+                                                                                 $ticket->viaId =  utf8_encode($viaId);
+                                                                                 $ticket->usuarioRealizador =  utf8_encode($usuarioRealizador);
+                                                                                 $ticket->recesoId =  utf8_encode($recesoId);
+                                                                                 $ticket->proyecto =  utf8_encode($proyecto);
+                                                                                 $ticket->asunto =  utf8_encode($asunto);
+                                                                                 $ticket->dsc =  utf8_encode($dsc);
+                                                                                 $ticket->importanciaId =  utf8_encode($importanciaId);
+                                                                                 $resultado->valor = $ticket;
+                                                                                 
+                                                                             }
+                                                                             else
+                                                                                 $resultado->mensajeError = "No se encontró ningún resultado.";
+                                                                         }
+                                                                         else
+                                                                             $resultado->mensajeError = "Falló el enlace del resultado";
+                                                                     }
+                                                                     else
+                                                                         $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                                                                 }
+                                                                 else
+                                                                     $resultado->mensajeError = "Falló el enlace de parámetros";
+                                                             }
+                                                             else
+                                                                 $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                                                                 return $resultado;
      }
-     
      public function consultar($criteriosSeleccion)
      {
          $resultado = new Resultado();
