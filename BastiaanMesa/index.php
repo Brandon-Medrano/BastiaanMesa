@@ -107,7 +107,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                    <div class="row" id="criteriosSelecion">	
           
                                  <div class="col s3">
-		                	            <label>F. Inicial</label>									
+		                	            <label>Fecha de solicitud</label>									
 		                              	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
 	                             </div>				
                                 <div class="col s3">
