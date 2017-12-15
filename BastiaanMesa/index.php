@@ -81,8 +81,9 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                              <ul class="right hide-on-med-and-down">
                         
-                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i></a></li>
-                                <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons left">search</i></a></li>
+                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons right">assignment</i></a></li>
+                                <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons right">search</i></a></li>
+                                <li><a  onClick="vista.btnCambio_onClick();">cambio</a></li>
                                     
                                 <!-- 
                                      <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 

@@ -120,31 +120,32 @@ class TicketsRepositorio implements ITicketsRepositorio
      public function actualizar(Ticket $ticket)
      {
          $resultado = new Resultado();
-         $consulta = " UPDATE BSTNTRN.BTMPERSONAL SET"
-             . " SIOUSUARIOID = ?,  "
-                 . " BTMPERSONALRECID = ?, "
-                     ." BTMPERSONALFINI = ?, "
-                         ." BTMPERSONALHINI = ?, "
-                             ." BTMPERSONALFFIN = ?, "
-                                 ." BTMPERSONALHFIN = ?, "
-                                     ." BTMPERSONALDUR = ?, "
-                                         ." BTMPERSONALDURS = ?, "
-                                             ." BTMPERSONALFECHA = ?, "
-                                                 ." BTCRECESONOMC = ? "
-                                                     ." WHERE BTMPERSONALIDN = ? ";
+         $consulta = " UPDATE bstnmsv.msvsolicitud SET"
+             . " MSVSOLICITUDNOLIN = ?,  "
+                 . " MSVSOLICITUDFSOL = ?, "
+                     ." MSVSOLICITUDHSOL = ?, "
+                         ." MSVSOLICITUDUSRSOLID = ?, "
+                             ." MSVSCTGAID = ?, "
+                                 ." MSVVSOLID = ?, "
+                                     ." MSVSOLICITUDUSRRLZ = ?, "
+                                         ." MSVRACTID = ?, "
+                                             ." MSVPROYID = ?, "
+                                                ." MSVSOLICITUDASUNTO = ?, "
+                                                 ." MSVSOLICITUDDESC = ? "
+                                                     ." WHERE MSVSOLICITUDNOLIN = ? ";
                                                      if($sentencia = $this->conexion->prepare($consulta))
                                                      {
-                                                         if($sentencia->bind_param("sssssssssss",$movimiento->agente,
-                                                             $movimiento->recesoId,
-                                                             $movimiento->fInicial,
-                                                             $movimiento->hInicial,
-                                                             $movimiento->fFinal,
-                                                             $movimiento->hFinal,
-                                                             $movimiento->dPersonal,
-                                                             $movimiento->dsPersonal,
-                                                             $movimiento->fPersonal,
-                                                             $movimiento->recesoC,
-                                                             $movimiento->id))
+                                                         if($sentencia->bind_param("ssssssssssss",$ticket->fSolicitud,
+                                                             $ticket->hInicial,
+                                                             $ticket->ugenero,
+                                                             $ticket->areaSoli,
+                                                             $ticket->viaId,
+                                                             $ticket->usuarioSol,
+                                                             $ticket->recesoId,
+                                                             $ticket->proyecto,
+                                                             $ticket->asunto,
+                                                             $ticket->dsc,
+                                                             $ticket->id))
                                                              
                                                          {
                                                              if($sentencia->execute()){
@@ -164,7 +165,7 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $tickets = array();
          
-         $consulta = " SELECT MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
+         $consulta = " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
          " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML estado".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
@@ -178,11 +179,12 @@ class TicketsRepositorio implements ITicketsRepositorio
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($actividad, $usuarioSol, $fInicial, $hInicial, $estado))
+                     if ($sentencia->bind_result($id, $actividad, $usuarioSol, $fInicial, $hInicial, $estado))
                      {
                          while($row = $sentencia->fetch())
                          {
                              $ticket = (object) [
+                                 'id' => utf8_encode($id),
                                  'actividad' => utf8_encode($actividad),
                                  'usuarioSol' =>  utf8_encode($usuarioSol),
                                  'fInicial' =>  utf8_encode($fInicial),
@@ -336,7 +338,7 @@ class TicketsRepositorio implements ITicketsRepositorio
      {
          
          $resultado = new Resultado();
-         $consulta =  " SELECT MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol,MSVSOLICITUDFSOL fInicial, MSVSOLICITUDFT fFinal, MSVRACTID estado".
+         $consulta =  " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO  actividad, MSVSOLICITUDUSRSOLID usuarioSol,MSVSOLICITUDFSOL fInicial, MSVSOLICITUDFT hInicial, MSVRACTID estado".
              " FROM bstnmsv.msvsolicitud A".
              " WHERE MSVETCKTTID  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
@@ -345,16 +347,17 @@ class TicketsRepositorio implements ITicketsRepositorio
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($actividad, $usuarioSol, $fInicial, $fFinal, $estado))
+                     if ($sentencia->bind_result($id, $actividad, $usuarioSol, $fInicial, $hInicial, $estado))
                      {
                          if($sentencia->fetch())
                          {
-                             $movimiento = new Ticket();
-                             $movimiento->actividad =  utf8_encode($actividad);
-                             $movimiento->usuarioSol =  utf8_encode($usuarioSol);
-                             $movimiento->fInicial =  utf8_encode($fInicial);
-                             $movimiento->fFinal =  utf8_encode($fFinal);
-                             $movimiento->estado =  utf8_encode($estado);
+                             $ticket = new Ticket();
+                             $ticket->id =  utf8_encode($id);
+                             $ticket->actividad =  utf8_encode($actividad);
+                             $ticket->usuarioSol =  utf8_encode($usuarioSol);
+                             $ticket->fInicial =  utf8_encode($fInicial);
+                             $ticket->hInicial =  utf8_encode($hInicial);
+                             $ticket->estado =  utf8_encode($estado);
                              $resultado->valor = $ticket;
                              
                          }

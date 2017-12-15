@@ -42,10 +42,11 @@ class TicketsVista
 	crearColumnasGrid()
 	{
 		this.grid._columnas = [
+			{titulo:"Id",   	alias:"id", alineacion:"I" },
 			{titulo:"Actividad",   	alias:"actividad", alineacion:"I" }, 
 			{titulo:"Usuario que solicita",   alias:"usuarioSol", alineacion:"I" }, 
-			{titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"I" }, 
-			{titulo:"Hora de solicitud",   alias:"hInicial", alineacion:"I" },	
+			{titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"C" }, 
+			{titulo:"Hora de solicitud",   alias:"hInicial", alineacion:"C" },	
 			{titulo:"Estatus",   alias:"estado", alineacion:"I" },
 
 		]
