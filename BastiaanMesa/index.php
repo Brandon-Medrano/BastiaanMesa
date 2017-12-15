@@ -97,8 +97,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Alta</a></li>
                                     <li><a  onClick="vista.btnConsulta_onClick();" style="display: flex;"><i class="material-icons left">search</i>Consulta</a></li>
                                     <li><a  onClick="vista.btnCambio_onClick();" style="display: flex;"><i class="material-icons right">mode_edit</i>Cambio</a></li>
-                                
-                                
+
                                 </ul>
 	                             <!-- -telefono -->
 	                             
@@ -148,7 +147,6 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                 
 		       	</div>
 		       	
-		       	
 
 <!--barra principal -->
 			<div id="cargador" class="cargadorFRM2"></div> <!-- cierra aqui -->
@@ -163,7 +161,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								      
 								                  <div class="col s4">  
 								   	  	              <a>No. de ticket</a>
-								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/>
+								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/ disabled>
 								                  </div> 
 								                  <div class="col s4"> 	
 								                       <a>Fecha de solicitud</a>		

@@ -171,6 +171,16 @@ class TicketsVista
 			this.modo = "CAMBIO";
 			this.mostrarFormulario();		
 			this.presentador.consultarPorLlaves();
+			
+			//
+			/*
+			this.presentador.consultarPorProyecto();
+			this.presentador.consultarPorVia();
+			this.presentador.consultarPorArea();
+			this.presentador.consultarPorImportancia();
+			this.presentador.consultarPorEstatu();
+			this.presentador.consultarPorNaye();
+			*/
 		}
 		else
 			this.mostrarMensaje("Selecciona un registro para modificar.");

@@ -121,30 +121,38 @@ class TicketsRepositorio implements ITicketsRepositorio
      {
          $resultado = new Resultado();
          $consulta = " UPDATE bstnmsv.msvsolicitud SET"
-             . " MSVSOLICITUDNOLIN = ?,  "
-                 . " MSVSOLICITUDFSOL = ?, "
-                     ." MSVSOLICITUDHSOL = ?, "
-                         ." MSVSOLICITUDUSRSOLID = ?, "
-                             ." MSVSCTGAID = ?, "
-                                 ." MSVVSOLID = ?, "
-                                     ." MSVSOLICITUDUSRRLZ = ?, "
-                                         ." MSVRACTID = ?, "
-                                             ." MSVPROYID = ?, "
-                                                ." MSVSOLICITUDASUNTO = ?, "
-                                                 ." MSVSOLICITUDDESC = ? "
-                                                     ." WHERE MSVSOLICITUDNOLIN = ? ";
-                                                     if($sentencia = $this->conexion->prepare($consulta))
-                                                     {
-                                                         if($sentencia->bind_param("sssssssssss",$ticket->fSolicitud,
+             /* . " MSVSOLICITUDFSOL = ?, "
+                 ." MSVSOLICITUDHSOL = ?, "  
+           
+                 ." MSVSOLICITUDUSRSOLID = ?, " //ugenero
+                 ." MSVSCTGAID = ?, "
+                 ." MSVVSOLID = ?, "
+                 ." MSVSOLICITUDUSRRLZ = ?, "
+                 ." MSVRACTID = ?, "
+                 ." MSVPROYID = ?, "
+          */ 
+                 ." MSVSOLICITUDASUNTO = ?, "
+                 ." MSVSOLICITUDDESC = ? "
+                     
+                ." WHERE MSVSOLICITUDNOLIN = ? ";
+                 if($sentencia = $this->conexion->prepare($consulta))
+                       {
+                           if($sentencia->bind_param("ss",
+                                                          /*
+                                                             $ticket->fSolicitud,
                                                              $ticket->hInicial,
-                                                             $ticket->ugenero,
+                                                          
                                                              $ticket->areaSoli,
                                                              $ticket->viaId,
                                                              $ticket->usuarioSol,
                                                              $ticket->recesoId,
                                                              $ticket->proyecto,
-                                                             $ticket->asunto,
-                                                             $ticket->dsc,
+                                                                 
+                 
+                                                              $ticket->asunto,
+                                                                    */
+                                                              $ticket->dsc,
+                                         
                                                              $ticket->id))
                                                              
                                                          {
@@ -156,8 +164,8 @@ class TicketsRepositorio implements ITicketsRepositorio
                                                          else  $resultado->mensajeError = "Falló el enlace de parámetros";
                                                      }
                                                      else
-                                                         $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
-                                                         return $resultado;
+                                      $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                       return $resultado;
      }
      public function consultarPorLlaves($llaves)
      {
