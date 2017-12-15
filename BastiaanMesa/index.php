@@ -235,7 +235,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 							               <div class="col s4">
 							                    <a>Usuario realizador</a>
 							                    <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistenteR();" title='Asistente Usuarios'>
-										        <select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+										        <select class="input" id="usuarioRealizadorFormularioInputt" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
 							              
 						              </div>
@@ -247,7 +247,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						
 						              <div class="col s12">	    
 							                 <a></a>
-							    	         <input class="input" id="ODIO EL PUTO FRAMEWORK" descripcion="vi00000a" type="text"/>
+							    	         <input class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"/>
 						   	           </div>
                                        </div>
                                        <div class="row">

@@ -203,6 +203,11 @@ class TicketsVista
 		this.presentador.consultarPorUsuario();
 	}
 	
+	btnconsultarPromptR_onClick()
+	{
+		this.presentador.consultarPorUsuarioR();
+	}
+	
 	btnGuardarFormulario_onClick()
 	{		
 		 var campoObligatorioVacio = this.campoObligatorioVacio();
@@ -741,17 +746,6 @@ class TicketsVista
 	}
 	
 	
-	usuarioSelect()
-	{
-		
-		$('#ugeneroFormularioTiket').val(this._gridListaArchivos._selectedItem.id);
-		$('#agenteIdFormularioInput').val(this._gridListaArchivos._selectedItem.nayeagenteId);
-		$('#principalDiv').hide()	
-		$('#formularioDiv').show();
-		this.mostrarFormulario();
-		this.onBlur();
-
-	 }  
 	
 	verDatosAsisProyecto()
 	{	
@@ -859,7 +853,7 @@ class TicketsVista
 		output += "<img src='assets/botones/btnSalir.png' onClick='vista.btnsalirPromt_onClick();' style='float:right;cursor:pointer;width:48px;height:48px;'";
 		output += "  >";
 		output += "</td>";
-		output += "<img src='assets/botones/imgConsulta.png' onClick='vista.btnconsultarPrompt_onClick();' style='float:right;cursor:pointer;width:48px;height:48px;'>";
+		output += "<img src='assets/botones/imgConsulta.png' onClick='vista.btnconsultarPromptR_onClick();' style='float:right;cursor:pointer;width:48px;height:48px;'>";
 		output += "</td>";
 		output += "</div>";
 			output += "<div class='contCriterios2' id='contCriterios2' style='height:370'>";
@@ -926,7 +920,8 @@ class TicketsVista
 	usuarioSelectR()
 	{
 		
-		$('#usuarioRealizadorFormularioInput').val(this._gridListaArchivos._selectedItem.id);
+		$('#usuarioRealizadorFormularioInputt').val(this._gridListaArchivos._selectedItem.id);
+		$('#usuarioRealizadorFormularioInput').val(this._gridListaArchivos._selectedItem.nayeagenteId);
 		$('#principalDiv').hide()	
 		$('#formularioDiv').show();
 		this.mostrarFormulario();
