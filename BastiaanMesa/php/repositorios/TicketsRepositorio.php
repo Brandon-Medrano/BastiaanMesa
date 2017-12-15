@@ -168,8 +168,8 @@ class TicketsRepositorio implements ITicketsRepositorio
          " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML estado".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
-             " WHERE B.MSVRACTNOML  like CONCAT('%',?,'%') ".
-             " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
+        " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
+        " WHERE MSVRACTNOML like CONCAT('%',?,'%') ".
              " AND MSVSOLICITUDUSRSOLID like CONCAT('%',?,'%') ";
          
          if($sentencia = $this->conexion->prepare($consulta))
