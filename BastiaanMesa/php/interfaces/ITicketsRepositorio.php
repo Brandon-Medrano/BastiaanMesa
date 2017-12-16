@@ -9,7 +9,7 @@ interface ITicketsRepositorio
     public function actualizar(Ticket $ticket);
     public function eliminar($id);
     
-    public function consultarPorLlaves($id);
+    public function consultarPorLlaves($llaves);
     public function consultar($criteriosSeleccion);
     public function consultarPorNaye($criteriosNayee); 
     public function consultarPorEstatu();

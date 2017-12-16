@@ -44,10 +44,10 @@ class TicketsVista
 		this.grid._columnas = [
 			{titulo:"Id",   	alias:"id", alineacion:"I" },
 			{titulo:"Actividad",   	alias:"actividad", alineacion:"I" }, 
-			{titulo:"Usuario que solicita",   alias:"usuarioSol", alineacion:"I" }, 
-			{titulo:"Fecha de solicitud",   alias:"fInicial", alineacion:"C" }, 
+			{titulo:"Usuario que solicita",   alias:"ugenero", alineacion:"I" }, 
+			{titulo:"Fecha de solicitud",   alias:"fSolicitud", alineacion:"C" }, 
 			{titulo:"Hora de solicitud",   alias:"hInicial", alineacion:"C" },	
-			{titulo:"Estatus",   alias:"estado", alineacion:"I" },
+			{titulo:"Estatus",   alias:"recesoId", alineacion:"I" },
 
 		]
 		

@@ -75,7 +75,7 @@ class TicketsRepositorio implements ITicketsRepositorio
                                           $ticket->ugenero,
                                           $ticket->areaSoli,
                                           $ticket->viaId,
-                                          $ticket->usuarioSol,
+                                          $ticket->usuarioRealizador,
                                           $ticket->recesoId,
                                           $ticket->proyecto,
                                           $ticket->asunto,
@@ -233,8 +233,8 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $tickets = array();
          
-         $consulta = " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID usuarioSol, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fInicial, ".
-         " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML estado".
+         $consulta = " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID ugenero, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fSolicitud, ".
+         " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML recesoId".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
         " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
@@ -247,17 +247,17 @@ class TicketsRepositorio implements ITicketsRepositorio
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($id, $actividad, $usuarioSol, $fInicial, $hInicial, $estado))
+                     if ($sentencia->bind_result($id, $actividad, $ugenero, $fSolicitud, $hInicial, $recesoId))
                      {
                          while($row = $sentencia->fetch())
                          {
                              $ticket = (object) [
                                  'id' => utf8_encode($id),
                                  'actividad' => utf8_encode($actividad),
-                                 'usuarioSol' =>  utf8_encode($usuarioSol),
-                                 'fInicial' =>  utf8_encode($fInicial),
+                                 'ugenero' =>  utf8_encode($ugenero),
+                                 'fSolicitud' =>  utf8_encode($fSolicitud),
                                  'hInicial' =>  utf8_encode($hInicial),
-                                 'estado' => utf8_encode($estado)
+                                 'recesoId' => utf8_encode($recesoId)
                              ];
                              array_push($tickets,$ticket);
                          }

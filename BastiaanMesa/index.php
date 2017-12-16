@@ -176,17 +176,17 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								      
 								                  <div class="col s4">  
 								   	  	              <a>Via de solicitud</a>
-								   	  	              <select class="browser-default" id="viaIdFormularioInput">
+								   	  	              <select class="browser-default" name="viaIdFormularioInput" id="viaIdFormularioInput">
 								   	  	              </select>
 								                  </div> 
 								                  <div class="col s4"> 	
 								                       <a>Estatus</a>		
-								   		            	<select class="browser-default" id="recesoIdFormularioInput">
+								   		            	<select class="browser-default" name="recesoIdFormularioInput" id="recesoIdFormularioInput">
 								   		            	</select>
 								   	              </div>
 								   	              <div class="col s4">
 								   	 		            <a>Nivel de importancia</a>
-								   	            	     <select class="browser-default" id="importanciaIdFormularioInput">
+								   	            	     <select class="browser-default" name="importanciaIdFormularioInput" id="importanciaIdFormularioInput">
 								   	            	     </select>
 								   	              </div>
 							                </div>

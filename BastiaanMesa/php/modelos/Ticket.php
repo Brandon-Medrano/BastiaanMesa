@@ -5,10 +5,7 @@ class Ticket
 {
     
     public $actividad;
-    public $usuarioSol;
     public $fSolicitud;
-    public $fFinal;
-    public $estado;
     public $asunto;
     public $descripcion;
     public $viaId;
@@ -17,7 +14,6 @@ class Ticket
     public $correo;
     public $telefono;
     public $proyecto;
-    public $area;
     public $extension;
     
     /* estatu */
