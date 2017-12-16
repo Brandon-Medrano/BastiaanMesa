@@ -60,26 +60,28 @@ class TicketsRepositorio implements ITicketsRepositorio
                 . " MSVSOLICITUDHSOL, "
                 . " MSVSOLICITUDUSRSOLID, "
                 . " MSVSCTGAID, "
+                . " MSVSOLICITUDUSRRLZ, " // cambiar en el promt para que introduca su abreviado y no su nombre por que no inserta 
                 . " MSVVSOLID, "
-                . " MSVSOLICITUDUSRRLZ, "
                 . " MSVRACTID, "
                 . " MSVPROYID, "
                 . " MSVSOLICITUDASUNTO, "
-                . " MSVSOLICITUDDESC)"
-                . " VALUE(?,?,?,?,?,?,?,?,?,?,?)";
+                . " MSVSOLICITUDDESC,"
+                . " MSVNIMPID)"  // se agrego importancia 
+                . " VALUE(?,?,?,?,?,?,?,?,?,?,?,?)"; 
                               if($sentencia = $this->conexion->prepare($consulta))
                                    {
-                                      if( $sentencia->bind_param("issssssssss",$id,
+                                      if( $sentencia->bind_param("isssssssssss",$id,
                                           $ticket->fSolicitud,
                                           $ticket->hInicial,
                                           $ticket->ugenero,
                                           $ticket->areaSoli,
-                                          $ticket->viaId,
                                           $ticket->usuarioRealizador,
+                                          $ticket->viaId,
                                           $ticket->recesoId,
                                           $ticket->proyecto,
                                           $ticket->asunto,
-                                          $ticket->dsc))
+                                          $ticket->dsc,
+                                          $ticket->idImportancias)) // se grego importancia 
                                       {
                                          if(!$sentencia->execute())
                                              $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
@@ -182,9 +184,10 @@ class TicketsRepositorio implements ITicketsRepositorio
                                      . " MSVRACTID recesoId, "
                                          . " MSVPROYID proyecto, "
                                              . " MSVSOLICITUDASUNTO asunto, "
-                                                 . " MSVSOLICITUDDESC descripcion, "
-                                                     . " MSVNIMPID idImportancias "
-                                                    ." FROM bstnmsv.msvsolicitud "
+                                                 . " MSVSOLICITUDDESC dsc, " // esta mal es dsc 
+                                                     . " 
+ "
+                                                          ." FROM bstnmsv.msvsolicitud "
                                                              ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
                                                              if($sentencia = $this->conexion->prepare($consulta))
                                                              {

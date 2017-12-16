@@ -30,6 +30,14 @@ class Movimiento
     public $idEstatus;
     public $descEstatus;
     
+    
+    
+    
+    /*
+   agrege faltaban paaon
+     */
+   public $idImportancias;
+   public $usuarioRealizador;
    }
 
    
