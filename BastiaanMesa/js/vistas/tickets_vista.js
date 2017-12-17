@@ -168,9 +168,13 @@ class TicketsVista
 	{
 		if(this.grid._selectedItem!=null)
 		{			
-			this.modo = "CAMBIO";
-			this.mostrarFormulario();		
+			this.modo = "CAMBIO";	
+
+			this.presentador.consultarPorEstatu();
+			this.presentador.consultarPorImportancia();
+			this.presentador.consultarPorVia();
 			this.presentador.consultarPorLlaves();
+			this.mostrarFormulario();	
 			
 			//
 			/*

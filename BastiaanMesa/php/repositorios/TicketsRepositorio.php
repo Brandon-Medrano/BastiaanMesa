@@ -123,50 +123,43 @@ class TicketsRepositorio implements ITicketsRepositorio
      {
          $resultado = new Resultado();
          $consulta = " UPDATE bstnmsv.msvsolicitud SET"
-             /* . " MSVSOLICITUDFSOL = ?, "
-                 ." MSVSOLICITUDHSOL = ?, "  
-           
-                 ." MSVSOLICITUDUSRSOLID = ?, " //ugenero
-                 ." MSVSCTGAID = ?, "
-                 ." MSVVSOLID = ?, "
-                 ." MSVSOLICITUDUSRRLZ = ?, "
-                 ." MSVRACTID = ?, "
-                 ." MSVPROYID = ?, "
-          */ 
-                 ." MSVSOLICITUDASUNTO = ?, "
-                 ." MSVSOLICITUDDESC = ? "
-                     
+                 ." MSVSOLICITUDFSOL = ?, " //fSolicitud
+                 ." MSVSOLICITUDHSOL = ?, " //hInicial
+                 ." MSVSOLICITUDUSRSOLID = ?, "  //ugenero
+                 ." MSVSCTGAID = ?, " //areaSoli
+                 ." MSVVSOLID = ?, "//viaId
+                 ." MSVSOLICITUDUSRRLZ = ?, " //usuarioRealizador
+                 ." MSVRACTID = ?, " //recesoId
+                 ." MSVPROYID = ?, " //proyecto
+                 ." MSVSOLICITUDASUNTO = ?, " //asunto
+                 ." MSVSOLICITUDDESC = ?, " //dsc
+                 ." MSVNIMPID = ? "//idImportancias
                 ." WHERE MSVSOLICITUDNOLIN = ? ";
                  if($sentencia = $this->conexion->prepare($consulta))
                        {
-                           if($sentencia->bind_param("ss",
-                                                          /*
-                                                             $ticket->fSolicitud,
-                                                             $ticket->hInicial,
-                                                          
-                                                             $ticket->areaSoli,
-                                                             $ticket->viaId,
-                                                             $ticket->usuarioSol,
-                                                             $ticket->recesoId,
-                                                             $ticket->proyecto,
-                                                                 
-                 
-                                                              $ticket->asunto,
-                                                                    */
-                                                              $ticket->dsc,
-                                         
-                                                             $ticket->id))
-                                                             
-                                                         {
-                                                             if($sentencia->execute()){
-                                                                 $resultado->valor=true;
-                                                             }else
-                                                                 $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
-                                                         }
-                                                         else  $resultado->mensajeError = "Falló el enlace de parámetros";
-                                                     }
-                                                     else
-                                      $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                           if($sentencia->bind_param("ssssssssssss",
+                               $ticket->fSolicitud,
+                               $ticket->hInicial,
+                               $ticket->ugenero,
+                               $ticket->areaSoli,
+                               $ticket->viaId,
+                               $ticket->usuarioRealizador,
+                               $ticket->recesoId,
+                               $ticket->proyecto,
+                               $ticket->asunto,
+                               $ticket->dsc,
+                               $ticket->idImportancias,
+                               $ticket->id))
+                   {
+          if($sentencia->execute()){
+             $resultado->valor=true;
+          }else
+       $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+           }
+       else  $resultado->mensajeError = "Falló el enlace de parámetros";
+        }
+           else
+          $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
                        return $resultado;
      }
      public function consultarPorLlaves($llaves)
@@ -185,10 +178,9 @@ class TicketsRepositorio implements ITicketsRepositorio
                                          . " MSVPROYID proyecto, "
                                              . " MSVSOLICITUDASUNTO asunto, "
                                                  . " MSVSOLICITUDDESC dsc, " // esta mal es dsc 
-                                                     . " 
- "
+                                                     ." MSVNIMPID idImportancias "
                                                           ." FROM bstnmsv.msvsolicitud "
-                                                             ." WHERE MSVSOLICITUDNOLIN  like CONCAT('%',?,'%') ";
+                                                             ." WHERE MSVSOLICITUDNOLIN like CONCAT('%',?,'%') ";
                                                              if($sentencia = $this->conexion->prepare($consulta))
                                                              {
                                                                  if($sentencia->bind_param("s",$llaves->id))
