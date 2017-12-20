@@ -36,6 +36,19 @@ class TicketsVista
 		this.cmbVias._labelField = "descVias";
 
 		this.cmbVias.render();
+		this.cmbCategorias = new Combo("id3");// buscar 
+		this.cmbCategorias.setViewport("categoriaIdFormularioInput");
+		this.cmbCategorias._dataField = "idCategorias";
+		this.cmbCategorias._labelField = "descCategorias";
+
+		this.cmbCategorias.render();
+		
+		this.cmbsCategorias = new Combo("id4");// buscar 
+		this.cmbsCategorias.setViewport("scategoriaIdFormularioInput");
+		this.cmbsCategorias._dataField = "idsCategorias";
+		this.cmbsCategorias._labelField = "descsCategorias";
+
+		this.cmbsCategorias.render();
 		
 	}
 	
@@ -110,6 +123,7 @@ class TicketsVista
 		this.presentador.consultarPorEstatu();
 		this.presentador.consultarPorImportancia();
 		this.presentador.consultarPorVia();
+		this.presentador.consultarPorCategoria();
 				
 		this.mostrarFormulario();
 		
@@ -173,6 +187,7 @@ class TicketsVista
 			this.presentador.consultarPorEstatu();
 			this.presentador.consultarPorImportancia();
 			this.presentador.consultarPorVia();
+			this.presentador.consultarPorCategoria();
 			this.presentador.consultarPorLlaves();
 			this.mostrarFormulario();	
 			
@@ -266,7 +281,7 @@ class TicketsVista
 	{	
 		var criteriosNayee =
 	    {
-		usuarioSol:$('#ugeneroFormularioTiket').val()
+		ugenero:$('#ugeneroFormularioTiket').val()
 	    }
 	    return 	criteriosNayee;
 	}	
@@ -321,9 +336,28 @@ class TicketsVista
 	    return 	criteriosProyectos;
 	}
 	
+	get criteriossCategorias()
+	{
+		 var criteriossCategorias = 
+		 {				    
+			categoria:$('#categoriaIdFormularioInput').val()
+		 }
+		 return criteriossCategorias;
+	}
+	
 	/*
 	 * Asignar registros al grid
 	 */
+	
+	
+	
+	//ONBLOR SCAT
+	naye(){
+		
+		this.presentador.consultarPorsCategoria();
+		
+	}
+	//
 	
 	set datos(valor)
 	{
@@ -343,6 +377,40 @@ class TicketsVista
 	this._gridListaArchivos.render();
 	}
 		
+	
+set datosCategorias(valor){
+    	
+		this.cmbCategorias._dataProvider = valor;
+		this.cmbCategorias.setSeleccionado("idCategorias",this.idCategorias);
+		this.cmbCategorias.render();
+		
+	}
+
+set datossCategorias(valor){
+		
+		this.cmbsCategorias._dataProvider = valor;
+		this.cmbsCategorias.setSeleccionado("idsCategorias",this.idsCategorias);
+		this.cmbsCategorias.render();
+		
+	}
+
+set categoria(valor)
+	{
+		$('descCategoriasFormularioInput').val(valor.descCategorias);
+		$('idCategoriasFormularioInput').val(valor.idCategorias);
+		this.idCategorias = valor.idCategorias
+		
+	}
+	
+	set scategoria(valor)
+	{
+		$('descsCategoriasFormularioInput').val(valor.descsCategorias);
+		$('idsCategoriasFormularioInput').val(valor.idsCategorias);
+		
+		this.idsCategorias = valor.idsCategorias
+		
+	}
+	
 	set datosEstatus(valor){
 		this.cmbEstatus._dataProvider = valor;
 		this.cmbEstatus.setSeleccionado("idEstatus",this.idEstatus);
@@ -434,6 +502,32 @@ class TicketsVista
 		return importancias;
 	}
 
+	
+	get categorias()
+	{
+		
+		var categorias = 
+		{
+		
+	    idCategorias:this.cmbCategorias._selectedItem.idCategorias,
+		descCategorias:$('#descCategoriasFormularioInput').val(),
+		};
+		
+		return categorias;
+	}
+	
+	get scategorias()
+	{
+		
+		var scategorias = 
+		{
+		
+	    idsCategorias:this.cmbssCategorias._selectedItem.idsCategorias,
+		descsCategorias:$('#descsCategoriasFormularioInput').val()
+		};
+		
+		return scategorias;
+	}
 	
 	get vias()
 	{
@@ -558,11 +652,20 @@ class TicketsVista
 	 */
 	limpiarFormulario()
 	{
-		$('#actividadFormularioInput').val("");
-		$('#usuarioSolFormularioInput').val("");
-		$('#fInicialFormularioInput').val("");
-		$('#fFinalFormularioInput').val("");
-		$('#estadoFormularioInput').val("");
+		$('#ugeneroFormularioTiket').val("");
+		$('#agenteIdFormularioInput').val("");
+		$('#extensionFormularioInput').val("");
+		$('#proyectoFormularioInput').val("");
+		$('#areaSoliFormularioInput').val("");
+		$('#correoFormularioInput').val("");
+		$('#telefonoFormularioInput').val("");
+		$('#usuarioRealizadorFormularioInput').val("");
+		$('#copiaCorreoFormularioInput').val("");
+		$('#tSoliFormularioInput').val("");
+		$('#asuntoFormularioInput').val("");
+		$('#asuntodFormularioInput').val("");
+		$('#dscFormularioInput').val("");
+		$('#dscdFormularioInput').val("");
 	}
 	
 	

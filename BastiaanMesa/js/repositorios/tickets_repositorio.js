@@ -256,6 +256,27 @@ class TicketsRepositorio
 	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
 /* */
+	/* subcategoria */ 
+	consultarPorsCategoria(contexto,functionRetorno, criteriossCategorias)
+	{		
+		
+		this.contexto = contexto;
+		this.functionRetorno = functionRetorno;
+		var parametros;
+		parametros = "accion=consultarPorsCategoria";
+        parametros += "&criteriossCategorias=" +  encodeURIComponent(JSON.stringify(criteriossCategorias));
+		var contextHandler = new AjaxContextHandler();
+		var host = window.location.origin + "/BastiaanMesa";	
+		var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorsCategoriaResultado, "POST", parametros, contextHandler);		
+		contextHandler.AddAjaxv2Object(ai); 		
+		ai.GetPost(true);
+	}
+	consultarPorsCategoriaResultado(resultado)
+	{
+		var datossCategorias = JSON.parse(resultado);
+		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+ /*  */
 /* Importancia */	
 	consultarPorImportancia(contexto,functionRetorno, criteriosImportancias)
 	{		
@@ -275,6 +296,27 @@ class TicketsRepositorio
 	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
 /* */
+	/* Categoria */	
+	consultarPorCategoria(contexto,functionRetorno, criteriosCategorias)
+	{		
+	    this.contexto = contexto;
+	    this.functionRetorno = functionRetorno;
+	    var parametros;
+	    parametros = "accion=consultarPorCategoria";
+	    var contextHandler = new AjaxContextHandler();
+	    var host = window.location.origin + "/BastiaanMesa";	
+	    var ai = new Ajaxv2(host +"/php/repositorios/Tickets.php", this, this.consultarPorCategoriaResultado, "POST", parametros, contextHandler);		
+	    contextHandler.AddAjaxv2Object(ai); 		
+	    ai.GetPost(true);
+	}
+	consultarPorCategoriaResultado(resultado)
+	{
+	    var datos = JSON.parse(resultado);
+	    this.functionRetorno.call(this.contexto,JSON.parse(resultado));
+	}	
+/* */
+	
+	
 	/* via*/	
 	consultarPorVia(contexto,functionRetorno, criteriosVias)
 	{		

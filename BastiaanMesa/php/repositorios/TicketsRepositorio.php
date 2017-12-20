@@ -404,28 +404,23 @@ class TicketsRepositorio implements ITicketsRepositorio
          $resultado = new Resultado();
          $nayee = array();
          
-         $consulta  =  " SELECT DISTINCT(B.MSVSOLICITUDUSRSOLID) usuarioSol, B.MSVUSUARIOSCEPER correo, C.MSVPROYNOMC proyecto,  MSVUSUARIOSTELCEL telefono, D.MSVSCTGANOML area, B.MSVUSUARIOSEXT extension ".
-             " FROM bstnmsv.msvsolicitud A".
-             " INNER JOIN bstnmsv.msvusuarios B ON A.MSVSOLICITUDUSRSOLID = B.MSVSOLICITUDUSRSOLID " .
-             " INNER JOIN bstnmsv.msvsctga D ON A.MSVSCTGAID = D.MSVSCTGAID " .
-             " INNER JOIN bstnmsv.msvproy C ON A.MSVPROYID = C.MSVPROYID ".
-             " WHERE B.MSVSOLICITUDUSRSOLID  like CONCAT('%',?,'%') ";
+         $consulta  =  " SELECT DISTINCT(MSVSOLICITUDUSRSOLID) ugenero, MSVUSUARIOSCEPER correo, MSVUSUARIOSTELCEL telefono, MSVUSUARIOSEXT extension ".
+             " FROM bstnmsv.msvusuarios ".
+             " WHERE MSVSOLICITUDUSRSOLID  like CONCAT('%',?,'%') ";
          if($sentencia = $this->conexion->prepare($consulta))
          {
-             if($sentencia->bind_param("s",$criteriosNayee-> usuarioSol))
+             if($sentencia->bind_param("s",$criteriosNayee-> ugenero))
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($usuarioSol, $correo, $proyecto, $telefono, $area, $extension ))
+                     if ($sentencia->bind_result($ugenero, $correo, $telefono, $extension ))
                      {
                          while($row = $sentencia->fetch())
                          {
                              $naye = (object) [
-                                 'usuarioSol' =>  utf8_encode($usuarioSol),
+                                 'ugenero' =>  utf8_encode($ugenero),
                                  'correo' =>  utf8_encode($correo),
                                  'telefono' =>  utf8_encode($telefono),
-                                 'proyecto' =>  utf8_encode($proyecto),
-                                 'area' =>  utf8_encode($area),
                                  'extension' =>  utf8_encode($extension)
                              ];
                              array_push($nayee,$naye);
@@ -629,7 +624,88 @@ class TicketsRepositorio implements ITicketsRepositorio
              
              return $resultado;
      }
+     public function consultarPorcategoria()
+     {
+         $resultado = new Resultado();
+         $tickets = array();
+         
+         $consulta = "SELECT"
+             . " MSVCATNOMC idCategorias, "
+                 . " MSVCATNOML descCategorias"
+                     . " from  bstnmsv.msvcat";
+                     if($sentencia = $this->conexion->prepare($consulta))
+                     {
+                         if(true)
+                         {
+                             if($sentencia->execute())
+                             {
+                                 if ($sentencia->bind_result($idCategorias, $descCategorias))
+                                 {
+                                     while($row = $sentencia->fetch())
+                                     {
+                                         $ticket = (object) [
+                                             'idCategorias' => utf8_encode($idCategorias),
+                                             'descCategorias' =>  utf8_encode($descCategorias)
+                                         ];
+                                         array_push($tickets,$ticket);
+                                     }
+                                     $resultado->valor = $tickets;
+                                 }
+                                 else
+                                     $resultado->mensajeError = "Falló el enlace del resultado.";
+                             }
+                             else
+                                 $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         }
+                         else
+                             $resultado->mensajeError = "Falló el enlace de parámetros";
+                     }
+                     else
+                         $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                         return $resultado;
+     }
      
+     public function consultarPorsCategoria($criteriossCategorias)
+     {
+         $resultado = new Resultado();
+         $tickets = array();
+         
+         $consulta = "SELECT"
+             . " MSVCATNOMC idsCategorias, "
+                 . " MSVSCATNOML descsCategorias"
+                     . " from  bstnmsv.msvscat"
+                         ." WHERE MSVCATNOMC like CONCAT('%',?,'%') ";
+                         if($sentencia = $this->conexion->prepare($consulta))
+                         {
+                             if($sentencia->bind_param("s",$criteriossCategorias->categoria))
+                             {
+                                 if($sentencia->execute())
+                                 {
+                                     if ($sentencia->bind_result($idsCategorias, $descsCategorias))
+                                     {
+                                         while($row = $sentencia->fetch())
+                                         {
+                                             $ticket = (object) [
+                                                 'idsCategorias' => utf8_encode($idsCategorias),
+                                                 'descsCategorias' => utf8_encode($descsCategorias)
+                                             ];
+                                             array_push($tickets,$ticket);
+                                         }
+                                         $resultado->valor = $tickets;
+                                     }
+                                     else
+                                         $resultado->mensajeError = "Falló el enlace del resultado.";
+                                 }
+                                 else
+                                     $resultado->mensajeError = "Falló la ejecución (" . $this->conexion->errno . ") " . $this->conexion->error;
+                             }
+                             else
+                                 $resultado->mensajeError = "Falló el enlace de parámetros";
+                         }
+                         else
+                             $resultado->mensajeError = "Falló la preparación: (" . $this->conexion->errno . ") " . $this->conexion->error;
+                             return $resultado;
+     }
      
 
 }

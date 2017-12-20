@@ -11,12 +11,20 @@ $usuarioDsc = REQUEST('CNUSERDESC');
 $CNUSERDESC = REQUEST('CNUSERDESC');
 
 ?>
-<html> 
+<!DOCTYPE html>
 
-<title>Catalogo de usuarios</title>
+<title>Tickets</title>
 <head>	
-	<meta charset="UTF-8">
-	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script>
+
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<!-- ==============================basttiaan===========================================-->
+
+<!-- <script language="JavaScript" type="text/javascript" src="js/librerias/jquery-1.6.2.min.js"></script> -->
 	<script language="JavaScript" type="text/javascript" src="js/librerias/jquery-ui-1.8.16.custom.min.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/json2.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/AjaxContextHandler.js"></script>
@@ -31,292 +39,253 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 
 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/cargador.js"></script>
 <!-- 	<script language="JavaScript" type="text/JavaScript" src="js/librerias/jquery.min.js"></script> -->
- 	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.core.js'></script>
-	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker.js'></script>
-	<script language="JavaScript" type="text/JavaScript" src='js/librerias/Datapickerjs/ui.datepicker-es.js'></script> 
 	
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/GridReg.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/componentes/Combo.js"></script>
-	
-	<!-- Llamado de prompts
-	<script language="JavaScript" type="text/javascript" src="../GV/prompts/PromptConcepto.js">  </script>
-	<script language="JavaScript" type="text/javascript" src="../GV/prompts/PromptVerficador.js"></script>
-	-->
-	
-	<link type='text/css' href='js/librerias/Datapickerjs/ui.datepicker.css' rel='stylesheet' />
-	<link type='text/css' href='js/librerias/Datapickerjs/demos.css' rel='stylesheet' />
-	<link type='text/css' href='js/librerias/Datapickerjs/ui.all.css' rel='stylesheet' />
 
-	<!--Estilo-->
-    <link href="css/estilo.css" media="handheld, screen" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="css/imagenes/faviSIO.png">
-    
-   
-   
+<!-- ================================MATERIALIZE=========================================-->
+
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+      <!-- ================================bastiaan=========================================-->
+ <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
+ <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
+ <script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
+
+<!-- ==============================================================================-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<!-- =========================================================================================-->
     <script language="JavaScript" type="text/JavaScript" src="js/repositorios/tickets_repositorio.js"></script>
     <script language="JavaScript" type="text/JavaScript" src="js/presentadores/tickets_presentador.js"></script>
 	<script language="JavaScript" type="text/JavaScript" src="js/vistas/tickets_vista.js"></script>
+<!-- =========================================================================================-->
 
 </head>
 
-<body  bgcolor="#e8e8e8" onLoad="vista.onLoad()" style="overflow: auto;height: 89%;">
-<div id="dialogo" title="Di�logo" style="display:none;">
-</div>
-<form id="form">
-	<div id="principalDiv">
-		
-		<div id="debug" width="100%" style="display:none">
-				<input type="hidden" id="RPFREPFINCNMDLSID"  name="RPFREPFINCNMDLSID"   value ='<?php echo $modulo; ?>'/>
-				<input type="hidden" id="RPFREPFINCNOTRMID"  name="RPFREPFINCNOTRMID"   value ='<?php echo $opcionTerminal; ?>'/> 
-				<input type="hidden" id="RPFREPFINCNOTRMVER" name="RPFREPFINCNOTRMVER"  value ='<?php echo $version; ?>'/>
-				<input type="hidden" id="CNUSERID"           name="CNUSERID"            value ='<?php  echo $usuario; ?>>'/> 
-				<input type="hidden" id="CNUSERDESC"           name="CNUSERDESC"            value ='<?php  echo $CNUSERDESC; ?>'/>    
-		</div>
-		
-		
-		<div id="estiloBotonesPeque" class="estiloBotonesPeque">
-			<div id="contieneTuberiaIzq" class="contieneTuberiaIzq">
-				<img src='assets/pantalla/logotipo.png' style="position:absolute; "/>
-			</div>
-			<div id="contieneCriteriosAriba" class="contieneCriteriosAriba">
-				<div id="contieneCriteriosAribaBtn" class="contieneCriteriosAribaBtn">
-					<div id="PMenu" align="center">
-						<div id="botones" style="width:auto;overflow:auto;">
-							<table class="tablaBotonesIEC">
-								<tr>
-								
-                     				<td><img id="btnAlta" class="botonMenuIEC" title="Alta" src="assets/botones/imgAlta2.png" onClick="vista.btnAlta_onClick();"></td>
-									<td><img id="btnConsulta" class="botonMenuIEC" title="Consulta" src="assets/botones/imgConsulta.png" onClick="vista.btnConsulta_onClick();"></td>
-									<td><img id="btnCambio" class="botonMenuIEC" title="Salir"  src="assets/botones/btnCambio.png" onClick="vista.btnCambio_onClick();" ></td>
-									<td><img id="btnSalir" class="botonMenuIEC" title="Salir"  src="assets/botones/btnSalir.png" onClick="vista.btnSalir_onClick();" ></td>
-								</tr>
-                             </table>   
-						</div>
-						<div id="titulo" style="margin-left:280px;" class="tituloIEC">TICKETS</div>
-					</div>
-				</div>
-            </div>        
-	     </div>
-	     
-		 <div id="estiloBotonesInferior" class="estiloBotonesInferior" align="center">
-				<div id="criteriosMetaT2" class="criteriosMeta">
-					<div id="criteriosSeleccion0_t2" style="float:left; margin-top: 6px; margin-left: 10px;">
-						<div>
-							<table style="position:relative;left:40px; text-align:left; margin-top:10px; margin-bottom:10px;">
-								<tr>
-								    <td style="padding:6px 0px 4px 10px;">		<label  style="font-family: Verdana; font-size: 10px;">F. Inicial</label></td>									
-									<td style="padding:6px 0px 4px 10px;">		<input  id='fInicialCriterioInput' type='date'  descripcion="Fecha"  style='height: 20px; width:200px;'/></input></td>
-								    <td style="padding:6px 0px 4px 10px;">		<label  style="font-family: Verdana; font-size: 10px;">F. Final</label></td>									
-									<td style="padding:6px 0px 4px 10px;">		<input  id='fFinalCriterioInput' type='date'  descripcion="Fecha"  style='height: 20px; width:200px;'/></input></td>
-								    <td style="padding:6px 0px 4px 10px;">		<label  style="font-family: Verdana; font-size: 10px;">Estado</label></td>									
-									<td style="padding:6px 0px 4px 10px;">		<input  id='estadoCriterioInput' type='text' style='height: 20px; width:200px;'/></input></td>
-								    <td style="padding:6px 0px 4px 10px;">		<label  style="font-family: Verdana; font-size: 10px;">Usuarios Solicitante</label></td>									
-									<td style="padding:6px 0px 4px 10px;">		<input  id='usuarioSolCriterioInput' type='text' style='height: 20px; width:200px;'/></input></td>
-								</tr>
-							</table>
-						</div>
-					</div>
-                </div>
-		  </div>
-		  
-	       <div id="cargador" style="position:absolute;"></div>
-		
-			<div id="Pcontenido" style="position:relative;">            
-				<div id="tabs" class="PcontenComp" style="display:block;"></div>
-				<div id="paneles" class="PcontenComp" style="margin: auto; padding-left: 10px; padding-top: 0px; width: 99.5%; height: 90%; overflow: visible; position: relative;">
-					<div id="panelesArea0" style="float:left; height:98%; width:98.5%;">
-						<div id="panelesArea0paneles" class="PcontenComp" style="">
-							<div id="panelesArea0panel0" class="contenedorIEC" style="width: 100%; height: 99.5%; z-index: 1; float: left; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; overflow: hidden;">
-								<div id="panelesArea0panel0barra" class="barracomandosContenedorIEC" style="position:relative;">
-									<span id="panelesArea0panel0Titulo" class="tituloContenedorIEC"></span>	
-								</div>
-								<div id="panelesArea0panel0componentes" style=" width:99%;height:99%;overflow:hidden;position:relative;">
-                                	<div id="panelesArea0panel0componente0" style='overflow: auto; position:static;height:98%; width:100%; top:10px;left:3px;'>
+<body  onLoad="vista.onLoad()"  style="padding-left:3%; padding-right:3%">
+   <div class="card-panel white z-depth-4">
+   <!-- -Uno div -->
+      
 
-                               <div id="grid" style="float:left; overflow: auto; position:static; height:95%; width:100%; display: block; top:5px;left:3px;"></div>                						
-                            		
-	
-                            		</div>
-                           		</div>                                
-							</div>
-						</div>
-					</div>					
-					
-				</div>								
-			</div>	
-    </div>
-    
-    
+<!-- -====================== -->
+<div>
+    <form id="form">
+    <!-- uno sobra -->
+	       <div id="principalDiv">
+	       
+	        <header>
+             <nav>
+                  <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
+                       <a href="#!" class="brand-logo">Logo</a>
+                       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                             <ul class="right hide-on-med-and-down">
+                        
+                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons right">assignment</i></a></li>
+                                <li><a  onClick="vista.btnConsulta_onClick();"><i class="material-icons right">search</i></a></li>
+                                <li><a  onClick="vista.btnCambio_onClick();"><i class="material-icons right">mode_edit</i></a></li>
+                                
+                              
+                                  
+                                <!-- 
+                                     <i class="material-icons left"> <a href="#"  onClick="vista.btnAlta_onClick();" class="btn-floating   btn-large orange  darken-4">alta</a> 
+	                                 <a href="#"  onClick="vista.btnConsulta_onClick();" class="btn-floating btn-large blue  darken-4">Buscar</a>lock_open</i>Registro</a>
+	                             -->
+	                             </ul>
+	                             <!-- -telefono -->
+	                             <ul class="side-nav" id="mobile-demo">
+	                                <li><a  onClick="vista.btnAlta_onClick();"><i class="material-icons left">assignment</i>Alta</a></li>
+                                    <li><a  onClick="vista.btnConsulta_onClick();" style="display: flex;"><i class="material-icons left">search</i>Consulta</a></li>
+                                    <li><a  onClick="vista.btnCambio_onClick();" style="display: flex;"><i class="material-icons right">mode_edit</i>Cambio</a></li>
 
-<div id="formularioDiv" style="display:none ;height: 90%;">
-		<div>
-			
-<!--  barra de men� para botones de la pantalla
- -->
-			<div id="menuPrincipal"  align="right" class="contieneCriteriosAribaBtn" style="background-color: #6b6b6b;    height: 56px; " > 
-				<img class='logoBAS' style='float: left;' id='logoFRM' src='assets/pantalla/logoTipo.png'  />
-				<span id="txtTitulo" style="float:left;margin-top: 20px;margin-left: 15px;color: #FFFFFF;float: left;font-family: Verdana;font-size: 11px;font-weight: bold;">movimientos de personal</span>
-				<img style="padding: 2px;" class='imgTipoBoton' id='btnGuardarFormulario' src='assets/botones/imgGuardar.png' onclick='vista.btnGuardarFormulario_onClick();' title='Guardar' />
-				<img style="padding: 2px;" class='imgTipoBoton' id='btnSalirFormulario' src='assets/botones/btnSalir.png' onClick="vista.btnSalirFormulario_onClick();" title='Salir'  />
-			</div>
-<!--
-  barra de men�...fin
- -->
- 
+                                </ul>
+	                             <!-- -telefono -->
+	                             
+                            
+                  </div>
+            </nav>
+     </header>
+	       
+	       
+<!-- -=========criterios Seleccion=========== -->
+             
+                   <div class="row" id="criteriosSelecion">	
+          
+                                 <div class="col s3">								
+		                              	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
+		                	            <label>Fecha de solicitud</label>	
+	                             </div>		
+                                <div class="col s3">												
+						                 <input  id='usuarioSolCriterioInput' type='text'></input>
+					                     <label>Usuario Solicitante</label>	
+	                            </div>			
+                                <div class="col s3">								
+						                <input  id='estadoCriterioInput' type='text'></input>
+					    	            <label>Estatus</label>	
+	                            </div>	
+	             </div>   	
+	   
+	   
+	  
+	       
+	                 <div id="cargador" style="position:absolute;"></div> <!-- cierra aqui -->
+			                     <div id="Pcontenido" style="position:relative;">            
+				                       <div id="tabs" class="PcontenComp" style="display:block;">
+				                            <div id="grid"></div>
+				                       </div>								
+			                     </div>	
+         </div>  
+     
+    
+<!--  ================================================================================================================================== -->
+      <div id="formularioDiv" style="display:none ;height: 90%;">
+<!-- -=====1 sobra================= -->
+	            <div class="card-panel orange lighten-1 z-depth-3">
+	                    
+	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   blue">Save</a>      
+                         <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">X</a>      
+                
+		       	</div>
+		       	
+
 <!--barra principal -->
-			<div id="cargador" class="cargadorFRM2"></div>
+			<div id="cargador" class="cargadorFRM2"></div> <!-- cierra aqui -->
 				<div class="pContenido" id="estadoEstructura" >
 						<div class="contenidoNormalUS">
 					 		<div class="explicacionFRM" >
-								<div id="filtros " class="contenedorIEC" style="overflow: auto; position: relative; width: 100%; display: block;">
-								 <div style="width: 80%; display: block; height: 100%;  padding-top: 10px; padding-left: 34px;">								 	
+								<div id="filtros " class="contenedorIEC">
+								 <div>						
+								      <table>	
+								          <div class="row"> 
+								                  <div class="col s4">  
+								   	  	              <a>No. de ticket</a>
+								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/ disabled>
+								                  </div> 
+								                  <div class="col s4"> 	
+								                       <a>Fecha de solicitud</a>		
+								   		            	<input id="fSolicitudFormularioInput" type="date" step="2" disabled/>
+								   	              </div>
+								   	              <div class="col s4">
+								   	 		            <a>Hora de solicitud</a>
+								   	            	     <input type="text" id="hInicialFormularioInput" disabled/>
+								   	              </div>
+							                </div>
+								   </table>
+								    <table>	
+								          <div class="row"> 
+								                  <div class="col s4">  
+								   	  	              <a>Via de solicitud</a>
+								   	  	              <select class="browser-default" name="viaIdFormularioInput" id="viaIdFormularioInput">
+								   	  	              </select>
+								                  </div> 
+								                  <div class="col s4"> 	
+								                       <a>Estatus</a>		
+								   		            	<select class="browser-default" name="recesoIdFormularioInput" id="recesoIdFormularioInput">
+								   		            	</select>
+								   	              </div>
+								   	              <div class="col s4">
+								   	 		            <a>Nivel de importancia</a>
+								   	            	     <select class="browser-default" name="importanciaIdFormularioInput" id="importanciaIdFormularioInput">
+								   	            	     </select>
+								   	              </div>
+							                </div>
+								   </table>
+	<!--===========================================================================  -->
 								   
-								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="padding-top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">										 							    
-								    <tr>
-								    <td> 
-								  
-								   	  	    <label style="position: relative;  left: 3px;">No. de ticket</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<input class="input" id="idFormularioInput" descripcion="agente" type="text" maxlength="20"  style="width:auto; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        	</td>
-								    <td>						    
-								    		<label style="position: relative; left: 3px; ">Fecha de solicitud</label>
-								   		</td>
-								   		<td>		
-								   			<input id="fSolicitudFormularioInput" type="date" step="2" style="width:auto; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"disabled/>
-								   		</td>
-								   		
-								   		<td>						    
-								    		<label  style="position: relative;  left: 3px;">Hora de solicitud</label>
-								   		</td>
-								   		
-								   		<td>		
-								   		<input type="text" id="hInicialFormularioInput" style="width:130px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
-								   		</td>
-								   		</tr>
-								   		<tr>
-								   		<td>
-					                         <label style="position: relative; left: 3px;">Via de Solicitud</label>
-								   	  	</td>
- 								   	    <td>
-								     	     <select class="input" id="viaIdFormularioInput" descripcion="vi00000a" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" />
-								        </td>
-								   		<td> 
-								   	  	    <label style="position: relative; left:54px;">Estatus</label>
-								   	  	</td>
-								        <td>
-								       
-								           <select class="input" id="recesoIdFormularioInput" descripcion="RecesoLargo" style="width:200px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-                                       
-								     	</td>
-								     	<td> 
-								   	  	    <label style="width:500px; position: relative; left: 25px;">Importancia</label>
-								   	  	</td>
-								        <td>
-								       
-								           <select class="input" id="importanciaIdFormularioInput" descripcion="RecesoLargo" style="width:171px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>                                      
-								     	</td>
-								   		</tr>
-								   		</table>
-								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="top: 12px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">
-								   <tr>		
-								   <td> 
-								  
-								   	  	    <label style="position: relative; left: 3px;">Usuario que solicita ticket</label>
-								   	  	    </td>
-								   	  	    <td>
-								     		<input class="input" id="ugeneroFormularioTiket"  descripcion="agente" type="text" maxlength="20"  style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        	</td>
-								        	<td>
-								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios' style="left: 3px"> 	
-								        	</td>
-								        	<td>	
-	                                   		<input class="input" id="agenteIdFormularioInput" descripcion="agenteId" style="width:240px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; right: 30px; box-shadow: 2px 2px 5px #999;" disabled/>
-								</td>
-								</tr>
-								<tr>
-								   	    <td> 
-								   	  	    <label style="position: relative; left: 3px; ">Correo electronico</label>
-								   	  	</td>
-								   		<td>
-								     	 	     <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text" style="width:240%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>								    
-								       </td>
-								   </tr>   
-								    <tr>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Proyecto que pertenece</label>
-								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios' style="left: 3%"> 	
-								        	</td>
-								   	  	 <td>
-								    	  <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"   style="width: 180px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>  								    
-								        </td>
-								        <td> 
-								   	  	    <label style="position: relative; left: 3px;">Telefono</label>
-								   	  	</td>
-								   	  	<td>
-								     	  <input class="input" id="telefonoFormularioInput" type="text" style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;" disabled/>
-								        </td>
-								   	  	 <td> 
-								   	  	    <label style="position: relative; right: auto;" >Ext.</label>
-								   	  	</td>
-								   	  	<td>
-								     	     <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" style="width:93px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"disabled/>
-								        </td>
-								    </tr>
-								    <tr>
-								       <td>
-								           <label style="position: relative; left: 3px;">Area Solicitante</label>
-								        	<img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios' style="left: auto"> 	
-								      </td>
-                                       <td>
-								     	     <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text" style="width:150px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;" disabled/>
-								        </td>
-										<td> 
-											<label style="position: relative; left: 3px;">Usuario realizador</label>
-										</td>
-										<td>
-											<select class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text" style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;" disabled/>
-										</td>
-								    </tr>
-								    </table>
-								   <table WIDHT=auto; id="exito" HEIGHT=auto; CELLPADDING=0; cellspacing="10" style="top: 24px; padding-left: 1%; position:relative;display:inline-block; border: #ff6600 1px solid;">								   
-								    <tr>
-								      <td>
-							        	      <label style="position: relative; left: 3px; ">Asunto</label>
-                                        </td>
-                                        <td>
-                                     	        <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo" style="width:100%; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 6px; box-shadow: 2px 2px 5px #999;"/>
-                                     	</td> 
-                                     	</tr>
-                                     	<tr>
-                                        <td> 
-											<label style="position: relative; left: 3px;">Copia de correo para</label>
-										</td>  
-										<td>
-											<input class="input" id="copiaCorreoFormularioInput" descripcion="vi00000a" type="text" style="width:400px; font-family:Verdana; font-size:9px;text-align:left; color:#006699;position: relative; left: 3px; box-shadow: 2px 2px 5px #999;"/>
-										</td>
-										</tr>
-										<tr>
-								        <td>
-							        	      <label style="position: relative; left: 3px; ">Detalle del requerimeinto</label>
-                                        </td>
-                                        <td>
-                                             <textarea textarea name="dscFormularioInput" rows="12" cols="93" class="input" id="dscFormularioInput" descripcion="RecesoLargo" style="text-align:left; color:#006699;position: relative; left: auto; box-shadow: 2px 2px 5px #999;"/></textarea>
-                                       </td>
-								    </tr>
-								   	</table>	     	
-									</div>
-									
-								 </div>
-								</div>				  	
-							</div>
-						</div>
-				</div>
-		</div>
+					 <div class="row">
+								      <div class="col s4">
+								     	          <a>Usuario que solicita ticket</a>
+								     	          <a  onClick="vista.verDatosAsistente();"><i class="material-icons right">playlist_add</i></a>
+								       	          <input class="input" id="ugeneroFormularioTiket" descripcion="vi00000a" type="text"  disabled/>
+								             </div>
+								             <div class="col s8">
+								                   <a>Nombre</a>
+								     	           <input class="input" id="agenteIdFormularioInput" descripcion="vi00000a" type="text" disabled/>
+								        	 </div>
+								        	 <div class="col s12">
+                                                   <a>Correo electronico</a>
+								   	  	          <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								   	  	          </div>
+								             <div class="col s6">
+								     	          <a>Telefono</a>
+								       	          <input class="input" id="telefonoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								             </div>
+								             <div class="col s6">
+								                   <a>Ext.</a>
+								     	           <input class="input" id="extensionFormularioInput" descripcion="vi00000a" type="text" disabled/>
+								        	 </div>				    
+				      </div>		
+						<!-- ====================================== -->	           
+								     <div class="row">
+								           <div class="col s4">     
+								   	  	      <a>Proyecto que pertenece</a>
+								     	          <a  onClick="vista.verDatosAsisProyecto();"><i class="material-icons right">playlist_add</i></a>
+								              <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"  disabled/>  								    
+							               </div>  
+					       
+							              <div class="col s4">
+							  	                <a>Area Solicitante</a>
+								     	          <a  onClick="vista.verDatosAsis();"><i class="material-icons right">playlist_add</i></a>	
+								     	        <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+							              </div>
+							              
+							               <div class="col s4">
+							                    <a>Responsable de entrega</a>
+								     	          <a  onClick="vista.verDatosAsistenteR();"><i class="material-icons right">playlist_add</i></a>	
+										        <select class="input" id="usuarioRealizadorFormularioInputt" descripcion="vi00000a" type="text"  disabled/>
+					        	          </div>
+							              
+						              </div>
+						
+						
+						   <div class="row"><!-- 
+						   ======================================--> 
+							      <div class="card-panel  orange lighten-5 z-depth-4">	
+						
+						              <div class="col s12">	    
+							                 <a></a>
+							    	         <input class="input" id="usuarioRealizadorFormularioInput" descripcion="vi00000a" type="text"/>
+						   	           </div>
+                                       </div>
+                                       <div class="row">
+                                       <div class="col s6"> 	
+								                       <a>Categoria</a>		
+								   		            	<select onBlur="vista.naye()" class="browser-default" name="categoriaIdFormularioInput" id="categoriaIdFormularioInput">
+								   		            	</select>
+								   	              </div>
+								   	              <div class="col s6">
+								   	 		            <a>Subcategoria</a>
+								   	            	     <select class="browser-default" name="scategoriaIdFormularioInput" id="scategoriaIdFormularioInput">
+								   	            	     </select>
+								   	              </div>
+								   	            	   </div>
+                                       <div class="row">  
+                                       <div class="col s12">	
+						   	                  <a>Copia de correo para</a>
+                                             <input class="input" id="copiaCorreoFormularioInput" descripcion="RecesoLargo">
+                                       </div>
+            					 </div>   
+            					 
+            		           </div>
+            		          			
+            		          		       
+            			<!-- ====================================== -->
+								     	
+							   </div>
+
+
+
+					    </div>
+				   </div>				  	
+		    </div>
+     </div>
+</div>
+
+
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
-		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
 		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
+		<div class='ventana' id='PromptUsuario' style='display: none;'></div>
+		<div class='ventana' id='PromptUsuarioR' style='display: none;'></div>
 		<div class='ventana' id='_promptRelacionReporte' style='display: none;'></div>
 		<div class='ventana' id='PromptCalendario' style='display: none; z-index:9001;'></div>  
 		<div class='ventana' id='promptListaRelaciones' style='display: none;'></div>
@@ -324,7 +293,23 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		<div class='ventana' id='PromptCorreo' style='display: none;'></div>
 		<div class='ventana' id='PromptSentencia' style='display:none; z-index:9001;'></div>
 		<div class='ventana' id='PromptCriterioSeleccion' style='display:none; z-index:9001;'></div>    
+       </div>
+   </form>
+
+  </div>
 </div>
-</form>
+
+	<div class="card-panel orange lighten-1 z-depth-4">	 
+						   	                  <a>Asunto</a>
+                                             <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+								             <a>Detalle del requerimiento</a>
+                                              <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
+                                       </div>
+<script>
+$( document ).ready(function(){
+    $(".button-collapse").sideNav();
+    });
+
+</script>
 </body>
 </html>

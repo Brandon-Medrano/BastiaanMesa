@@ -13,7 +13,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 ?>
 <!DOCTYPE html>
 
-<title>Catalogo de usuarios</title>
+<title>Tickets</title>
 <head>	
 
     <meta charset="utf-8"/>
@@ -111,17 +111,17 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
              
                    <div class="row" id="criteriosSelecion">	
           
-                                 <div class="col s3">
-		                	            <label>Fecha de solicitud</label>									
+                                 <div class="col s3">								
 		                              	<input  id='fInicialCriterioInput' class="datepicker" type='date'></input>
+		                	            <label>Fecha de solicitud</label>	
 	                             </div>		
-                                <div class="col s3">				
-					                     <label>Usuario Solicitante</label>									
+                                <div class="col s3">												
 						                 <input  id='usuarioSolCriterioInput' type='text'></input>
+					                     <label>Usuario Solicitante</label>	
 	                            </div>			
-                                <div class="col s3">
-					    	            <label>Estatus</label>									
+                                <div class="col s3">								
 						                <input  id='estadoCriterioInput' type='text'></input>
+					    	            <label>Estatus</label>	
 	                            </div>	
 	             </div>   	
 	   
@@ -173,7 +173,6 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								   </table>
 								    <table>	
 								          <div class="row"> 
-								      
 								                  <div class="col s4">  
 								   	  	              <a>Via de solicitud</a>
 								   	  	              <select class="browser-default" name="viaIdFormularioInput" id="viaIdFormularioInput">
@@ -196,7 +195,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 					 <div class="row">
 								      <div class="col s4">
 								     	          <a>Usuario que solicita ticket</a>
-								     	          <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistente();" title='Asistente Usuarios'> 
+								     	          <a  onClick="vista.verDatosAsistente();"><i class="material-icons right">playlist_add</i></a>
 								       	          <input class="input" id="ugeneroFormularioTiket" descripcion="vi00000a" type="text"  disabled/>
 								             </div>
 								             <div class="col s8">
@@ -205,7 +204,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								        	 </div>
 								        	 <div class="col s12">
                                                    <a>Correo electronico</a>
-								   	  	          <input class="input" id="correoFormularioInput" descripcion="vi00000a" type="text"  disabled/>
+								   	  	          <input class="input" id="correoFormularioInput" name="correoFormularioInput" type="text"  disabled/>
 								   	  	          </div>
 								             <div class="col s6">
 								     	          <a>Telefono</a>
@@ -220,19 +219,19 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								     <div class="row">
 								           <div class="col s4">     
 								   	  	      <a>Proyecto que pertenece</a>
-								   	  	      <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsisProyecto();" title='Asistente Usuarios'> 	
+								     	          <a  onClick="vista.verDatosAsisProyecto();"><i class="material-icons right">playlist_add</i></a>
 								              <input class="input" id="proyectoFormularioInput" descripcion="agente" type="text"  disabled/>  								    
 							               </div>  
 					       
 							              <div class="col s4">
 							  	                <a>Area Solicitante</a>
-								        	    <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsis();" title='Asistente Usuarios'> 	
+								     	          <a  onClick="vista.verDatosAsis();"><i class="material-icons right">playlist_add</i></a>	
 								     	        <input class="input" id="areaSoliFormularioInput" descripcion="vi00000a" type="text"  disabled/>
 							              </div>
 							              
 							               <div class="col s4">
-							                    <a>Usuario realizador</a>
-							                    <img src='css/imagenes/asisFRM.png' onClick="vista.verDatosAsistenteR();" title='Asistente Usuarios'>
+							                    <a>Responsable de entrega</a>
+								     	          <a  onClick="vista.verDatosAsistenteR();"><i class="material-icons right">playlist_add</i></a>	
 										        <select class="input" id="usuarioRealizadorFormularioInputt" descripcion="vi00000a" type="text"  disabled/>
 					        	          </div>
 							              
@@ -249,29 +248,50 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 						   	           </div>
                                        </div>
                                        <div class="row">
-						               <div class="col s12">	
-						   	                  <a>Asunto</a>
-                                             <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
-                                       </div>
-                                       <div class="col s12">	
+                                       <div class="col s6"> 	
+								                       <a>Categoria</a>		
+								   		            	<select onBlur="vista.naye()" class="browser-default" name="categoriaIdFormularioInput" id="categoriaIdFormularioInput">
+								   		            	</select>
+								   	              </div>
+								   	              <div class="col s6">
+								   	 		            <a>Subcategoria</a>
+								   	            	     <select class="browser-default" name="scategoriaIdFormularioInput" id="scategoriaIdFormularioInput">
+								   	            	     </select>
+								   	              </div>
+								   	            	   </div>
+                                       <div class="row">  
+                                       <div class="col s6">	
 						   	                  <a>Copia de correo para</a>
                                              <input class="input" id="copiaCorreoFormularioInput" descripcion="RecesoLargo">
                                        </div>
-		                               <div class="col s12">	 
-								             <a>Detalle del requerimiento</a>
-                                              <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
-            					      </div> 
+                                       <div class="col s3">	
+						   	                  <a>Tiempo solicitado</a>
+                                             <input class="input" id="tSoliFormularioInput" descripcion="RecesoLargo">
+                                       </div>
+                                       <div class="col s3">	
+						   	                  <a>Unidad de tiempo</a>
+								   	            	     <select class="browser-default" name="utFormularioInput" id="utFormularioInput">
+                                             <option value="H" selected>Horas</option>
+  											 <option value="D">Dias</option>
+  											 </select>
+                                       </div>
             					 </div>   
+            					 
             		           </div>
-            		          			         
+            		          			
+            		          		       
             			<!-- ====================================== -->
 								     	
 							   </div>
+
+
+
 					    </div>
 				   </div>				  	
 		    </div>
      </div>
 </div>
+
 
 		<div class='ventana' id='PromptArea' style='display: none;'></div>
 		<div class='ventana' id='PromptProyecto' style='display: none;'></div>
@@ -286,9 +306,20 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 		<div class='ventana' id='PromptCriterioSeleccion' style='display:none; z-index:9001;'></div>    
        </div>
    </form>
-
+<div class="card-panel orange lighten-1 z-depth-4">	 
+						   	                  <a>Asunto</a>
+                                             <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
+                                             <a>Segundo Asunto</a>
+                                             <input class="input" id="asuntodFormularioInput" descripcion="RecesoLargo">
+								             <a>Detalle del requerimiento</a>
+                                              <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
+                                              <a>Segundo detalle del requerimiento</a>
+                                              <textarea name="dscdFormularioInput" id="dscdFormularioInput"/></textarea>
+                                       </div>
   </div>
 </div>
+
+	
 <script>
 $( document ).ready(function(){
     $(".button-collapse").sideNav();

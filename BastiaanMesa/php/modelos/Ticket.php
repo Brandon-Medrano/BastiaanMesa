@@ -23,7 +23,14 @@ class Ticket
     /* estatu */
     public $idImportancias;
     public $descImportancias;
-        
+    
+    /* cat */
+    public $idCategorias;
+    public $descCategorias;
+    
+    /* scat */
+    public $idsCategorias;
+    public $descsCategorias;
     
     public $dsc;
     public $ugenero;

@@ -113,6 +113,17 @@ try
                 if($resultado!=null)
                     echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                     break;
+           case 'consultarPorsCategoria':
+               $criteriossCategorias = json_decode(REQUEST('criteriossCategorias'));
+               $resultado = $repositorio->consultarPorsCategoria($criteriossCategorias);
+               if($resultado!=null)
+                   echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                   break;
+           case 'consultarPorCategoria':
+               $resultado = $repositorio->consultarPorCategoria();
+               if($resultado!=null)
+                   echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                   break;
         }
     }
     

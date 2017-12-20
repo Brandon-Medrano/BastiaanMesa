@@ -117,6 +117,32 @@ class TicketsPresentador
 	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
 	 }
 	 
+	 /*CATEGORIA*/
+	 consultarPorCategoria()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.consultarPorCategoria(this,this.consultarPorCategoriaResultado,this.vista.criteriosCategorias);
+	 }
+	 consultarPorCategoriaResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datosCategorias = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
+	 /*sCATEGORIA*/
+	 consultarPorsCategoria()
+	 {
+	     var repositorio = new TicketsRepositorio(this);		
+	     repositorio.consultarPorsCategoria(this,this.consultarPorsCategoriaResultado,this.vista.criteriossCategorias);
+	 }
+	 consultarPorsCategoriaResultado(resultado)
+	 {
+	    if(resultado.mensajeError=="")
+	        this.vista.datossCategorias = resultado.valor;
+	    else
+	        this.vista.mostrarMensaje("Error",resultado.mensajeError);
+	 }
 	 
 	 /* via Solictud*/
 	 consultarPorVia()

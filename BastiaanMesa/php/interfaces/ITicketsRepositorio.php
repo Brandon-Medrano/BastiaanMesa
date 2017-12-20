@@ -18,4 +18,6 @@ interface ITicketsRepositorio
     public function consultarPorUsuario($criteriosUsuarios);
     public function consultarPorProyecto($criteriosProyectos);
     public function consultarPorUsuarioR($criteriosUsuariosR);
+    public function consultarPorsCategoria($criteriossCategorias);
+    public function consultarPorCategoria();
 }
