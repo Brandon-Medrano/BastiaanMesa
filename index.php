@@ -152,7 +152,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 			<div id="cargador" class="cargadorFRM2"></div> <!-- cierra aqui -->
 				<div class="pContenido" id="estadoEstructura" >
 						<div class="contenidoNormalUS">
-					 		<div class="explicacionFRM" >
+					 		<div class="explicacionFRM" > 
 								<div id="filtros " class="contenedorIEC">
 								 <div>						
 								      <table>	
