@@ -76,7 +76,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 	       
 	        <header>
              <nav>
-                  <div class="nav-wrapper  grey darken-2 accent-3 z-depth-4">
+                  <div class="nav-wrapper  grey darken-2 accent-3">
                        <a href="#!" class="brand-logo">Logo</a>
                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                              <ul class="right hide-on-med-and-down">
@@ -140,7 +140,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <!--  ================================================================================================================================== -->
       <div id="formularioDiv" style="display:none ;height: 90%;">
 <!-- -=====1 sobra================= -->
-	            <div class="card-panel orange lighten-1 z-depth-3">
+	            <div class="card-panel orange lighten-1">
 	                    
 	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   blue">Save</a>      
                          <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">X</a>      
@@ -277,15 +277,11 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                        </div>
 
             					 </div>   
-                                      <div class="card-panel grey lighten-1 z-depth-4">	 
+                                      <div class="row">	 
 						   	                  <a>Asunto</a>
                                              <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
-                                             <a>Segundo Asunto</a>
-                                             <input class="input" id="asuntodFormularioInput" descripcion="RecesoLargo">
 								             <a>Detalle del requerimiento</a>
                                               <textarea name="dscFormularioInput" id="dscFormularioInput"/></textarea>
-                                              <a>Segundo detalle del requerimiento</a>
-                                              <textarea name="dscdFormularioInput" id="dscdFormularioInput"/></textarea>
                                        </div>            					 
             		           </div>
             		          			

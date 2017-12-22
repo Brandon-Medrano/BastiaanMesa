@@ -124,6 +124,12 @@ try
                if($resultado!=null)
                    echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
                    break;
+           case 'correo':
+               $correo = json_decode(REQUEST('correo'));
+               $resultado = $repositorio->correo();
+               if($resultado!=null)
+                   echo json_encode($resultado, JSON_UNESCAPED_UNICODE);
+                   break;
         }
     }
     

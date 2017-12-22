@@ -229,11 +229,11 @@ class TicketsRepositorio implements ITicketsRepositorio
          $tickets = array();
          
          $consulta = " SELECT MSVSOLICITUDNOLIN id, MSVSOLICITUDASUNTO actividad, MSVSOLICITUDUSRSOLID ugenero, DATE_FORMAT(MSVSOLICITUDFSOL,'%d/%m/%Y') fSolicitud, ".
-         " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML recesoId".
+         " MSVSOLICITUDHSOL hInicial, B.MSVRACTNOML recesoId, CONCAT(MSVSOLICITUDDURACION,' ',MSVSOLICITUDTDURACION) duracion".
          " FROM bstnmsv.msvsolicitud A ".
         " LEFT JOIN bstnmsv.msvract B ON A.MSVRACTID = B.MSVRACTID ".
-        " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
         " WHERE MSVRACTNOML like CONCAT('%',?,'%') ".
+        " AND MSVSOLICITUDFSOL like CONCAT('%',?,'%') ".
              " AND MSVSOLICITUDUSRSOLID like CONCAT('%',?,'%') ";
          
          if($sentencia = $this->conexion->prepare($consulta))
@@ -242,7 +242,7 @@ class TicketsRepositorio implements ITicketsRepositorio
              {
                  if($sentencia->execute())
                  {
-                     if ($sentencia->bind_result($id, $actividad, $ugenero, $fSolicitud, $hInicial, $recesoId))
+                     if ($sentencia->bind_result($id, $actividad, $ugenero, $fSolicitud, $hInicial, $recesoId, $duracion))
                      {
                          while($row = $sentencia->fetch())
                          {
@@ -252,7 +252,8 @@ class TicketsRepositorio implements ITicketsRepositorio
                                  'ugenero' =>  utf8_encode($ugenero),
                                  'fSolicitud' =>  utf8_encode($fSolicitud),
                                  'hInicial' =>  utf8_encode($hInicial),
-                                 'recesoId' => utf8_encode($recesoId)
+                                 'recesoId' => utf8_encode($recesoId),
+                                 'duracion' => utf8_encode($duracion)
                              ];
                              array_push($tickets,$ticket);
                          }
@@ -707,5 +708,24 @@ class TicketsRepositorio implements ITicketsRepositorio
                              return $resultado;
      }
      
+     public function correo()
+     {
+         $fecha= date("d-m-Y");
+         $destino = "vanl97@hotmail.com";
+         $asunto = "comentario";
+         $mensaje= "envio de correo de tickets";
+         $desde = "ing.brandon.medrano@gmail.com";
+         
+         $envio = mail($destino, $asunto, $mensaje, $desde);
+         
+         if(envio == false){
+             echo "Error al enviar el correo. ";
+             
+             
+         }else {
+             echo "Correo enviado con exito. ";
+             
+         }
+     }
 
 }

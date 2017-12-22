@@ -46,7 +46,7 @@ class TicketsRepositorio
 		this.functionRetorno.call(this.contexto,JSON.parse(resultado));
 	}	
 	/*correo */
-	/*
+	
 	correo(contexto,functionRetorno, correo)
 	{		
 		
@@ -60,7 +60,7 @@ class TicketsRepositorio
 		var ai = new Ajaxv2(host +"/php/clases/envio.php", this, "POST", parametros, contextHandler);		
 		contextHandler.AddAjaxv2Object(ai); 		
 		ai.GetPost(true);
-	}*/
+	}
 	/*
     	correoResultado(resultado)
     

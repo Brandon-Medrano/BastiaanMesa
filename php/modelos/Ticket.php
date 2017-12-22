@@ -15,6 +15,7 @@ class Ticket
     public $telefono;
     public $proyecto;
     public $extension;
+    public $duracion;
     
     /* estatu */
     public $idEstatus;

@@ -20,4 +20,5 @@ interface ITicketsRepositorio
     public function consultarPorUsuarioR($criteriosUsuariosR);
     public function consultarPorsCategoria($criteriossCategorias);
     public function consultarPorCategoria();
+    public function correo();
 }

@@ -169,13 +169,13 @@ class TicketsPresentador
 		 var repositorio = new TicketsRepositorio(this);			 
 		 repositorio.insertar(this,this.insertarResultado,this.vista.ticket);	
  
-		// repositorio.correo(this,this.correoResultado,this.vista.correo);
+		repositorio.correo(this,this.correoResultado,this.vista.correo);
 	 }
 	 
 	 insertarResultado(resultado)
 	 {
 		if(resultado.mensajeError=="")
-		{	
+		{	 
 			this.vista.mostrarMensaje("Aviso","La información se guardó correctamente. Id: " + resultado.valor);
 			this.vista.salirFormulario();
 			this.consultar();

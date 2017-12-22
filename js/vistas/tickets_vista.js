@@ -61,6 +61,7 @@ class TicketsVista
 			{titulo:"Fecha de solicitud",   alias:"fSolicitud", alineacion:"C" }, 
 			{titulo:"Hora de solicitud",   alias:"hInicial", alineacion:"C" },	
 			{titulo:"Estatus",   alias:"recesoId", alineacion:"I" },
+			{titulo:"Duracion requerida",   alias:"duracion", alineacion:"C" },
 
 		]
 		
@@ -163,14 +164,6 @@ class TicketsVista
      
     		 
 	}
-	get nayeMiNovia()
-	{
-		var nayeMiNovia = 
-		{
-				
-		}
-	}
-	
 	btnBaja_onClick()
 	{ 
 		if(this.grid._selectedItem!=null)
@@ -239,16 +232,14 @@ class TicketsVista
 		this.presentador.consultarPorUsuarioR();
 	}
 	
-/*
+
 	get correo(){
 		var correo = {
-				correo:$('#copiaCorreoFormularioInput').val(),
-				asunto:$('#asuntoFormularioInput').val(),
-				dsc:$('#dscFormularioInput').val()
+				correo:$('#correoFormularioInput').val(),
 				}
 		return correo;
 	}
-	*/
+	
 	
 	btnGuardarFormulario_onClick()
 	{		
