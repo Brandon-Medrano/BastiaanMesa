@@ -140,10 +140,10 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 <!--  ================================================================================================================================== -->
       <div id="formularioDiv" style="display:none ;height: 90%;">
 <!-- -=====1 sobra================= -->
-	            <div class="card-panel orange lighten-1">
+	            <div class="card-panel grey darken-2 accent-3">
 	                    
-	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   blue">Save</a>      
-                         <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">X</a>      
+	          		     <a href="#" onclick='vista.btnGuardarFormulario_onClick();' id='btnGuardarFormulario' class="btn-floating   btn-large   orange">Guardar</a>      
+                         <a href="#" onClick="vista.btnSalirFormulario_onClick();" id='btnSalirFormulario' class="btn-floating   btn-large    red  darken-4">Salir</a>      
                 
 		       	</div>
 		       	

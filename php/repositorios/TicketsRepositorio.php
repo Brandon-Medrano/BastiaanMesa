@@ -66,6 +66,8 @@ class TicketsRepositorio implements ITicketsRepositorio
                 . " MSVPROYID, "
                 . " MSVSOLICITUDASUNTO, "
                 . " MSVSOLICITUDDESC,"
+                    . " MSVSOLICITUDDURACION, "
+                        . " MSVSOLICITUDTDURACION, "
                 . " MSVNIMPID)"  // se agrego importancia 
                 . " VALUE(?,?,?,?,?,?,?,?,?,?,?,?)"; 
                               if($sentencia = $this->conexion->prepare($consulta))
@@ -81,6 +83,8 @@ class TicketsRepositorio implements ITicketsRepositorio
                                           $ticket->proyecto,
                                           $ticket->asunto,
                                           $ticket->dsc,
+                                          $ticket->duracion,
+                                          $ticket->dscduracion,
                                           $ticket->idImportancias)) // se grego importancia 
                                       {
                                          if(!$sentencia->execute())

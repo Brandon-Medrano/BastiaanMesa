@@ -16,6 +16,7 @@ class Ticket
     public $proyecto;
     public $extension;
     public $duracion;
+    public $dscduracion;
     
     /* estatu */
     public $idEstatus;
