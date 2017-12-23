@@ -159,7 +159,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
 								          <div class="row"> 
 								                  <div class="col s4">  
 								   	  	              <a>No. de ticket</a>
-								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text"/ disabled>
+								   	  	              <input class="input" id="idFormularioInput" descripcion="agente" type="text" disabled/>
 								                  </div> 
 								                  <div class="col s4"> 	
 								                       <a>Fecha de solicitud</a>		
@@ -277,7 +277,7 @@ $CNUSERDESC = REQUEST('CNUSERDESC');
                                        </div>
 
             					 </div>   
-                                      <div class="row">	 
+                                      <div class="card-panel  white lighten-5 z-depth-4">	 
 						   	                  <a>Asunto</a>
                                              <input class="input" id="asuntoFormularioInput" descripcion="RecesoLargo">
 								             <a>Detalle del requerimiento</a>
